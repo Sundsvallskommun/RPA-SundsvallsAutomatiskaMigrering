@@ -1,0 +1,129 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Move_Content" this:Move_Content.in_ContentName="Bild" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_ContentName" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1186,1565</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="32">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Move content to bottom." DisplayName="Move Content To Bottom" sap:VirtualizedContainerService.HintSize="476,1348" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Moving content&quot;]" />
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser 'Edit Screen'" sap:VirtualizedContainerService.HintSize="434,1094" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,878" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Content'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://sundsvall-robot.sitevision.consid.net/edit/5.10cf2f9b17d48280b2a9591" DesignTimeRectangle="136, 1038, 30, 19" ElementType="Text" FriendlyName="'Bild'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' innertext='{0}' /&gt;&quot;, in_ContentName)]" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' innertext='{0}' type='' check:text='Bild' /&gt;&quot;, in_ContentName)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACIAAAAXCAYAAABu8J3cAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEISURBVEhL7Za/DoIwEMZ9Nt/CXZ/G1cWNx2BhcmPBBCe3skJMCAkMDGf/XaHSGhRpO/glXwJ3XPvjDpJuIBCFB3K5P+AQ3WB7TJ14d77yPVEKhCVMBWuavThKgZgedGFU6CAlEBnXVJXDM0kNDfSQJfQ6b2myhVhbAy3WIrkpNxNELxaxpiDi3h9ICnFFg+OuoH10RMXedYTfS1XtcpBXqbEwW0F04FPR89ofdoRA1tEgjsYGMhmTaa3BqI++EW0TCwjvQFfDSdWJF3AO4qAjM0cja9X3xHMLQSYat9wKgjmpjv4134/GnVF/EDRKgfg4j+yjXO4+AmGnJZYwFaxh6wnNtwIBAXgCNZaoGIPSoqEAAAAASUVORK5CYII=" InformativeScreenshot="aae9dd397d2f73c3529d2efc449bb104.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*| Sitevision' /&gt;" SearchSteps="Selector" Text="Bild" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ClickType="Down" DisplayName="Click 'Content'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://sundsvall-robot.sitevision.consid.net/edit/5.10cf2f9b17d48280b2a9591" DesignTimeRectangle="136, 1038, 30, 19" ElementType="Text" FriendlyName="'Bild'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' innertext='{0}' /&gt;&quot;, in_ContentName)]" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' innertext='{0}' type='' check:text='Bild' /&gt;&quot;, in_ContentName)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACIAAAAXCAYAAABu8J3cAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEISURBVEhL7Za/DoIwEMZ9Nt/CXZ/G1cWNx2BhcmPBBCe3skJMCAkMDGf/XaHSGhRpO/glXwJ3XPvjDpJuIBCFB3K5P+AQ3WB7TJ14d77yPVEKhCVMBWuavThKgZgedGFU6CAlEBnXVJXDM0kNDfSQJfQ6b2myhVhbAy3WIrkpNxNELxaxpiDi3h9ICnFFg+OuoH10RMXedYTfS1XtcpBXqbEwW0F04FPR89ofdoRA1tEgjsYGMhmTaa3BqI++EW0TCwjvQFfDSdWJF3AO4qAjM0cja9X3xHMLQSYat9wKgjmpjv4134/GnVF/EDRKgfg4j+yjXO4+AmGnJZYwFaxh6wnNtwIBAXgCNZaoGIPSoqEAAAAASUVORK5CYII=" InformativeScreenshot="aae9dd397d2f73c3529d2efc449bb104.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*| Sitevision' /&gt;" SearchSteps="Selector" Text="Bild" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NHover DisplayName="Hover 'Huvudinnehåll'" sap:VirtualizedContainerService.HintSize="334,166" HoverTime="2" sap2010:WorkflowViewState.IdRef="NHover_1" InteractionMode="HardwareEvents">
+              <uix:NHover.Target>
+                <uix:TargetAnchorable BrowserURL="https://sundsvall-robot.sitevision.consid.net/edit/5.10cf2f9b17d48280b2a9591" DesignTimeRectangle="124, 958, 92, 19" ElementType="Text" FriendlyName="'Huvudinnehåll'" FullSelectorArgument="&lt;webctrl aaname='Huvudinnehåll' tag='SPAN' innertext='Huvudinnehåll' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Huvudinnehåll' tag='SPAN' innertext='Huvudinnehåll' type='' check:text='Huvudinnehåll' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGAAAAAXCAYAAAD0v0pBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG2SURBVGhD7VbtrcMgDGRDxmIU/mcJRskYfsZAAJM4qO0LVeWTkOL46/BBFAOKpVABFkMFWAwVYDFUgMVQAV5GAGcMGBey/RouBEjFx9pX7/8TO3hrwPqdrODe3/QtggNjHO5WQPAQKe3ed3EtvxmuKsAZZgTIs+Bcfl6ARzAlwDmeFYAT3T1YY+lqDs0bn5RXbcyPyzpwFzcgPaO/xA41LDhns6/mFVD+mS/z877m9gcgHYojt9nLyK/vySEKUBv066gpDZL59rgZ65E6QhSAnXiKFQRohk526VFELGSzXc2Gz03PZNc+lHsM4foT+bYAY+78DeCxkcxUXlcjYn6D3VCHOi2fVLNJTZymDghHqvuFAuSBUHDMa+KkPO5DxI18VoD03N7qtHLfOwHIX3Is2O+8AcVGf4xri0l5w+AeugEtxH31fLj9rABErNo0gJPh9e8QYl7OqU6K/awALBZBtaY+QYwfxa4SAEFN8F0i4dHfD5tvtEDOS32SH/9yMPbTAkS0HLqBiwIg8tBpYcErTpzfGS4EUDwFFWAxVIDFUAEWQwVYDBVgMcy2bTCzQpB/pxSvAOAP8H+iFlJSV5cAAAAASUVORK5CYII=" InformativeScreenshot="65c775b61235aa4ed6d8eea57f29a2fa.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*| Sitevision' /&gt;" SearchSteps="Selector" Text="Huvudinnehåll" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+              </uix:NHover.Target>
+            </uix:NHover>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Huvudinnehåll'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://sundsvall-robot.sitevision.consid.net/edit/5.10cf2f9b17d48280b2a9591" DesignTimeRectangle="136, 1038, 30, 19" ElementType="Text" FriendlyName="'Bild'" FullSelectorArgument="&lt;webctrl aaname='Huvudinnehåll' tag='SPAN' innertext='Huvudinnehåll' /&gt;" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' innertext='{0}' type='' check:text='Bild' /&gt;&quot;, in_ContentName)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACIAAAAXCAYAAABu8J3cAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEISURBVEhL7Za/DoIwEMZ9Nt/CXZ/G1cWNx2BhcmPBBCe3skJMCAkMDGf/XaHSGhRpO/glXwJ3XPvjDpJuIBCFB3K5P+AQ3WB7TJ14d77yPVEKhCVMBWuavThKgZgedGFU6CAlEBnXVJXDM0kNDfSQJfQ6b2myhVhbAy3WIrkpNxNELxaxpiDi3h9ICnFFg+OuoH10RMXedYTfS1XtcpBXqbEwW0F04FPR89ofdoRA1tEgjsYGMhmTaa3BqI++EW0TCwjvQFfDSdWJF3AO4qAjM0cja9X3xHMLQSYat9wKgjmpjv4134/GnVF/EDRKgfg4j+yjXO4+AmGnJZYwFaxh6wnNtwIBAXgCNZaoGIPSoqEAAAAASUVORK5CYII=" InformativeScreenshot="aae9dd397d2f73c3529d2efc449bb104.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*| Sitevision' /&gt;" SearchSteps="Selector" Text="Bild" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+              </uix:NClick.Target>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp BrowserType="Chrome" ContentHash="6jLBns8Cf0mmiWiPVxzcWg" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAATSURBVDhPYxgFo2AUjAIwYGAAAAQQAAGnRHxjAAAAAElFTkSuQmCC" InformativeScreenshot="54bdf10cba4ebdc66d4e169127567694.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/9u_pmQsZCU6Czkw5MT4mbg" Selector="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" Url="*/edit/*" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

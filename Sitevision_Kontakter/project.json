@@ -1,0 +1,59 @@
+{
+  "name": "Sitevision_Kontakter",
+  "description": "Blank Library",
+  "main": "NewActivity.xaml",
+  "dependencies": {
+    "Microsoft.Activities.Extensions": "2.0.6.9",
+    "UiPath.Excel.Activities": "2.9.5",
+    "UiPath.Mail.Activities": "1.9.5",
+    "UiPath.System.Activities": "20.10.3",
+    "UiPath.UIAutomation.Activities": "20.10.8",
+    "UiPath.WebAPI.Activities": "1.4.5"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "20.10.4.0",
+  "projectVersion": "1.2.6",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": false
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Library",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": [
+        "ImageArchive/GetInfoFromObject.xaml",
+        "ImageArchive/GetInfoFromObject2.xaml",
+        "ImageArchive/GetAllPictureNames.xaml",
+        "Test/Test_AddContactToPage.xaml",
+        "Test/Test.xaml",
+        "Test/Test_AddContact.xaml"
+      ]
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": false
+  },
+  "expressionLanguage": "VisualBasic",
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Legacy"
+}

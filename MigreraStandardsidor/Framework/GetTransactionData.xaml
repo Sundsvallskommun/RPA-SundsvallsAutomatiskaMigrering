@@ -1,0 +1,504 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="GetTransactionData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Xml.Linq" xmlns:this="clr-namespace:" xmlns:ucas="clr-namespace:UiPath.Core.Activities.Storage;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Sequential counter of transaction items." Name="in_TransactionNumber" Type="InArgument(x:Int32)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="out_TransactionItem" Type="OutArgument(ui:QueueItem)" />
+    <x:Property sap2010:Annotation.AnnotationText="Allow the optional addition of information about the transaction item." Name="out_TransactionField1" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Allow the optional addition of information about the transaction item." Name="out_TransactionField2" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Transaction ID used for information and logging purposes. Ideally, the ID should be unique for each transaction. " Name="out_TransactionID" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="This variable can be used in case transactions are stored in a DataTable (for example, after being retrieved from a spreadsheet)." Name="io_TransactionData" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="in_FilenameExport" Type="InArgument(x:String)" />
+    <x:Property Name="in_FilenameFolderIds" Type="InArgument(x:String)" />
+    <x:Property Name="in_AddPagesAsQueueItems" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_CheckIfQueueItemsExists" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_FilenameWebsiteTree" Type="InArgument(x:String)" />
+    <x:Property Name="in_OtherLanguage" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:GetTransactionData.in_CheckIfQueueItemsExists>
+    <InArgument x:TypeArguments="x:Boolean" />
+  </this:GetTransactionData.in_CheckIfQueueItemsExists>
+  <this:GetTransactionData.in_FilenameWebsiteTree>
+    <InArgument x:TypeArguments="x:String" />
+  </this:GetTransactionData.in_FilenameWebsiteTree>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>944,5336</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>GetTransactionData_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="34">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>Microsoft.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Core.Activities.Storage</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Net</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="30">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>Microsoft.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;&#xA;For cases in which there is only a single transaction (i.e., a linear process), use an If activity to check whether the argument in_TransactionNumber has the value 1 (meaning it is the first and only transaction) and assign the transaction item to out_TransactionItem. For any other value of in_TransactionNumber, out_TransactionItem should be set to Nothing.&#xA;&#xA;If there are multiple transactions, use the argument in_TransactionNumber as an index to retrieve the correct transaction to be processed. If there are no more transactions left, it is necessary to set out_TransactionItem to Nothing, thus ending the process." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="852,5231" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Default="ExportFrånWP" Name="StorageBucketName" />
+      <Variable x:TypeArguments="x:String" Name="QueueName" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="BlacklistedURLs" />
+      <Variable x:TypeArguments="sxl:XNamespace" Default="[&quot;http://wordpress.org/export/1.2/&quot;]" Name="WPNamespace" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Lägg in URLs" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="810,191" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[StorageBucketName]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_Config("Storage Bucket Name").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[QueueName]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_Config("OrchestratorQueueName").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="scg:List(x:String)">[BlacklistedURLs]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="scg:List(x:String)">[in_Config("Blacklisted URLs").ToString.Split(","c).ToList]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:MultipleAssign>
+    <If Condition="[in_TransactionNumber = 1 and in_AddPagesAsQueueItems]" DisplayName="If First RUn" sap:VirtualizedContainerService.HintSize="810,3823" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="665,3675" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="scg:IEnumerable(ucas:StorageFileInfo)" Name="StorageFiles" />
+            <Variable x:TypeArguments="x:String" Name="NewestFile" />
+            <Variable x:TypeArguments="x:String" Name="XMLString" />
+            <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="DefaultPagesCollection" />
+            <Variable x:TypeArguments="x:Object" Name="DefaultPagesObject" />
+            <Variable x:TypeArguments="scg:IEnumerable(sxl:XNode)" Name="XMLNodes" />
+            <Variable x:TypeArguments="sxl:XNamespace" Default="[&quot;http://purl.org/dc/elements/1.1/&quot;]" Name="DCNamespace" />
+            <Variable x:TypeArguments="x:Boolean" Name="AddPages" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <TryCatch DisplayName="Try Catch Read Export" sap:VirtualizedContainerService.HintSize="623,441" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch.Try>
+              <Sequence sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ucas:ReadStorageText TimeoutMS="{x:Null}" DisplayName="Read Storage Text" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="ReadStorageText_1" Path="[in_FilenameExport]" Result="[XMLString]" StorageBucketName="[StorageBucketName]" />
+                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_23">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Boolean">[AddPages]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,280" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Warn" Message="[&quot;Not able to read export, continuing with pages in queue&quot;]" />
+                    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_27">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[AddPages]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+          <If Condition="[AddPages]" DisplayName="If Export Find, Add Pages" sap:VirtualizedContainerService.HintSize="623,3102" sap2010:WorkflowViewState.IdRef="If_9">
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="478,2954" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:Object" Name="NavigationPagesObject" />
+                  <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="NavigationPagesCollection" />
+                  <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="AllPagesCollection" />
+                  <Variable x:TypeArguments="x:Object" Name="ShortLinkPages" />
+                  <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="ShortLinkPagesCollection" />
+                  <Variable x:TypeArguments="x:Object" Name="AdvancedNavigationPagesObject" />
+                  <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="AdvancedNavigationPagesCollection" />
+                  <Variable x:TypeArguments="x:Object" Name="LinkPagesObject" />
+                  <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="LinkPagesCollection" />
+                  <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="PagesWithoutLanguageTag" />
+                  <Variable x:TypeArguments="x:Object" Name="PagesWithoutLanguangeTagObject" />
+                  <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="PagesWithOtherLanguage" />
+                  <Variable x:TypeArguments="x:Object" Name="PagesWithOtherLanguageObject" />
+                  <Variable x:TypeArguments="scg:List(x:Object)" Name="NavigationPagesList" />
+                  <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="NavigationPagesStrings" />
+                  <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="PagesWithOtherLanguageStrings" />
+                  <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="NavigationPagesWithSweAndNoLanguageStrings" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,229" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,151" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:GetNodes ExistingXML="{x:Null}" DisplayName="Get XML Nodes" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="GetNodes_1" XMLNodes="[XMLNodes]" XMLString="[XMLString]" />
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                </ui:CommentOut>
+                <ui:ExecuteXPath ExistingXML="{x:Null}" DisplayName="Execute XPath To Get Standard Pages" sap:VirtualizedContainerService.HintSize="436,89" sap2010:WorkflowViewState.IdRef="ExecuteXPath_1" Result="[DefaultPagesObject]" XMLString="[XMLString]" XPathExpression="[&quot;//*[local-name()='item']/*[local-name()='status' and text()='publish']/../*[local-name()='postmeta']/*[local-name()='meta_key' and text()='_wp_page_template']/../*[local-name()='meta_value' and text()='default']/../../*[local-name()='postmeta']/*[local-name()='meta_key' and text()='sk_lang']/../*[local-name()='meta_value' and text()='&quot; + if(String.IsNullOrWhiteSpace(in_OtherLanguage),&quot;sv&quot;,in_OtherLanguage) + &quot;']/../..&quot;]" />
+                <Assign sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="scg:IEnumerable(x:Object)">[DefaultPagesCollection]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="scg:IEnumerable(x:Object)">[Ctype(DefaultPagesObject, IEnumerable(of Object))]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,230" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Sort Standard Pages By URL" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="scg:IEnumerable(x:Object)">[DefaultPagesCollection]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="scg:IEnumerable(x:Object)">[DefaultPagesCollection.OrderBy(function (n) (Ctype(n, XElement).Element("link").Value))]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                </ui:CommentOut>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="436,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Läst in &quot; + DefaultPagesCollection.Count.ToString + &quot; st standardsidor&quot; + if(String.IsNullOrWhiteSpace(in_OtherLanguage),&quot;&quot;,&quot; med språket &quot; + in_OtherLanguage)]" />
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,236" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,158" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Sequence DisplayName="If To Select All Languages" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:ExecuteXPath ExistingXML="{x:Null}" DisplayName="Execute XPath To Get Navigation Pages Without Language Metadata" sap:VirtualizedContainerService.HintSize="334,89" sap2010:WorkflowViewState.IdRef="ExecuteXPath_5" Result="[PagesWIthoutLanguangeTagObject]" XMLString="[XMLString]" XPathExpression="//*[local-name()='item']/*[local-name()='status' and text()='publish']/../*[local-name()='postmeta']/*[local-name()='meta_key' and text()='_wp_page_template']/../*[local-name()='meta_value' and text()='templates/page-navigation.php']/../.." />
+                        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_32">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="scg:IEnumerable(x:Object)">[PagesWithoutLanguageTag]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="scg:IEnumerable(x:Object)">[Ctype(PagesWIthoutLanguangeTagObject, IEnumerable(of Object))]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:LogMessage DisplayName="Log Message Navigation Pages without Language Metadata" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Trace" Message="[&quot;Läst in &quot; + PagesWithoutLanguageTag.Count.ToString + &quot; st navigationssidor med eller utan språktag&quot;]" />
+                        <ui:ExecuteXPath ExistingXML="{x:Null}" DisplayName="Execute XPath To Get Navigation Pages With Other Language" sap:VirtualizedContainerService.HintSize="334,89" sap2010:WorkflowViewState.IdRef="ExecuteXPath_6" Result="[PagesWithOtherLanguageObject]" XMLString="[XMLString]" XPathExpression="//*[local-name()='item']/*[local-name()='status' and text()='publish']/../*[local-name()='postmeta']/*[local-name()='meta_key' and text()='_wp_page_template']/../*[local-name()='meta_value' and text()='templates/page-navigation.php']/../../*[local-name()='postmeta']/*[local-name()='meta_key' and text()='sk_lang']/../*[local-name()='meta_value' and text()!='sv']/../.." />
+                        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_33">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="scg:IEnumerable(x:Object)">[PagesWithOtherLanguage]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="scg:IEnumerable(x:Object)">[Ctype(PagesWithOtherLanguageObject, IEnumerable(of Object))]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:LogMessage DisplayName="Log Message Navigation with Other Language Metadata" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Trace" Message="[&quot;Läst in &quot; + PagesWithOtherLanguage.Count.ToString + &quot; st navigationssidor med annat språk än svenska&quot;]" />
+                        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_35">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="scg:List(x:Object)">[NavigationPagesList]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="scg:List(x:Object)">[PagesWithoutLanguageTag.ToList]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_36">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="scg:IEnumerable(x:String)">[NavigationPagesStrings]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="scg:IEnumerable(x:String)">[NavigationPagesList.Select(function (p) p.ToString)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_37">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="scg:IEnumerable(x:String)">[PagesWithOtherLanguageStrings]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="scg:IEnumerable(x:String)">[PagesWithOtherLanguage.Select(function (p) p.ToString)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Sequence DisplayName="Remove all with other languange tag than swe" sap:VirtualizedContainerService.HintSize="334,252" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:Int32" Name="RemovedPages" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_38">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="scg:IEnumerable(x:String)">[NavigationPagesWithSweAndNoLanguageStrings]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="scg:IEnumerable(x:String)">[NavigationPagesStrings.Except(PagesWithOtherLanguageStrings)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_39">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="scg:IEnumerable(x:Object)">[NavigationPagesCollection]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="scg:IEnumerable(x:Object)">[NavigationPagesWithSweAndNoLanguageStrings.Select(function (p) CType(p, Object))]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </Sequence>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                </ui:CommentOut>
+                <ui:Comment sap:VirtualizedContainerService.HintSize="436,55" sap2010:WorkflowViewState.IdRef="Comment_1" Text="Navigation pages" />
+                <ui:ExecuteXPath ExistingXML="{x:Null}" DisplayName="Execute XPath To Get Navigation Pages" sap:VirtualizedContainerService.HintSize="436,89" sap2010:WorkflowViewState.IdRef="ExecuteXPath_2" Result="[NavigationPagesObject]" XMLString="[XMLString]" XPathExpression="[&quot;//*[local-name()='item']/*[local-name()='status' and text()='publish']/../*[local-name()='postmeta']/*[local-name()='meta_key' and text()='_wp_page_template']/../*[local-name()='meta_value' and text()='templates/page-navigation.php']/../../*[local-name()='postmeta']/*[local-name()='meta_key' and text()='sk_lang']/../*[local-name()='meta_value' and text()='&quot; + if(String.IsNullOrWhiteSpace(in_OtherLanguage),&quot;sv&quot;,in_OtherLanguage) + &quot;']/../..&quot;]" />
+                <Assign sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="scg:IEnumerable(x:Object)">[NavigationPagesCollection]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="scg:IEnumerable(x:Object)">[Ctype(NavigationPagesObject, IEnumerable(of Object))]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="436,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;Läst in &quot; + NavigationPagesCollection.Count.ToString + &quot; st navigationssidor&quot; + if(String.IsNullOrWhiteSpace(in_OtherLanguage),&quot;&quot;,&quot; med språket &quot; + in_OtherLanguage)]" />
+                <ui:ExecuteXPath ExistingXML="{x:Null}" DisplayName="Execute XPath To Get Advanced Navigation Pages" sap:VirtualizedContainerService.HintSize="436,89" sap2010:WorkflowViewState.IdRef="ExecuteXPath_3" Result="[AdvancedNavigationPagesObject]" XMLString="[XMLString]" XPathExpression="[&quot;//*[local-name()='item']/*[local-name()='status' and text()='publish']/../*[local-name()='postmeta']/*[local-name()='meta_key' and text()='_wp_page_template']/../*[local-name()='meta_value' and text()='templates/page-advanced.php']/../../*[local-name()='postmeta']/*[local-name()='meta_key' and text()='sk_lang']/../*[local-name()='meta_value' and text()='&quot; + if(String.IsNullOrWhiteSpace(in_OtherLanguage),&quot;sv&quot;,in_OtherLanguage) + &quot;']/../..&quot;]" />
+                <Assign sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="scg:IEnumerable(x:Object)">[AdvancedNavigationPagesCollection]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="scg:IEnumerable(x:Object)">[Ctype(AdvancedNavigationPagesObject, IEnumerable(of Object))]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="436,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;Läst in &quot; + AdvancedNavigationPagesCollection.Count.ToString + &quot; st avancerade navigationssidor&quot; + if(String.IsNullOrWhiteSpace(in_OtherLanguage),&quot;&quot;,&quot; med språket &quot; + in_OtherLanguage)]" />
+                <ui:ExecuteXPath ExistingXML="{x:Null}" DisplayName="Execute XPath To Get Link Pages" sap:VirtualizedContainerService.HintSize="436,89" sap2010:WorkflowViewState.IdRef="ExecuteXPath_4" Result="[LinkPagesObject]" XMLString="[XMLString]" XPathExpression="[&quot;//*[local-name()='item']/*[local-name()='status' and text()='publish']/../*[local-name()='postmeta']/*[local-name()='meta_key' and text()='_wp_page_template']/../*[local-name()='meta_value' and text()='templates/page-shortcut.php']/../../*[local-name()='postmeta']/*[local-name()='meta_key' and text()='sk_lang']/../*[local-name()='meta_value' and text()='&quot; + if(String.IsNullOrWhiteSpace(in_OtherLanguage),&quot;sv&quot;,in_OtherLanguage) + &quot;']/../..&quot;]" />
+                <Assign sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_30">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="scg:IEnumerable(x:Object)">[LinkPagesCollection]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="scg:IEnumerable(x:Object)">[Ctype(LinkPagesObject, IEnumerable(of Object))]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="436,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Trace" Message="[&quot;Läst in &quot; + LinkPagesCollection.Count.ToString + &quot; st länksidor&quot; + if(String.IsNullOrWhiteSpace(in_OtherLanguage),&quot;&quot;,&quot; med språket &quot; + in_OtherLanguage)]" />
+                <Assign DisplayName="Merge default and navigation pages" sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_26">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="scg:IEnumerable(x:Object)">[AllPagesCollection]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="scg:IEnumerable(x:Object)">[DefaultPagesCollection.Concat(NavigationPagesCollection)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Merge all pages and advanced navigation pages" sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_29">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="scg:IEnumerable(x:Object)">[AllPagesCollection]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="scg:IEnumerable(x:Object)">[AllPagesCollection.Concat(AdvancedNavigationPagesCollection)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Merge all pages and link pages" sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_31">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="scg:IEnumerable(x:Object)">[AllPagesCollection]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="scg:IEnumerable(x:Object)">[AllPagesCollection.Concat(LinkPagesCollection)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Sort AllPages By URL" sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="scg:IEnumerable(x:Object)">[AllPagesCollection]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="scg:IEnumerable(x:Object)">[AllPagesCollection.OrderBy(function (n) (Ctype(n, XElement).Element("link").Value))]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="For Each Page" sap:VirtualizedContainerService.HintSize="436,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="ForEachPage.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="QueueName">[QueueName]</InArgument>
+                    <InOutArgument x:TypeArguments="sxl:XNamespace" x:Key="WPNamespace">[WPNamespace]</InOutArgument>
+                    <InArgument x:TypeArguments="sxl:XNamespace" x:Key="DCNamespace">[DCNamespace]</InArgument>
+                    <InArgument x:TypeArguments="scg:IEnumerable(x:Object)" x:Key="PagesCollection">[AllPagesCollection]</InArgument>
+                    <InArgument x:TypeArguments="scg:List(x:String)" x:Key="BlackListedURLs">[BlacklistedURLs]</InArgument>
+                    <InArgument x:TypeArguments="x:Boolean" x:Key="in_CheckIfQueueItemsExists">[in_CheckIfQueueItemsExists]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_FilenameWebsiteTree">[in_FilenameWebsiteTree]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_StorageBucketName">[StorageBucketName]</InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </Sequence>
+            </If.Then>
+          </If>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:GetQueueItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Get a transaction item from the specified Orchestrator queue.&#xA;If queues are not used in this process, replace this activity with the appropriated logic to retrieve transaction items.&#xA;For example, if transactions are rows from a DataTable, the row corresponding to the current transaction is retrieved at this point." DisplayName="Get transaction item" sap:VirtualizedContainerService.HintSize="810,214" sap2010:WorkflowViewState.IdRef="GetQueueItem_1" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" TransactionItem="[out_TransactionItem]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:GetQueueItem>
+    <If sap2010:Annotation.AnnotationText="This optional step can be used to include more information about a transaction item and it is used mainly for logging and visualization purposes.&#xA;For example, if transaction items are invoices, then out_TransactionID can be the invoice number, out_TransactionField1 can be the invoice date and out_TransactionField2 can be the invoice amount." Condition="[out_TransactionItem isNot Nothing]" DisplayName="If a new transaction item is retrieved, get additional information about it" sap:VirtualizedContainerService.HintSize="810,629" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap2010:Annotation.AnnotationText="Write data to the added log fields that identify the transaction." DisplayName="Add transaction information to log fields" sap:VirtualizedContainerService.HintSize="304,394" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assign out_TransactionID" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[out_TransactionID]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[now.ToString]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Assign out_TransactionField1" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[out_TransactionField1]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[string.Empty]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Assign out_TransactionField2" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[out_TransactionField2]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[string.Empty]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+    </If>
+  </Sequence>
+</Activity>

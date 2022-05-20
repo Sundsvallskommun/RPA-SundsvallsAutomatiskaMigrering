@@ -1,0 +1,894 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ForEachPage" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Xml.Linq" xmlns:this="clr-namespace:" xmlns:ucas="clr-namespace:UiPath.Core.Activities.Storage;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="QueueName" Type="InArgument(x:String)" />
+    <x:Property Name="WPNamespace" Type="InOutArgument(sxl:XNamespace)" />
+    <x:Property Name="DCNamespace" Type="InArgument(sxl:XNamespace)" />
+    <x:Property Name="PagesCollection" Type="InArgument(scg:IEnumerable(x:Object))" />
+    <x:Property Name="BlackListedURLs" Type="InArgument(scg:List(x:String))" />
+    <x:Property Name="in_CheckIfQueueItemsExists" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_FilenameWebsiteTree" Type="InArgument(x:String)" />
+    <x:Property Name="in_StorageBucketName" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:ForEachPage.in_CheckIfQueueItemsExists>
+    <InArgument x:TypeArguments="x:Boolean" />
+  </this:ForEachPage.in_CheckIfQueueItemsExists>
+  <this:ForEachPage.in_FilenameWebsiteTree>
+    <InArgument x:TypeArguments="x:String" />
+  </this:ForEachPage.in_FilenameWebsiteTree>
+  <this:ForEachPage.in_StorageBucketName>
+    <InArgument x:TypeArguments="x:String" />
+  </this:ForEachPage.in_StorageBucketName>
+  <sap:VirtualizedContainerService.HintSize>1517,9629</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="30">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Core.Activities.Storage</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>Microsoft.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" DisplayName="For Each Standard Page" sap:VirtualizedContainerService.HintSize="1527,9524" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[PagesCollection]">
+    <ui:ForEach.Body>
+      <ActivityAction x:TypeArguments="sxl:XElement">
+        <ActivityAction.Argument>
+          <DelegateInArgument x:TypeArguments="sxl:XElement" Name="node" />
+        </ActivityAction.Argument>
+        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1491,9390" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="sxl:XNamespace" Default="[&quot;http://purl.org/rss/1.0/modules/content/&quot;]" Name="ContentNamespace" />
+            <Variable x:TypeArguments="x:String" Name="BodyText" />
+            <Variable x:TypeArguments="x:String" Name="NodeText" />
+            <Variable x:TypeArguments="x:String" Name="PageTitle" />
+            <Variable x:TypeArguments="x:String" Name="PageLink" />
+            <Variable x:TypeArguments="x:String" Name="PageLinkEdited" />
+            <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Default="[new List(of QueueItem)]" Name="QueueItems" />
+            <Variable x:TypeArguments="x:String" Name="PageTemplateName" />
+            <Variable x:TypeArguments="scg:List(sxl:XElement)" Name="PageMetaData" />
+            <Variable x:TypeArguments="x:String" Name="TemplateData" />
+            <Variable x:TypeArguments="x:String" Name="Reference" />
+            <Variable x:TypeArguments="x:Object" Name="TemplateObject" />
+            <Variable x:TypeArguments="x:String" Name="Id" />
+            <Variable x:TypeArguments="x:String" Name="ParentId" />
+            <Variable x:TypeArguments="x:Uri" Name="URI" />
+            <Variable x:TypeArguments="x:String" Name="URLPageSegment" />
+            <Variable x:TypeArguments="x:String" Name="URLPathWODomainAndPageSegment" />
+            <Variable x:TypeArguments="x:String" Name="URLPathWithoutDomain" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assign Page Title" sap:VirtualizedContainerService.HintSize="1449,60" sap2010:WorkflowViewState.IdRef="Assign_48">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[PageLink]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[node.Element("link").Value]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:MultipleAssign DisplayName="Multiple Assign URI Variables" sap:VirtualizedContainerService.HintSize="1449,191" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:Uri">[URI]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:Uri">[new Uri(PageLink)]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[URLPageSegment]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[URI.Segments.Last]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[URLPathWithoutDomain]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[URI.AbsolutePath]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[URLPathWODomainAndPageSegment]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[URLPathWithoutDomain.Substring(0,URLPathWithoutDomain.Length-URLPageSegment.Length)]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+          <Assign DisplayName="Assign Page Title" sap:VirtualizedContainerService.HintSize="1449,60" sap2010:WorkflowViewState.IdRef="Assign_49">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[PageTitle]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[node.Element("title").Value]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Assign List Of Metadata" sap:VirtualizedContainerService.HintSize="1449,60" sap2010:WorkflowViewState.IdRef="Assign_23">
+            <Assign.To>
+              <OutArgument x:TypeArguments="scg:List(sxl:XElement)">[PageMetaData]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="scg:List(sxl:XElement)">[node.Elements(WPNamespace + "postmeta").ToList]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Assign Id" sap:VirtualizedContainerService.HintSize="1449,60" sap2010:WorkflowViewState.IdRef="Assign_52">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Id]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[node.Element(WPNamespace + "post_id").Value]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Assign ParentId" sap:VirtualizedContainerService.HintSize="1449,60" sap2010:WorkflowViewState.IdRef="Assign_53">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[ParentId]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[node.Element(WPNamespace + "post_parent").Value]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1449,434" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[PageMetaData]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="sxl:XElement">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="sxl:XElement" Name="item" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,300" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If Condition="[item.Element(WPNamespace + &quot;meta_key&quot;).Value = &quot;_wp_page_template&quot;]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_9">
+                    <If.Then>
+                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_30">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[TemplateData]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[item.Element(WPNamespace + "meta_value").Value]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </If.Then>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
+          </ui:ForEach>
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1449,257" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:ExecuteXPath XMLString="{x:Null}" DisplayName="Execute XPath" ExistingXML="[node.Document]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExecuteXPath_1" Result="[TemplateObject]" XPathExpression="//*[local-name()='postmeta']/*[local-name()='meta_key' and text()='_wp_page_template']/.." />
+              </Sequence>
+            </ui:CommentOut.Body>
+          </ui:CommentOut>
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1449,230" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[TemplateData]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[CType(TemplateObject, XElement).Value]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </ui:CommentOut.Body>
+          </ui:CommentOut>
+          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[TemplateData]" sap:VirtualizedContainerService.HintSize="1449,310" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+            <Switch.Default>
+              <Assign DisplayName="Assign Standardsida" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_27">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[PageTemplateName]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">Standardsida</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Switch.Default>
+            <Assign x:Key="default" DisplayName="Assign Standardsida" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[PageTemplateName]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">Standardsida</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign x:Key="templates/page-navigation.php" DisplayName="Assign Navigationssida" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_26">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[PageTemplateName]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">Navigationssida</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign x:Key="templates/page-advanced.php" DisplayName="Assign Navigationssida" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_29">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[PageTemplateName]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">Navigationssida</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign x:Key="templates/page-shortcut.php" DisplayName="Assign Länksida" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_55">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[PageTemplateName]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">Länksida</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Switch>
+          <Assign DisplayName="Assign Reference" sap:VirtualizedContainerService.HintSize="1449,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Reference]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[Id + " | " + PageTemplateName +" | " + PageTitle]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Only Keep 128 Characters In Reference" sap:VirtualizedContainerService.HintSize="1449,60" sap2010:WorkflowViewState.IdRef="Assign_38">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Reference]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[if(Reference.Length &gt; 128,Reference.Substring(0,128),Reference)]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <If Condition="[Not BlackListedURLs.Contains(PageLink)]" DisplayName="If URL is NOT Blacklisted" sap:VirtualizedContainerService.HintSize="1449,6976" sap2010:WorkflowViewState.IdRef="If_7">
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="1070,6828" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="Preamble" />
+                  <Variable x:TypeArguments="x:String" Name="DifferentPreviousURL" />
+                  <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Default="[new Dictionary(of String,Object)]" Name="QueueItemData" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If Condition="[in_CheckIfQueueItemsExists]" DisplayName="If Should Check For Queue Items" sap:VirtualizedContainerService.HintSize="1028,208" sap2010:WorkflowViewState.IdRef="If_14">
+                  <If.Then>
+                    <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" DisplayName="Get Queue Item" FilterStrategy="Equals" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetQueueItems_1" QueueItemStates="New, InProgress, Failed, Successful, Abandoned, Retried" QueueName="[QueueName]" Reference="[Reference]" Result="[QueueItems]" Top="1" />
+                  </If.Then>
+                </If>
+                <If Condition="[QueueItems.Count = 0]" DisplayName="If Queue Item Not Found" sap:VirtualizedContainerService.HintSize="1028,6488" sap2010:WorkflowViewState.IdRef="If_8">
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="649,6340" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="scg:List(sxl:XElement)" Name="PageTags" />
+                        <Variable x:TypeArguments="x:String" Name="FullTitlePath" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Assign Node Text" sap:VirtualizedContainerService.HintSize="607,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[NodeText]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[node.Element(ContentNamespace+"encoded").Value]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="607,230" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                        <ui:CommentOut.Body>
+                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign List Of Metadata" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_20">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="scg:List(sxl:XElement)">[PageMetaData]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="scg:List(sxl:XElement)">[node.Elements(WPNamespace + "postmeta").ToList]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </ui:CommentOut.Body>
+                      </ui:CommentOut>
+                      <Assign DisplayName="Assign List Of Tags" sap:VirtualizedContainerService.HintSize="607,60" sap2010:WorkflowViewState.IdRef="Assign_22">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="scg:List(sxl:XElement)">[PageTags]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="scg:List(sxl:XElement)">[node.Elements(WPNamespace + "category").ToList]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Sequence DisplayName="Assign and Preamble And Body Text" sap:VirtualizedContainerService.HintSize="607,22" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign DisplayName="Find Preamble" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[Preamble]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[RegEx.Match(NodeText, "^(?!\[).*?(?=\n\n|\[\D*\])",RegexOptions.Multiline).Value]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <If Condition="[Not String.IsNullOrWhiteSpace(Preamble)]" DisplayName="If Any Preamble Text" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="If_3">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign DisplayName="Remove Preamble From Rest" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[BodyText]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[NodeText.Replace(Preamble,"")]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[Preamble]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[System.Net.WebUtility.HtmlDecode(Preamble).Trim]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Assign DisplayName="Remove Preamble From Rest" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[BodyText]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[System.Net.WebUtility.HtmlDecode(NodeText).Trim]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Else>
+                        </If>
+                        <ui:Replace DisplayName="Remove &quot;Search Data&quot; Contact Info" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Replace_1" Input="[BodyText]" IsBuilderTabModified="False" Pattern="[&quot;&lt;p id=&quot;&quot;searchdata&quot;&quot; style=&quot;&quot;display: none;&quot;&quot;&gt;.*&lt;\/p&gt;&quot;]" RegexOption="IgnoreCase, Compiled" Result="[BodyText]">
+                          <ui:Replace.Replacement>
+                            <InArgument x:TypeArguments="x:String">
+                              <Literal x:TypeArguments="x:String" Value="" />
+                            </InArgument>
+                          </ui:Replace.Replacement>
+                        </ui:Replace>
+                      </Sequence>
+                      <Sequence DisplayName="Read Correct Tree Path" sap:VirtualizedContainerService.HintSize="607,22" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:String" Name="WebsiteTreeCSV" />
+                          <Variable x:TypeArguments="sd:DataTable" Name="WebsiteTreeDT" />
+                          <Variable x:TypeArguments="x:String" Name="AdjustedWebsiteTreeCSV" />
+                          <Variable x:TypeArguments="x:String" Name="ParentTitlePath" />
+                          <Variable x:TypeArguments="x:Int32" Name="ParentRowIndex" />
+                          <Variable x:TypeArguments="sd:DataTable" Name="AdjustedWebsiteTreeDT" />
+                          <Variable x:TypeArguments="x:Int32" Name="PageRowIndex" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ucas:ReadStorageText TimeoutMS="{x:Null}" DisplayName="Read Storage Text" Encoding="iso-8859-1" sap:VirtualizedContainerService.HintSize="683,22" sap2010:WorkflowViewState.IdRef="ReadStorageText_1" Path="[in_FilenameWebsiteTree]" Result="[WebsiteTreeCSV]" StorageBucketName="[in_StorageBucketName]" />
+                        <ui:GenerateDataTable ColumnSizes="{x:Null}" NewLineSeparator="{x:Null}" Positions="{x:Null}" AutoDetectTypes="False" CSVParsing="True" ColumnSeparators=";" DataTable="[WebsiteTreeDT]" DisplayName="Generate Data Table" sap:VirtualizedContainerService.HintSize="683,59" sap2010:WorkflowViewState.IdRef="GenerateDataTable_1" Input="[WebsiteTreeCSV]" UseColumnHeader="True" />
+                        <If Condition="[ParentId &lt;&gt; &quot;0&quot;]" DisplayName="If Not First Level" sap:VirtualizedContainerService.HintSize="683,208" sap2010:WorkflowViewState.IdRef="If_15">
+                          <If.Then>
+                            <ui:LookupDataTable LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[WebsiteTreeDT]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupColumnName="ID" LookupValue="[ParentId]" RowIndex="[ParentRowIndex]" TargetColumnName="Title Path">
+                              <ui:LookupDataTable.CellValue>
+                                <OutArgument x:TypeArguments="x:String">[ParentTitlePath]</OutArgument>
+                              </ui:LookupDataTable.CellValue>
+                            </ui:LookupDataTable>
+                          </If.Then>
+                        </If>
+                        <If Condition="[ParentRowIndex &lt;&gt; -1]" DisplayName="If Found Parent" sap:VirtualizedContainerService.HintSize="683,239" sap2010:WorkflowViewState.IdRef="If_16">
+                          <If.Else>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Warn" Message="[&quot;Failed to find parent with id &quot; + ParentId + &quot; in website tree, regarding as top level&quot;]" />
+                          </If.Else>
+                        </If>
+                        <Assign DisplayName="Assign Title Path" sap:VirtualizedContainerService.HintSize="683,60" sap2010:WorkflowViewState.IdRef="Assign_51">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[FullTitlePath]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[ParentTitlePath + "/" + PageTitle]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:LookupDataTable CellValue="{x:Null}" LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[WebsiteTreeDT]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="683,22" sap2010:WorkflowViewState.IdRef="LookupDataTable_2" LookupColumnName="ID" LookupValue="[Id]" RowIndex="[PageRowIndex]" TargetColumnName="Title Path" />
+                        <If Condition="[PageRowIndex &lt;&gt; -1]" DisplayName="If Found Page" sap:VirtualizedContainerService.HintSize="683,362" sap2010:WorkflowViewState.IdRef="If_17">
+                          <If.Then>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Trace" Message="[&quot;Found page '&quot; + PageTitle +&quot;' with id &quot; + Id + &quot; in website tree file. Not adding.&quot;]" />
+                          </If.Then>
+                          <If.Else>
+                            <Sequence sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_54">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[AdjustedWebsiteTreeCSV]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[WebsiteTreeCSV + Id + ";" + ParentId + ";" + PageTitle + ";" + URLPathWithoutDomain + ";" + FullTitlePath + Environment.NewLine]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <ucas:WriteStorageText TimeoutMS="{x:Null}" DisplayName="Write Storage Text" Encoding="iso-8859-1" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="WriteStorageText_1" Path="[in_FilenameWebsiteTree]" StorageBucketName="[in_StorageBucketName]" Text="[AdjustedWebsiteTreeCSV]" />
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                      <If Condition="[PageLink.LastIndexOf(&quot;/&quot;) = PageLink.Length-1]" DisplayName="If Last Character Is A Forward Slash" sap:VirtualizedContainerService.HintSize="607,208" sap2010:WorkflowViewState.IdRef="If_5">
+                        <If.Then>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[PageLinkEdited]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[PageLink.Substring(0,PageLink.Length-1)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </If.Then>
+                        <If.Else>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[PageLinkEdited]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[PageLink]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </If.Else>
+                      </If>
+                      <TryCatch DisplayName="Try Catch - If Same End Path For Page" sap:VirtualizedContainerService.HintSize="607,435" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                        <TryCatch.Try>
+                          <If Condition="[URLPathWithoutDomain.ToLower = FullTitlePath.ToLower.Replace(&quot;-&quot;,&quot;&quot;).Replace(&quot; &quot;,&quot;-&quot;).Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;'&quot;,&quot;&quot;).Replace(&quot;?&quot;,&quot;&quot;).Replace(&quot;!&quot;,&quot;&quot;).Replace(&quot;(&quot;,&quot;&quot;).Replace(&quot;)&quot;,&quot;&quot;).Replace(&quot;ö&quot;,&quot;o&quot;).Replace(&quot;å&quot;,&quot;a&quot;).Replace(&quot;ä&quot;,&quot;a&quot;) + &quot;/&quot;]" DisplayName="If Same Path For Page" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_12">
+                            <If.Then>
+                              <Assign DisplayName="Assign Empty Previous URL" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_39">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[DifferentPreviousURL]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <Literal x:TypeArguments="x:String" Value="" />
+                                  </InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </If.Then>
+                            <If.Else>
+                              <Assign DisplayName="Assign Previous URL" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_40">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[DifferentPreviousURL]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[PageLink]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </If.Else>
+                          </If>
+                        </TryCatch.Try>
+                        <TryCatch.Catches>
+                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="573,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ActivityAction x:TypeArguments="s:Exception">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                              </ActivityAction.Argument>
+                              <Assign DisplayName="Assign Previous URL" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_47">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[DifferentPreviousURL]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[PageLink]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </ActivityAction>
+                          </Catch>
+                        </TryCatch.Catches>
+                      </TryCatch>
+                      <Sequence DisplayName="Create Queue Item Data Dictionary" sap:VirtualizedContainerService.HintSize="607,4419" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:String" Name="CategoryListString">
+                            <Variable.Default>
+                              <Literal x:TypeArguments="x:String" Value="" />
+                            </Variable.Default>
+                          </Variable>
+                          <Variable x:TypeArguments="scg:List(sxl:XElement)" Name="CategoryList" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <InvokeMethod DisplayName="Add Page Link" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Add">
+                          <InvokeMethod.TargetObject>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[QueueItemData]</InArgument>
+                          </InvokeMethod.TargetObject>
+                          <InArgument x:TypeArguments="x:String">Link</InArgument>
+                          <InArgument x:TypeArguments="x:String">[PageLinkEdited]</InArgument>
+                        </InvokeMethod>
+                        <InvokeMethod DisplayName="Add Page Title" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_2" MethodName="Add">
+                          <InvokeMethod.TargetObject>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[QueueItemData]</InArgument>
+                          </InvokeMethod.TargetObject>
+                          <InArgument x:TypeArguments="x:String">Title</InArgument>
+                          <InArgument x:TypeArguments="x:String">[PageTitle]</InArgument>
+                        </InvokeMethod>
+                        <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_31">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[Preamble]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[Preamble.Replace(Environment.NewLine,"[k(enter)]")]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <InvokeMethod DisplayName="Add Preamble" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_3" MethodName="Add">
+                          <InvokeMethod.TargetObject>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[QueueItemData]</InArgument>
+                          </InvokeMethod.TargetObject>
+                          <InArgument x:TypeArguments="x:String">Preamble</InArgument>
+                          <InArgument x:TypeArguments="x:String">[Preamble]</InArgument>
+                        </InvokeMethod>
+                        <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_32">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[BodyText]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[BodyText.Replace(vbLf,"[k(enter)]")]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <InvokeMethod DisplayName="Add Body" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_4" MethodName="Add">
+                          <InvokeMethod.TargetObject>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[QueueItemData]</InArgument>
+                          </InvokeMethod.TargetObject>
+                          <InArgument x:TypeArguments="x:String">Body</InArgument>
+                          <InArgument x:TypeArguments="x:String">[BodyText]</InArgument>
+                        </InvokeMethod>
+                        <InvokeMethod DisplayName="Add Previous URL" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_5" MethodName="Add">
+                          <InvokeMethod.TargetObject>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[QueueItemData]</InArgument>
+                          </InvokeMethod.TargetObject>
+                          <InArgument x:TypeArguments="x:String">PreviousURL</InArgument>
+                          <InArgument x:TypeArguments="x:String">[DifferentPreviousURL]</InArgument>
+                        </InvokeMethod>
+                        <InvokeMethod DisplayName="Add Previous URL" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_18" MethodName="Add">
+                          <InvokeMethod.TargetObject>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[QueueItemData]</InArgument>
+                          </InvokeMethod.TargetObject>
+                          <InArgument x:TypeArguments="x:String">TitlePath</InArgument>
+                          <InArgument x:TypeArguments="x:String">[FullTitlePath]</InArgument>
+                        </InvokeMethod>
+                        <InvokeMethod DisplayName="Add PubDate" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_7" MethodName="Add">
+                          <InvokeMethod.TargetObject>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[QueueItemData]</InArgument>
+                          </InvokeMethod.TargetObject>
+                          <InArgument x:TypeArguments="x:String">PublishDate</InArgument>
+                          <InArgument x:TypeArguments="x:String">[node.Element("pubDate").Value]</InArgument>
+                        </InvokeMethod>
+                        <InvokeMethod DisplayName="Add PubDate GMT" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_8" MethodName="Add">
+                          <InvokeMethod.TargetObject>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[QueueItemData]</InArgument>
+                          </InvokeMethod.TargetObject>
+                          <InArgument x:TypeArguments="x:String">PublishDateGMT</InArgument>
+                          <InArgument x:TypeArguments="x:String">[node.Element(WPNamespace + "post_date_gmt").Value]</InArgument>
+                        </InvokeMethod>
+                        <InvokeMethod DisplayName="Add Post ID" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_9" MethodName="Add">
+                          <InvokeMethod.TargetObject>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[QueueItemData]</InArgument>
+                          </InvokeMethod.TargetObject>
+                          <InArgument x:TypeArguments="x:String">ID</InArgument>
+                          <InArgument x:TypeArguments="x:String">[Id]</InArgument>
+                        </InvokeMethod>
+                        <InvokeMethod DisplayName="Add Post Name" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_10" MethodName="Add">
+                          <InvokeMethod.TargetObject>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[QueueItemData]</InArgument>
+                          </InvokeMethod.TargetObject>
+                          <InArgument x:TypeArguments="x:String">Name</InArgument>
+                          <InArgument x:TypeArguments="x:String">[node.Element(WPNamespace + "post_name").Value]</InArgument>
+                        </InvokeMethod>
+                        <InvokeMethod DisplayName="Add Post Parent ID" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_11" MethodName="Add">
+                          <InvokeMethod.TargetObject>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[QueueItemData]</InArgument>
+                          </InvokeMethod.TargetObject>
+                          <InArgument x:TypeArguments="x:String">ParentID</InArgument>
+                          <InArgument x:TypeArguments="x:String">[node.Element(WPNamespace + "post_parent").Value]</InArgument>
+                        </InvokeMethod>
+                        <InvokeMethod DisplayName="Add Post Creator" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_12" MethodName="Add">
+                          <InvokeMethod.TargetObject>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[QueueItemData]</InArgument>
+                          </InvokeMethod.TargetObject>
+                          <InArgument x:TypeArguments="x:String">Creator</InArgument>
+                          <InArgument x:TypeArguments="x:String">[node.Element(DCNamespace + "creator").Value]</InArgument>
+                        </InvokeMethod>
+                        <InvokeMethod DisplayName="Add Post Tags" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_13" MethodName="Add">
+                          <InvokeMethod.TargetObject>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[QueueItemData]</InArgument>
+                          </InvokeMethod.TargetObject>
+                          <InArgument x:TypeArguments="x:String">Tags</InArgument>
+                          <InArgument x:TypeArguments="x:String">[String.Join(";",PageTags).ToString]</InArgument>
+                        </InvokeMethod>
+                        <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" DisplayName="For Each Meta Data" sap:VirtualizedContainerService.HintSize="484,1017" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[PageMetaData]">
+                          <ui:ForEach.Body>
+                            <ActivityAction x:TypeArguments="sxl:XElement">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="sxl:XElement" Name="metadataitem" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="Add Meta Data" sap:VirtualizedContainerService.HintSize="382,883" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="x:String" Name="MetaDataKey" />
+                                  <Variable x:TypeArguments="x:String" Name="MetaDataKeyWithCount" />
+                                  <Variable x:TypeArguments="x:Int32" Default="0" Name="Count" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign DisplayName="Assign MetaDataKey" sap:VirtualizedContainerService.HintSize="340,60" sap2010:WorkflowViewState.IdRef="Assign_41">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[MetaDataKey]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[metadataitem.Element(WPNamespace + "meta_key").Value]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign DisplayName="Assign NewMetaDataKey" sap:VirtualizedContainerService.HintSize="340,60" sap2010:WorkflowViewState.IdRef="Assign_42">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[MetaDataKeyWithCount]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[MetaDataKey]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <ui:InterruptibleWhile DisplayName="While MetaDataKey Exists In Dictionary" sap:VirtualizedContainerService.HintSize="340,417" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+                                  <ui:InterruptibleWhile.Body>
+                                    <Sequence DisplayName="Count And Add As New MetaKey" sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_43">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Int32">[Count]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Int32">[Count + 1]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_44">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:String">[MetaDataKeyWithCount]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:String">[MetaDataKey + Count.ToString]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                    </Sequence>
+                                  </ui:InterruptibleWhile.Body>
+                                  <ui:InterruptibleWhile.Condition>
+                                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="QueueItemData.ContainsKey(MetaDataKeyWithCount)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+                                  </ui:InterruptibleWhile.Condition>
+                                </ui:InterruptibleWhile>
+                                <InvokeMethod DisplayName="Add Previous URL" sap:VirtualizedContainerService.HintSize="340,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_6" MethodName="Add">
+                                  <InvokeMethod.TargetObject>
+                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[QueueItemData]</InArgument>
+                                  </InvokeMethod.TargetObject>
+                                  <InArgument x:TypeArguments="x:String">[MetaDataKeyWithCount]</InArgument>
+                                  <InArgument x:TypeArguments="x:Object">[metadataitem.Element(WPNamespace + "meta_value").Value]</InArgument>
+                                </InvokeMethod>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:ForEach.Body>
+                        </ui:ForEach>
+                        <Assign DisplayName="Assign List Of Category" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_33">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="scg:List(sxl:XElement)">[CategoryList]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="scg:List(sxl:XElement)">[node.Elements("category").ToList]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="484,286" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[CategoryList]">
+                          <ui:ForEach.Body>
+                            <ActivityAction x:TypeArguments="sxl:XElement">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="sxl:XElement" Name="item" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_36">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[CategoryListString]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[CategoryListString + item.Value + "," + item.Attribute("domain").Value + "|"]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:ForEach.Body>
+                        </ui:ForEach>
+                        <If Condition="[Not String.IsNullOrWhiteSpace(CategoryListString)]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_11">
+                          <If.Then>
+                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_37">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[CategoryListString]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[CategoryListString.Substring(0,CategoryListString.Length-1)]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Then>
+                        </If>
+                        <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_17" MethodName="Add">
+                          <InvokeMethod.TargetObject>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[QueueItemData]</InArgument>
+                          </InvokeMethod.TargetObject>
+                          <InArgument x:TypeArguments="x:String">CategoriesList</InArgument>
+                          <InArgument x:TypeArguments="x:String">[CategoryListString]</InArgument>
+                        </InvokeMethod>
+                      </Sequence>
+                      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="607,472" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                        <TryCatch.Try>
+                          <Sequence sap:VirtualizedContainerService.HintSize="376,245" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Private: Add Queue Item" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" ItemInformationCollection="[QueueItemData]" Priority="Normal" QueueType="[QueueName]" Reference="[Reference]">
+                              <ui:AddQueueItem.ItemInformation>
+                                <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+                              </ui:AddQueueItem.ItemInformation>
+                            </ui:AddQueueItem>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Added item with reference &quot; + Reference]" />
+                          </Sequence>
+                        </TryCatch.Try>
+                        <TryCatch.Catches>
+                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ActivityAction x:TypeArguments="s:Exception">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                              </ActivityAction.Argument>
+                              <ui:LogMessage DisplayName="Log Message Add Item" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Warn" Message="[&quot;Failed to add queue item with reference: &quot; + Reference]" />
+                            </ActivityAction>
+                          </Catch>
+                        </TryCatch.Catches>
+                      </TryCatch>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <ui:LogMessage DisplayName="Log Message Blacklisted" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Warn" Message="[&quot;The page with URL &quot; +PageLink + &quot; is already in the queue. Skipping item.&quot;]" />
+                  </If.Else>
+                </If>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <ui:LogMessage DisplayName="Log Message Blacklisted" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Warn" Message="[&quot;The URL &quot; + PageLink + &quot; is blacklisted and will not be handled&quot;]" />
+            </If.Else>
+          </If>
+        </Sequence>
+      </ActivityAction>
+    </ui:ForEach.Body>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+  </ui:ForEach>
+</Activity>

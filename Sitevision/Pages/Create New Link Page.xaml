@@ -1,0 +1,402 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Select_Page" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="LinkPageName" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="LinkDescription" Type="InArgument(x:String)" />
+    <x:Property Name="InternalLink" Type="OutArgument(x:String)" />
+    <x:Property Name="InternalLinkAsUrl" Type="OutArgument(x:String)" />
+    <x:Property Name="LinkUrl" Type="InArgument(x:String)" />
+    <x:Property Name="LinkTitlePath" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>944,4723</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Select_Page_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="66">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Create New Link Page" sap:VirtualizedContainerService.HintSize="798,4658" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="PageName" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="756,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Creating link page&quot;]" />
+    <Assign sap:VirtualizedContainerService.HintSize="756,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[PageName]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[LinkPageName]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser 'Edit Screen'" sap:VirtualizedContainerService.HintSize="756,4335" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="722,4119" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="DynamicSelector" />
+              <Variable x:TypeArguments="x:Uri" Name="LinkHrefUri" />
+              <Variable x:TypeArguments="x:String" Name="LinkLastSegment" />
+              <Variable x:TypeArguments="scg:List(x:String)" Default="[new List(of String)]" Name="InternalLinks" />
+              <Variable x:TypeArguments="scg:List(x:String)" Default="[new List(of String)]" Name="InternalLinksAsURL" />
+              <Variable x:TypeArguments="x:String" Name="LinkType" />
+              <Variable x:TypeArguments="x:String" Default="(^tel)|(^mailto)" Name="RegExLinkTypePattern" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Create new Button'" EnableIfExists="False" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="680,186" sap2010:WorkflowViewState.IdRef="NCheckState_1">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="e2Bkl1rAbEO53zviCv-dPA" DesignTimeRectangle="8, 409, 75, 78" ElementType="Button" FriendlyName="'Create new'" FullSelectorArgument="&lt;webctrl parentid='supersidebar-btn-create' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='supersidebar-btn-create' tag='BUTTON' type='' aaname='        Create new     ' check:text='Create new' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAABSCAYAAAAVfInDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM5SURBVHhe7Zu7cuIwAEX5H7L17sym3YZ8A535ghQU7rMzLlKkU0GRgiZ9fg+tZenaspDBXIWFydw7cxI/ZD2OZENgsrBtPj4+7MPDDzETRPIIEMkjQCSPAJE8AkTyCBDJI0AkjwCRPAJE8ggQySNAJI8AkTwCRPIIEMkjQCSPAJE8AmRxOHza9fJPtpDIgwR5y2whkQfRyiNAJI8AuUt5q+c3u9vtet6en7LlbgVyn/JqY/f7fY+p71Se+3Fvb1UkrwDJK0DyCpC8AiSvAMmb5Jddb//al5dpXs37SN67ec2W69mu7c9sW9cBuYG8jW0iMV9DY6tsW9cBkTwCRPIIkBvIe7TrOvPcirj4mVev7e9sW9cBuYG88+jVtgDJK0DyCpC8AiSvAMkrQPIKWG0TeVvJ+zYgkkeASB4BInkEiOQRIJJHgEgeASJ5BIjkESCSR4BIHgFykbz0D/amypejWdXW/OcvcxiQ2fK8uHhg/luwLxX4PeVNiKoauze1XbXbVbO3xviViY+Q3DGs0vHHSsnXj80mOQaBT7Y2Q7n8RPkyTdP2Bdd39YXzro84Hvoa9xvX9/2bMYHIPHldB05X2InqOxRWKva7DmHwuc4aW6+wPbTT1QkRXR9CuXDeEwTHYkb14ZpQrp8otNNut5Nu4nZi+RmQ+fIiMTlGA00FhfPj1QfcQHLy/EocVpuv83j1pW0N9Y0m0NGPI6qrbbOpN+2+b9f1M7/CB5AvXXnDAMIs43YBo1UUn5uWNy6Xm4BUaiLvqA5fvzvn6nK/3bVV465xdYW+jNoYg5Q989xgw8zm5OVnMK1rGOyxvPMDOStv6hZ0bbXnvDRftqmH8WSvCSAz5WEW49XnJUBYelt25fuOxGX9Ngbr683J83X2g+/O5SZkWp6/ZpiArr64T+5Zh/bast1+NIYpkNnyHH6gwy0QN5TKw7G+fLQC4npM97zB4L3YqVfb/MBOyHP7o0dEPPnJ5KTXnQC5SJ7wIJJHgEgeAaJ/3CNAJI8AkTwCRPIIkMXhs7JLybsIZLGoKq28C0H0VoUAkTwCRPIIEMkjQCSPAJE8AkTyCBDJI0AkjwCRPAJE8gh8rP0HiCIZaNdvkvMAAAAASUVORK5CYII=" InformativeScreenshot="707b2acd6999bb58a2882d373901b198.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/H2YfR7nws0WfBREUrSJNvA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='✎ testsida | Sitevision' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Text="Create new" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='BUTTON' type='' /&gt;" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+            <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="680,1562" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3">
+              <ui:RetryScope.ActivityBody>
+                <ActivityAction>
+                  <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="376,1388" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NClick ClickType="Single" DisplayName="Click 'Create new Button'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="e2Bkl1rAbEO53zviCv-dPA" DesignTimeRectangle="8, 409, 75, 78" ElementType="Button" FriendlyName="'Create new'" FullSelectorArgument="&lt;webctrl parentid='supersidebar-btn-create' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='supersidebar-btn-create' tag='BUTTON' type='' aaname='        Create new     ' check:text='Create new' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAABSCAYAAAAVfInDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM5SURBVHhe7Zu7cuIwAEX5H7L17sym3YZ8A535ghQU7rMzLlKkU0GRgiZ9fg+tZenaspDBXIWFydw7cxI/ZD2OZENgsrBtPj4+7MPDDzETRPIIEMkjQCSPAJE8AkTyCBDJI0AkjwCRPAJE8ggQySNAJI8AkTwCRPIIEMkjQCSPAJE8AmRxOHza9fJPtpDIgwR5y2whkQfRyiNAJI8AuUt5q+c3u9vtet6en7LlbgVyn/JqY/f7fY+p71Se+3Fvb1UkrwDJK0DyCpC8AiSvAMmb5Jddb//al5dpXs37SN67ec2W69mu7c9sW9cBuYG8jW0iMV9DY6tsW9cBkTwCRPIIkBvIe7TrOvPcirj4mVev7e9sW9cBuYG88+jVtgDJK0DyCpC8AiSvAMkrQPIKWG0TeVvJ+zYgkkeASB4BInkEiOQRIJJHgEgeASJ5BIjkESCSR4BIHgFykbz0D/amypejWdXW/OcvcxiQ2fK8uHhg/luwLxX4PeVNiKoauze1XbXbVbO3xviViY+Q3DGs0vHHSsnXj80mOQaBT7Y2Q7n8RPkyTdP2Bdd39YXzro84Hvoa9xvX9/2bMYHIPHldB05X2InqOxRWKva7DmHwuc4aW6+wPbTT1QkRXR9CuXDeEwTHYkb14ZpQrp8otNNut5Nu4nZi+RmQ+fIiMTlGA00FhfPj1QfcQHLy/EocVpuv83j1pW0N9Y0m0NGPI6qrbbOpN+2+b9f1M7/CB5AvXXnDAMIs43YBo1UUn5uWNy6Xm4BUaiLvqA5fvzvn6nK/3bVV465xdYW+jNoYg5Q989xgw8zm5OVnMK1rGOyxvPMDOStv6hZ0bbXnvDRftqmH8WSvCSAz5WEW49XnJUBYelt25fuOxGX9Ngbr683J83X2g+/O5SZkWp6/ZpiArr64T+5Zh/bast1+NIYpkNnyHH6gwy0QN5TKw7G+fLQC4npM97zB4L3YqVfb/MBOyHP7o0dEPPnJ5KTXnQC5SJ7wIJJHgEgeAaJ/3CNAJI8AkTwCRPIIkMXhs7JLybsIZLGoKq28C0H0VoUAkTwCRPIIEMkjQCSPAJE8AkTyCBDJI0AkjwCRPAJE8gh8rP0HiCIZaNdvkvMAAAAASUVORK5CYII=" InformativeScreenshot="707b2acd6999bb58a2882d373901b198.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/H2YfR7nws0WfBREUrSJNvA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='✎ testsida | Sitevision' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Text="Create new" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='BUTTON' type='' /&gt;" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Create New Page Window'" EnableIfExists="False" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="334,186" sap2010:WorkflowViewState.IdRef="NCheckState_2" Timeout="2">
+                      <uix:NCheckState.IfExists>
+                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </uix:NCheckState.IfExists>
+                      <uix:NCheckState.IfNotExists>
+                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </uix:NCheckState.IfNotExists>
+                      <uix:NCheckState.Target>
+                        <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134eade" ContentHash="1Ys6mo4UxEWq9Vnrjkn99Q" DesignTimeRectangle="83, 428, 325, 192" FriendlyName="'Create new'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div' idx='4' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;div' type='' tag='DIV' aaname='   ' check:text='Create new page&amp;#xA;     &amp;#xA;Page&amp;#xA;&amp;#xA;Link page&amp;#xA;&amp;#xA;Archive&amp;#xA;&amp;#xA;Folder&amp;#xA;&amp;#xA;Structure object&amp;#xA;&amp;#xA;  &amp;#xA;&amp;#xA;&amp;#xA;&amp;#xA;&amp;#xA;   &amp;#xA;    Undersida ' /&gt;" ImageBase64="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" InformativeScreenshot="f740ec4a5fbf702c187b2d36641a0e35.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/sCbEPPW8HkmzDve0TRQt7Q" ScopeSelectorArgument="&lt;html app='chrome.exe' title='✎ test | Sitevision' /&gt;" SearchSteps="Selector, Image" Text="Create new page&#xA;     &#xA;Page&#xA;&#xA;Link page&#xA;&#xA;Archive&#xA;&#xA;Folder&#xA;&#xA;Structure object&#xA;&#xA;  &#xA;&#xA;&#xA;&#xA;&#xA;   &#xA;    Undersida" TextMethod="AttributeText" TextSelector="&lt;webctrl type='' tag='DIV' /&gt;" />
+                      </uix:NCheckState.Target>
+                    </uix:NCheckState>
+                    <uix:NClick ClickType="Single" DisplayName="Click 'Create New Dropdown'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://sundsvall-preprod.sitevision.consid.net/edit/4.5ea86ef417c2aa1d5ba102cb" ContentHash="q3OKcxYJxk2W_qh7JDUUTw" DesignTimeRectangle="114, 444, 122, 17" ElementType="Text" FriendlyName="'Create new page'" FullSelectorArgument="&lt;webctrl tag='SPAN' class='create-title' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SPAN' class='create-title' type='' aaname='Create new page' check:text='Create new page' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAH4AAAAVCAYAAACAEFoRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMKSURBVGhD7VhLluIwDOSWcJXxRchFJsfAd5icAVh6/JEc/ZyYBnoTL+p1Y8tSuUoy/fr0fD7DwPEwjD8ohvEHxTD+oGgav8wuXC4Xgil4I+6b8JML82LvDbwHw3gfpmS0m8NC1rERJk9jvwg/xXrD+G9BGe8nbTrb+63JH8Z/Fdz4ZQ5ua6q9J6YvYXYxdi5n2GsAeerXxOTXHIhsLIkhJsuvGTcvcA5eI0SjQVcUjm72+efWudLUCNpwpebKobGW79MYiqxHzOm5LkpnqVtHDOrP4/Z14sZvkVcooqqpBGKrKBBHixvTrF4TFQOXIU20/wIhR92U1DS79nom79PmhX26lpu11YjVLHIfUQNjqIFlAMgZGVPz0nN9OjHjS6EXjRfTnItIAQRhJWSCNFp8trlZ00jRwdEQXMbI2mnPOWp0qdPkATXkvqrxA90KtzWmV6e3jeeXaRnRFiZfJp4paBlvG1jPG+sFdl0luHXnXB/WswGUS/w9P9uwxvYNtPZpDQI0E1FMbWjLmqNfp7efest4SpqixuY6uA6CMKPlZ7gQycXwtvEiXwVqQfIkofPZspYFT1zltFL0GA8GYu2cl5n6gvGQQ6FpPEtiwChiGa/IMQA5aVaP8U2DW7A4dk68QJ2YxAt44JqcJoWsmzae1qac+LkfGN+hEzc+wiRA96wpqDGtwoU0vYBsrpK7ZXyLl23s3j7LJRsOkE2h9XLcFKZ4FrmXGLc9LAlgjskja2XzxNcIc6/xOzEdOinj0Rh5WBZoim5ckpMp57SocY3mV4YAL3LxwmlrWjuMx880D5siBNSnnCBum0NEjdtpbIND0qTyl7ysvJ06GcYXFCIU8nIN4xMI6QzVgSgiIuaGM2s+aJC0Xy9hnGN5JfqMr2skNzc9wWhYQ2QTaBj5nwc3K4Hct+4b+Zm2MYb+kVlz7evUNH7gg0DjVTN9APAVtD0AGsP438BHjLdeHFjbe3EMnB6PRxj4Mv79DX/O53C9GXsv4RauMc+Z4noz4vZxut/vYeB4GMYfEvfwH1naVQtXqWbDAAAAAElFTkSuQmCC" InformativeScreenshot="fe89a93c5a931e24c5cf3c192a0f18b5.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/oKnAENWm8UakR323JmXhxQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='✎ test | Sitevision' /&gt;" SearchSteps="Selector, Image" Text="Create new page" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NClick ClickType="Single" DisplayName="Click 'Link Page Button'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://sundsvall-preprod.sitevision.consid.net/edit/4.5ea86ef417c2aa1d5ba102cb" ContentHash="kApoLkHJb02uS7EgHySkZg" DesignTimeRectangle="95, 497, 158, 26" ElementType="Text" FriendlyName="'Link page'" FullSelectorArgument="&lt;webctrl aaname='Link page' tag='A' parentclass='dropdown-menu types' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Link page' tag='A' parentclass='dropdown-menu types' type='' check:text='Link page' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKIAAAAeCAYAAACv+sUVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHdSURBVHhe7ZjRkYQgDIavJ9uyFEqwCl731QosQ4vgJICGiHqutxp3/m/GGRES4vgJ6/70fe/atnUA3IF3zzsIEcGtQESgAogIVAARgQogIlABRAQqgIhABRARqAAiAhVcIOLgbF0508WmZLCurmpnh9je4shY8CjuF/EIEPFrUbYids74c2tcVVXxMOPViBSxC+PqgpmDrV01TtqZlEfWEOqa55F58n5j5Usg4ms7XgHvolBE/lDjw07BfCxJyMXIIRHHXJNcFJvqEHlHwvg5Hwks65j6Q5uLS+NXbxLsoVJEPpYESUKksR2XqkwWF9mUZVHHLCXBxffnixWwEAP+zANF9CuTP9iWXYDixKSrck45Yx00j8jP6qQ8U0whHhzmkSL6/r2tcE/EScAs9wERhdDgHA8UkcuynrckyyxvYRtd1CH65da8syKDYzxXRGqOfStChD6Wa3Oe0OZbK0k7iRzuYe6PbV4o5DzFZSLmv6XCQc/xhIhFISIhzjjD5s6GkTipz+cMc89fwnnd4e8bLlqSNx2Q8AwXiHgPmcD/Ab0EkO1TQMQiy5V57+MInAMirpFt3ZDw03ytiOBZQESgAogIVAARgQqapnGv1wsignvBighUABGBCoKIvfsFpvnPYj9H/ooAAAAASUVORK5CYII=" InformativeScreenshot="5b9ca862e253ee975cce540fb6d63303.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/Zgl7FAOe3E6GUbKG4F3VLA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector, Image" Text="Link page" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='A' type='' /&gt;" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Link Page Name'" EnableIfExists="False" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="334,186" sap2010:WorkflowViewState.IdRef="NCheckState_5">
+                      <uix:NCheckState.IfExists>
+                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </uix:NCheckState.IfExists>
+                      <uix:NCheckState.IfNotExists>
+                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </uix:NCheckState.IfNotExists>
+                      <uix:NCheckState.Target>
+                        <uix:TargetAnchorable BrowserURL="https://sundsvall-preprod.sitevision.consid.net/edit/4.5ea86ef417c2aa1d5ba102cb" ContentHash="uJDV7S4_x0qmVhvSa1QeNQ" DesignTimeRectangle="98, 488, 295, 34" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='DIV' class='popover-dialog create-popover right link' /&gt;&lt;webctrl name='displayName' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='DIV' class='popover-dialog create-popover right link' /&gt;&lt;webctrl name='displayName' tag='INPUT' type='text' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAASsAAAAmCAYAAACcTb3eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQtSURBVHhe7d3fbttkGIBx32RvgZvgFC6lJxECAmcogsMeMtC2aAK2MVSklCylabNuiZ133+PYrpNVjDVL6kXPI71q/rhWj3767LhxNpsvY/q6iMmrPMazIkaXefw9zeOvfxfx5/k8np8v4tlkHk8nizTz+OOl4zjO9oMnuIIvOIM3uIM/OIRHuIRPOJWtoCri7AqkFvEibfws/eLvaWe/jefx5J95DM/exONRmvTzUfrpOI6z7eAJruALzuAN7uAPDuERLuETTmXIxQun6Y2H6RePH0zj8x/G8dk3I8dxnL0P/uAQHuHSCqw8MpZaCMYbX/w4jq9+mcST00lMJo7jOPsf/MEhPMIlfMKpjGNDllxIxgbX19eR53kURRHL5dJxHGdvgzv4g0Nf/3qeXLoofcKpjJNZHCOy9Ho+npW/YGZ2n+EQHuESPuFUxtl3TmpxrIhoZmZdCI9wCZ9wKuPjQs7C8yJLMDOzLoRHuIRPOJVxfQMfG/Kih4Bm1pXwCJfwCacyLsjiOgexMrMuVWOFTziVcRUpF2aJlZl1qRorfMKpFVZ3XFkdHR1Vj8zMPm4NVsmnBisufRcrM+tSNVb4VGLFPxSKlZl1rTZWOLU1Vif9XvT6JzGqXmsaDqLXG8Swempm9iHtBqteL/onG1yJlZlt0U6wGgyAqR9rXm1iNTqJfkIN2FbT3n4YA54PW9uUqzVev237VLn/+r30N6ii2UG1G6wSFMNBDUxVG6sKqhtQRhuHjxVKm89bQJX7r3dwK4QbmJnZJ93OsKqBaQ4H33MYODrpv4NTe3W0hhOxv3L7FXTtt6jc3+aLZvbJtkOsUiVQ1QrnVqzah3Vp3oPV2nmwBquNfbRHrMwOpt1ilWoOB9ewugGmBuj/rKz+CytdMjvsdo5VDU+/nzCqsWqguenuWK0OA9feM7ODaw9YpcpVFSupFlbtQ8L6/TthVT1eO6EuYGaH1n6wSpWHgy2gVs+rAZ01cD4Qq1S5Mqv3l0aozA6rj46Vmdkuegcr/5HZzLpYG6vmWxf8ihgz61o1VmtfEeOX75lZ12qwqldWfq2xmXWxGqvma429YYSZdbEaq+aGEe1bcYmVmXWlGqvmVlztm5yKlZl1pRqr5ian7dvHn17Mq83MzO43PFq7ffzoMo8XSa3jB9P49tG02szM7H777vFlHP98UfqEU9l4ViS1FvFw9Ca+/OllfD+8SqItqs3NzPYb/uAQHuESPuFUNnmVx9lVHqcVWEjG0otjRcdxnH0P/uAQHuESPuFUNn1dpAdF+QKCseTiGJGTWpyF52NDrnPgwiyuJOXSd8dxnG0HT3AFX3AGb3AHf3AIj1ZQFYFT2Wy+LB8gF0stjg05mcXZdz4u5PoGLsh6OlmUV5HyD4WO4zjbDp7gCr7gDN7gDv7gEB7hEj7N5st4C620MyJrFzbDAAAAAElFTkSuQmCC" InformativeScreenshot="b3ee847bae51ace403af6252c7300239.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/2j0bntEEwkSyY9SusJITMA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector, Image">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="114, 444, 150, 17" ElementType="Text" FriendlyName="'Create new link page'" FullSelectorArgument="&lt;webctrl aaname='Create new link page' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Create new link page' tag='SPAN' type='' check:text='Create new link page' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJoAAAAVCAYAAAC+GfcaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAN4SURBVGhD7Vjd0ZwwDEyZVwuVUAltuAiKuEdiW5LRr4E5Pmbuxg87CbYkr1aLueTf+/3eBgb+GsNoA49gGG3gEQyjDTyC0GjrMm2v14th3pIT95dI87Qtq7/3XUjbnDWcEzxXbadlW01cgHXZJpb/jXCMBqJoIch4jzWb5nzebxrtMn7RaGm2JhN7T91sw2g7fs5oRw2lxEy2bsuUYxfIEbcd1mmf3TntNQjVSCyGmUp/tqdlxTy8bQmHnx/gOC2p/tnLg5eIwA0OZ+4cgrXaT/QSSqPJTyftqd64Zs5ciG80q7qfa4i+Dvs+EZP3l/Ks4mQde0FIo3XF0oAhmqIoyj4EjOPEnNsKiLKzTQwOgg3A5BgQR/sScJP4Z+85dZ8PHvf5Wv9317HRRK/qfG004GuHyQExnKOdQ40RnAONdU6JMWuxfgXCaHCTXDQaH0CGJZ/hCaXyjLHUs88NhJG3DccJjs5toWP02WVvmrhZ4JyYx7HRZK7izTgCl77JCip/rZfoVXISeUIbfRaa8YJ+5fljo0mBosHHgwBBCJHRfMO0fGcd4J/LRQh7rufjuhC81Mx/T2zNHQjHsdHkoFS/OMxqbhPrw9clmgOah3CgzWX9Mj7+dHpG240j0WLrObSOAxLG0s8oPKsl8LHRVL0G0oLVKUOvubBWh164NuN4uMdoRY+p6nA8ozNGqzHUK/I5Y6Lr+l39x4DY94YIounBSigRCWeMFhoqgsfxnJgabXCFF/KgtbancnbcYzSIgfj+eYyvWGfzCWZ9RpszMRrSaBm8iLvXinpDjAzBxfSEpdqR0SJevpGO9kUtbXCENAPFzducc4k7xORbxulHQvb8mdFouJYzh5wVotbBPOxHGgS4NG48Poo5qZ8xmimEgOa4IMGQURS+Lk2CIvL6lWxe4/VNA8iLmRg49d6mE0ajZ17HfdvxfM4J4/ocCiBXGKWdL/cAfaO5GipAT6xGUNPMqeSwfnytWJ221tfPMRpgP5SgxfSHWNEGgDCC0NAIubZpHIUp+60pJ0/U1fA5avHaGqstB1/gDRf5MNF93G20DHw5Xf0zqMf6f16FY4HmyV5w2oeXV95QQpscU59VrSP9QqMNfDfIaPIFvwOdC6aDYbQfxS1GwxvP3qT2N9kRhtF+FHfdaPTbfMd1kxUMow08gmG0gQfw3v4DsDOrbdky2yEAAAAASUVORK5CYII=" SearchSteps="Selector, Image" Text="Create new link page" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NCheckState.Target>
+                    </uix:NCheckState>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Link Page Name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,226" sap2010:WorkflowViewState.IdRef="NTypeInto_3" Text="[LinkPageName]">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="https://sundsvall-preprod.sitevision.consid.net/edit/4.5ea86ef417c2aa1d5ba102cb" ContentHash="uJDV7S4_x0qmVhvSa1QeNQ" DesignTimeRectangle="98, 488, 295, 34" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='DIV' class='popover-dialog create-popover right link' /&gt;&lt;webctrl name='displayName' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='DIV' class='popover-dialog create-popover right link' /&gt;&lt;webctrl name='displayName' tag='INPUT' type='text' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAASsAAAAmCAYAAACcTb3eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQtSURBVHhe7d3fbttkGIBx32RvgZvgFC6lJxECAmcogsMeMtC2aAK2MVSklCylabNuiZ133+PYrpNVjDVL6kXPI71q/rhWj3767LhxNpsvY/q6iMmrPMazIkaXefw9zeOvfxfx5/k8np8v4tlkHk8nizTz+OOl4zjO9oMnuIIvOIM3uIM/OIRHuIRPOJWtoCri7AqkFvEibfws/eLvaWe/jefx5J95DM/exONRmvTzUfrpOI6z7eAJruALzuAN7uAPDuERLuETTmXIxQun6Y2H6RePH0zj8x/G8dk3I8dxnL0P/uAQHuHSCqw8MpZaCMYbX/w4jq9+mcST00lMJo7jOPsf/MEhPMIlfMKpjGNDllxIxgbX19eR53kURRHL5dJxHGdvgzv4g0Nf/3qeXLoofcKpjJNZHCOy9Ho+npW/YGZ2n+EQHuESPuFUxtl3TmpxrIhoZmZdCI9wCZ9wKuPjQs7C8yJLMDOzLoRHuIRPOJVxfQMfG/Kih4Bm1pXwCJfwCacyLsjiOgexMrMuVWOFTziVcRUpF2aJlZl1qRorfMKpFVZ3XFkdHR1Vj8zMPm4NVsmnBisufRcrM+tSNVb4VGLFPxSKlZl1rTZWOLU1Vif9XvT6JzGqXmsaDqLXG8Swempm9iHtBqteL/onG1yJlZlt0U6wGgyAqR9rXm1iNTqJfkIN2FbT3n4YA54PW9uUqzVev237VLn/+r30N6ii2UG1G6wSFMNBDUxVG6sKqhtQRhuHjxVKm89bQJX7r3dwK4QbmJnZJ93OsKqBaQ4H33MYODrpv4NTe3W0hhOxv3L7FXTtt6jc3+aLZvbJtkOsUiVQ1QrnVqzah3Vp3oPV2nmwBquNfbRHrMwOpt1ilWoOB9ewugGmBuj/rKz+CytdMjvsdo5VDU+/nzCqsWqguenuWK0OA9feM7ODaw9YpcpVFSupFlbtQ8L6/TthVT1eO6EuYGaH1n6wSpWHgy2gVs+rAZ01cD4Qq1S5Mqv3l0aozA6rj46Vmdkuegcr/5HZzLpYG6vmWxf8ihgz61o1VmtfEeOX75lZ12qwqldWfq2xmXWxGqvma429YYSZdbEaq+aGEe1bcYmVmXWlGqvmVlztm5yKlZl1pRqr5ian7dvHn17Mq83MzO43PFq7ffzoMo8XSa3jB9P49tG02szM7H777vFlHP98UfqEU9l4ViS1FvFw9Ca+/OllfD+8SqItqs3NzPYb/uAQHuESPuFUNnmVx9lVHqcVWEjG0otjRcdxnH0P/uAQHuESPuFUNn1dpAdF+QKCseTiGJGTWpyF52NDrnPgwiyuJOXSd8dxnG0HT3AFX3AGb3AHf3AIj1ZQFYFT2Wy+LB8gF0stjg05mcXZdz4u5PoGLsh6OlmUV5HyD4WO4zjbDp7gCr7gDN7gDv7gEB7hEj7N5st4C620MyJrFzbDAAAAAElFTkSuQmCC" InformativeScreenshot="b3ee847bae51ace403af6252c7300239.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/2j0bntEEwkSyY9SusJITMA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector, Image">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="114, 444, 150, 17" ElementType="Text" FriendlyName="'Create new link page'" FullSelectorArgument="&lt;webctrl aaname='Create new link page' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Create new link page' tag='SPAN' type='' check:text='Create new link page' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJoAAAAVCAYAAAC+GfcaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAN4SURBVGhD7Vjd0ZwwDEyZVwuVUAltuAiKuEdiW5LRr4E5Pmbuxg87CbYkr1aLueTf+/3eBgb+GsNoA49gGG3gEQyjDTyC0GjrMm2v14th3pIT95dI87Qtq7/3XUjbnDWcEzxXbadlW01cgHXZJpb/jXCMBqJoIch4jzWb5nzebxrtMn7RaGm2JhN7T91sw2g7fs5oRw2lxEy2bsuUYxfIEbcd1mmf3TntNQjVSCyGmUp/tqdlxTy8bQmHnx/gOC2p/tnLg5eIwA0OZ+4cgrXaT/QSSqPJTyftqd64Zs5ciG80q7qfa4i+Dvs+EZP3l/Ks4mQde0FIo3XF0oAhmqIoyj4EjOPEnNsKiLKzTQwOgg3A5BgQR/sScJP4Z+85dZ8PHvf5Wv9317HRRK/qfG004GuHyQExnKOdQ40RnAONdU6JMWuxfgXCaHCTXDQaH0CGJZ/hCaXyjLHUs88NhJG3DccJjs5toWP02WVvmrhZ4JyYx7HRZK7izTgCl77JCip/rZfoVXISeUIbfRaa8YJ+5fljo0mBosHHgwBBCJHRfMO0fGcd4J/LRQh7rufjuhC81Mx/T2zNHQjHsdHkoFS/OMxqbhPrw9clmgOah3CgzWX9Mj7+dHpG240j0WLrObSOAxLG0s8oPKsl8LHRVL0G0oLVKUOvubBWh164NuN4uMdoRY+p6nA8ozNGqzHUK/I5Y6Lr+l39x4DY94YIounBSigRCWeMFhoqgsfxnJgabXCFF/KgtbancnbcYzSIgfj+eYyvWGfzCWZ9RpszMRrSaBm8iLvXinpDjAzBxfSEpdqR0SJevpGO9kUtbXCENAPFzducc4k7xORbxulHQvb8mdFouJYzh5wVotbBPOxHGgS4NG48Poo5qZ8xmimEgOa4IMGQURS+Lk2CIvL6lWxe4/VNA8iLmRg49d6mE0ajZ17HfdvxfM4J4/ocCiBXGKWdL/cAfaO5GipAT6xGUNPMqeSwfnytWJ221tfPMRpgP5SgxfSHWNEGgDCC0NAIubZpHIUp+60pJ0/U1fA5avHaGqstB1/gDRf5MNF93G20DHw5Xf0zqMf6f16FY4HmyV5w2oeXV95QQpscU59VrSP9QqMNfDfIaPIFvwOdC6aDYbQfxS1GwxvP3qT2N9kRhtF+FHfdaPTbfMd1kxUMow08gmG0gQfw3v4DsDOrbdky2yEAAAAASUVORK5CYII=" SearchSteps="Selector, Image" Text="Create new link page" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                  </Sequence>
+                </ActivityAction>
+              </ui:RetryScope.ActivityBody>
+              <ui:RetryScope.Condition>
+                <ActivityFunc x:TypeArguments="x:Boolean" />
+              </ui:RetryScope.Condition>
+            </ui:RetryScope>
+            <uix:NClick ClickType="Single" DisplayName="Click 'OK Button'" sap:VirtualizedContainerService.HintSize="680,166" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134eade" ContentHash="WSPkLxWq1EarxK2Cg5TTCg" DesignTimeRectangle="94, 579, 70, 30" ElementType="Button" FriendlyName="'OK'" FullSelectorArgument="&lt;webctrl aaname='OK' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='OK' tag='BUTTON' type='' check:text='OK' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEoAAAAiCAYAAAD4d09GAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGCSURBVGhD7drNSsNAFIZhb8qFGwU36u14AYIg+LcSRGiX7ryAImILxYKC4MaN1iJ040ZdKJKC9eeYr3DixEz1KCQTyRd4aTvpLPowkxbSiSiKhP0coYyloOqtnixsdGRyqVXpYFBr9vxQ9fjE9MqRzKydyOzmaaWDASxqzass1HysSKTPYDG33slCYcn5JlQ5mBDKEKGMEcoYoYwRyhihjJUCanHvQu6ehqJH9Pwmq43r5Pzu8c1oDI/u2PD1Xfr3g2Qsz4JDAQQIZ/3HZKxxfjtCUJivUIqE9+mcvAsOBSDfqnDHXSiFLRIJBYXSLef70BgDCGAUSsfc1VdUpYUCzsPgJYHCVtODUE4+KADpc9+cPAsKhX57jcJrd1u6c/IsOJRenN3tBIjvvvUQELEasSp1LM+CQ6G//I5S4KKwSgH1HyKUMUIZI5QxQhkjlDFCGSOUMS8Ub4CmG3sDdOewK1PLbWLFwQAWW/uXWSi0fdDlnzTiYAAL1yYFxcZHKFORfACNedJkwPI2NwAAAABJRU5ErkJggg==" InformativeScreenshot="792947e33910a413e2bee660eb3ae0c6.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/4LpKO8w3Ak22P4t_hJdCvg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='✎ test | Sitevision' /&gt;" SearchSteps="Selector, Image" Text="OK" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='BUTTON' type='' /&gt;" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <If Condition="[String.IsNullOrEmpty(LinkUrl)]" DisplayName="If Any Url" sap:VirtualizedContainerService.HintSize="680,210" sap2010:WorkflowViewState.IdRef="If_5">
+              <If.Then>
+                <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_7">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[LinkUrl]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">https://www.sundsvall.se/</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </If.Then>
+            </If>
+            <TryCatch DisplayName="Try Catch Create Uri" sap:VirtualizedContainerService.HintSize="680,183" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <TryCatch.Try>
+                <Assign DisplayName="Assign Uri" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_2">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Uri">[LinkHrefUri]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Uri">[new uri(LinkUrl)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </TryCatch.Try>
+              <TryCatch.Catches>
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ActivityAction x:TypeArguments="s:Exception">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                    </ActivityAction.Argument>
+                    <Throw DisplayName="Throw E" Exception="[new Exception(&quot;Failed to create page link with url '&quot; + LinkUrl + &quot;'. Format of link url seems to be incorrect (email, phonenumber or other?)&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                  </ActivityAction>
+                </Catch>
+              </TryCatch.Catches>
+            </TryCatch>
+            <Assign DisplayName="Assign LinkType" sap:VirtualizedContainerService.HintSize="680,61" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[LinkType]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[Regex.Match(LinkUrl,RegExLinkTypePattern).Value.Replace("""""","").Replace("""","").Replace("""","")]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <If Condition="[LinkHrefUri.Segments.Count &gt; 0]" DisplayName="If Any Uri Segments" sap:VirtualizedContainerService.HintSize="680,210" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Then>
+                <Assign DisplayName="Assign Last Segment" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_3">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[LinkLastSegment]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[LinkHrefUri.Segments.Last()]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </If.Then>
+            </If>
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SetLinkType workflow" sap:VirtualizedContainerService.HintSize="680,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Edit Page\Tags\SetLinkType.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="LinkType">[LinkType]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="LinkhrefURL">[LinkUrl]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="LastSegment">[LinkLastSegment]</InArgument>
+                <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="InternalLinks">[InternalLinks]</InOutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="LinkTarget" />
+                <InArgument x:TypeArguments="x:Uri" x:Key="LinkSrcUri">[LinkHrefUri]</InArgument>
+                <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="InternalLinksAsURL">[InternalLinksAsURL]</InOutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="InternalLinkTitlePath">[LinkTitlePath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="LinkDescription">[LinkDescription]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <If Condition="[InternalLinks.Count &gt; 0]" DisplayName="If Any Internal Link" sap:VirtualizedContainerService.HintSize="680,210" sap2010:WorkflowViewState.IdRef="If_3">
+              <If.Then>
+                <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_5">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[InternalLink]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[InternalLinks.First]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </If.Then>
+            </If>
+            <If Condition="[InternalLinksAsURL.Count &gt; 0]" DisplayName="If Any Internal Link As Url" sap:VirtualizedContainerService.HintSize="680,210" sap2010:WorkflowViewState.IdRef="If_4">
+              <If.Then>
+                <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_6">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[InternalLinkAsUrl]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[InternalLinksAsURL.First]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </If.Then>
+            </If>
+            <Assign sap:VirtualizedContainerService.HintSize="680,64" sap2010:WorkflowViewState.IdRef="Assign_8">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[LinkPageName]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String" xml:space="preserve">[LinkPageName.
+Replace("&amp;","&amp;amp;").
+Replace("&lt;","&amp;lt;").
+Replace("&gt;","&amp;gt;").
+Replace("""","&amp;quot;").
+Replace("'","&amp;apos;")]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Företagscenter Sundsvall'" sap:VirtualizedContainerService.HintSize="680,411" sap2010:WorkflowViewState.IdRef="NCheckState_4">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="376,185" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Created link page &quot; + PageName]" />
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="250,116" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Throw DisplayName="Throw SE" Exception="[new SystemException(&quot;Couldn't find created link page &quot; + PageName)]" sap:VirtualizedContainerService.HintSize="208,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="PssmN7_TSka9vjtB_vKeVQ" DesignTimeRectangle="124, 157, 66, 19" ElementType="Text" FriendlyName="'Företagscenter Sundsvall'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' type='' casesensitive:aaname='false' /&gt;&quot;, LinkPageName)]" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' type='' check:text='Företagscenter Sundsvall' /&gt;&quot;, LinkPageName)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKMAAAAXCAYAAABnN//jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM/SURBVGhD7VeLjYMwDGVDxmKDrsAoSF2kY3B2nM+zkwDttXdQ+UmRLsSfZ/sRrsPqcJwELkbHaeBidJwGLkbHaeBidJwGLkbHadAR47JOw7AOjTUt0cTxETzmUff8Yw1/rPM4rOP8iPt3A+Mfy7Upxu0+sM24cvxl+l1RYQDjTJSvhiN9Og4R4kRRC7i3nxHkV4nxfXAxCprCe8zraAT6HnyZGEPzyM5+TsJNOU3URHqeRSYxk302X6YSI9mGARRbOyDMO1EevE0UJyNw9Qk0Z71ahN9Eeco5Njg9yy6Ku3w5BGIvfOnM1MRo3Ywa9VAD7xSryzUCuY1kh7FMzzO9GLNwMhxwfrRKPrSrebfw1P+MGEzfZmKfzmWwGwWEwsugdCyx1cOFoarmiG3e8xmIjHnknKapOMRWfu1n94mPfWnNvsXVvAQaqZ64KlvDjVCLscd1qy450z1PvE1Nah58tj0bjI+8W3jxZqyD40BVgxiqOAEKRYvBQDW0ERsbEBvc4l35ZZhBMDhO4qMaTKiGAb7oF4Cxjw0kI+QhzrxygjpGLcYOV8WbgbHk794MqhyZj0aY49+LsT7fFGNoEj2zK9pYMQb/ZDOO0MRGUXYAJpek2GqG1II+slDgx8Qow6hjPTOQClGUvToOi9GeEdi3xJLYmTcKM8QRX/ZJ6azPSLMqOZDrsdr/7WZEKDGqYdf7KnajyQkijtJE5ZchtXRrfUKMwRaHqLA3EI4FdWdgjjqGqmuLq+3rJh/JWc5Sj/g5xLf51B7j79UuePkHjL7NNPl68JaMtq/FWHKHWNjERsFprzkRUBymcWhr/ULOjp/w64jR7lUt+wORWiEXIXCDZ4pbzHdIjDF/to3chI+tQ2zLPvEw/EM+Ez/nx3r3a2e8LEaGNC8uMA7PK+fYuIZ9akwqBOPK26i5lHNqxKwHoDihiAmpobJgaATtB2ebAy5+udG5FvP84EA0R1rwkgSo+BPVT/apOTtcyQBmIL+6e7yr+VWxGEmAvOhsQZu3ifFC4AHYgTkuicuJMdwc+a2Nb6Z9ix2XxAVvRvO591vxa3D9z7Tja+BidJwGLkbHaTDcbre1te73ezRxOP4C6/oD4zS26X2HTjYAAAAASUVORK5CYII=" InformativeScreenshot="11ef1289387044906e05d899dabcf7b2.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/IoHR-QnQI0mwLHXj5GMv6Q" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Företagscenter Sundsvall" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp BrowserType="Chrome" ContentHash="6jLBns8Cf0mmiWiPVxzcWg" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAATSURBVDhPYxgFo2AUjAIwYGAAAAQQAAGnRHxjAAAAAElFTkSuQmCC" InformativeScreenshot="54bdf10cba4ebdc66d4e169127567694.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/9u_pmQsZCU6Czkw5MT4mbg" Selector="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" Url="*/edit/*" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

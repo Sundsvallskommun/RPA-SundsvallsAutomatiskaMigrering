@@ -1,0 +1,262 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Remove_Content_Item" this:Remove_Content_Item.ContentItemPath="/Accordion-rubrik" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="ContentItemPath" Type="InArgument(x:String)" />
+    <x:Property Name="SelectedContentItem" Type="OutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1128,2951</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Remove_Content_Item_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="64">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="62">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Select_Content_Item" sap:VirtualizedContainerService.HintSize="1138,2886" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:List(x:String)" Name="ContentItemList" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1096,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Selecting Content Item&quot;]" />
+    <Assign sap:VirtualizedContainerService.HintSize="1096,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(x:String)">[ContentItemList]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(x:String)">[ContentItemPath.Split({"/","\","&gt;"}, StringSplitOptions.RemoveEmptyEntries).ToList]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser 'Edit Screen'" sap:VirtualizedContainerService.HintSize="1096,2432" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1062,2216" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Int32" Name="ItemIndex" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[Not String.IsNullOrWhiteSpace(ContentItemPath)]" DisplayName="If Any Content Item" sap:VirtualizedContainerService.HintSize="1020,1916" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[ItemIndex]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="875,1767" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[ContentItemList]">
+                  <ui:ForEach.Body>
+                    <ActivityAction x:TypeArguments="x:String">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="839,1632" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="797,1538" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="4">
+                          <ui:RetryScope.ActivityBody>
+                            <ActivityAction>
+                              <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="755,1364" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="x:String" Name="ContentItemName" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="713,64" sap2010:WorkflowViewState.IdRef="Assign_2">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[ContentItemname]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String" xml:space="preserve">[item.
+Replace("&amp;","&amp;amp;").
+Replace("&lt;","&amp;lt;").
+Replace("&gt;","&amp;gt;").
+Replace("""","&amp;quot;").
+Replace("'","&amp;apos;")]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <uix:NCheckState Exists="{x:Null}" CheckVisibility="True" DisplayName="Check App State 'Stor puff'" EnableIfExists="False" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="713,186" sap2010:WorkflowViewState.IdRef="NCheckState_1">
+                                  <uix:NCheckState.IfExists>
+                                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </Sequence>
+                                  </uix:NCheckState.IfExists>
+                                  <uix:NCheckState.IfNotExists>
+                                    <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </Sequence>
+                                  </uix:NCheckState.IfNotExists>
+                                  <uix:NCheckState.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="7WJS0ZfZE0qcy2_ns_QlDQ" DesignTimeRectangle="86, 801, 309, 19" FriendlyName="'Stor puff'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='bottom' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl tag='SPAN' class='*fancytree-node*' innertext='{0}' /&gt;&quot;, ContentItemname)]" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='bottom' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl tag='SPAN' class='*fancytree-node*' innertext='{0}' /&gt;&quot;, ContentItemname)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATkAAAAXCAYAAABwMDgDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABfSURBVHhe7dQBDQAADMOg+ze9+2hABDeAMMkBaZID0iQHpEkOSJMckCY5IE1yQJrkgDTJAWmSA9IkB6RJDkiTHJAmOSBNckCa5IA0yQFpkgPSJAekSQ5IkxyQJjkgbHs89xIV65c9OgAAAABJRU5ErkJggg==" InformativeScreenshot="fe460e0bd92ff26c5435ee12171edb67.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/Oa12CMQA90OCAp6dB89XNA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Stor puff" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                                  </uix:NCheckState.Target>
+                                </uix:NCheckState>
+                                <If Condition="[ItemIndex + 1 = ContentItemList.Count]" DisplayName="If Last Item" sap:VirtualizedContainerService.HintSize="713,313" sap2010:WorkflowViewState.IdRef="If_4">
+                                  <If.Then>
+                                    <uix:NClick ClickType="Single" DisplayName="Click 'Dynamic Content Item'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="7WJS0ZfZE0qcy2_ns_QlDQ" DesignTimeRectangle="86, 801, 309, 19" FriendlyName="'Stor puff'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='bottom' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl tag='SPAN' class='*fancytree-node*' innertext='{0}' /&gt;&quot;, ContentItemname)]" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='bottom' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl tag='SPAN' class='*fancytree-node*' innertext='{0}' /&gt;&quot;, ContentItemname)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATkAAAAXCAYAAABwMDgDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABfSURBVHhe7dQBDQAADMOg+ze9+2hABDeAMMkBaZID0iQHpEkOSJMckCY5IE1yQJrkgDTJAWmSA9IkB6RJDkiTHJAmOSBNckCa5IA0yQFpkgPSJAekSQ5IkxyQJjkgbHs89xIV65c9OgAAAABJRU5ErkJggg==" InformativeScreenshot="fe460e0bd92ff26c5435ee12171edb67.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/Oa12CMQA90OCAp6dB89XNA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Stor puff" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                                      </uix:NClick.Target>
+                                    </uix:NClick>
+                                  </If.Then>
+                                  <If.Else>
+                                    <uix:NClick ClickType="Double" DisplayName="Click 'Dynamic Content Item'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="7WJS0ZfZE0qcy2_ns_QlDQ" DesignTimeRectangle="86, 801, 309, 19" FriendlyName="'Stor puff'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='bottom' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl tag='SPAN' class='*fancytree-node*' innertext='{0}' /&gt;&quot;, ContentItemname)]" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='bottom' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl tag='SPAN' class='*fancytree-node*' innertext='{0}' /&gt;&quot;, ContentItemname)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATkAAAAXCAYAAABwMDgDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABfSURBVHhe7dQBDQAADMOg+ze9+2hABDeAMMkBaZID0iQHpEkOSJMckCY5IE1yQJrkgDTJAWmSA9IkB6RJDkiTHJAmOSBNckCa5IA0yQFpkgPSJAekSQ5IkxyQJjkgbHs89xIV65c9OgAAAABJRU5ErkJggg==" InformativeScreenshot="fe460e0bd92ff26c5435ee12171edb67.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/Oa12CMQA90OCAp6dB89XNA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Stor puff" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                                      </uix:NClick.Target>
+                                    </uix:NClick>
+                                  </If.Else>
+                                </If>
+                                <If Condition="[ContentItemList.Count &gt; ItemIndex + 1]" DisplayName="If Any More Items" sap:VirtualizedContainerService.HintSize="713,207" sap2010:WorkflowViewState.IdRef="If_2">
+                                  <If.Then>
+                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[ContentItemname]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[ContentItemList(ItemIndex + 1)]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </If.Then>
+                                </If>
+                                <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Stor puff'" EnableIfExists="False" sap:VirtualizedContainerService.HintSize="713,342" sap2010:WorkflowViewState.IdRef="NCheckState_2" Timeout="2">
+                                  <uix:NCheckState.IfExists>
+                                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </Sequence>
+                                  </uix:NCheckState.IfExists>
+                                  <uix:NCheckState.IfNotExists>
+                                    <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="250,116" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Throw DisplayName="Throw SE" Exception="[new SystemException(&quot;Failed to select correct content item. &quot;)]" sap:VirtualizedContainerService.HintSize="208,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                                    </Sequence>
+                                  </uix:NCheckState.IfNotExists>
+                                  <uix:NCheckState.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="7WJS0ZfZE0qcy2_ns_QlDQ" DesignTimeRectangle="86, 801, 309, 19" FriendlyName="'Stor puff'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='bottom' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl tag='SPAN' class='*fancytree-node*' innertext='{0}' /&gt;&quot;, ContentItemname)]" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='bottom' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl tag='SPAN' class='*fancytree-node*' innertext='{0}' /&gt;&quot;, ContentItemname)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATkAAAAXCAYAAABwMDgDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABfSURBVHhe7dQBDQAADMOg+ze9+2hABDeAMMkBaZID0iQHpEkOSJMckCY5IE1yQJrkgDTJAWmSA9IkB6RJDkiTHJAmOSBNckCa5IA0yQFpkgPSJAekSQ5IkxyQJjkgbHs89xIV65c9OgAAAABJRU5ErkJggg==" InformativeScreenshot="fe460e0bd92ff26c5435ee12171edb67.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/Oa12CMQA90OCAp6dB89XNA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Stor puff" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                                  </uix:NCheckState.Target>
+                                </uix:NCheckState>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:RetryScope.ActivityBody>
+                          <ui:RetryScope.Condition>
+                            <ActivityFunc x:TypeArguments="x:Boolean" />
+                          </ui:RetryScope.Condition>
+                        </ui:RetryScope>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEach.Body>
+                </ui:ForEach>
+              </If.Then>
+            </If>
+            <uix:NGetText DisplayName="Get Text 'Selected Content Item'" sap:VirtualizedContainerService.HintSize="1020,166" sap2010:WorkflowViewState.IdRef="NGetText_1">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/2.44e3ea617a09053813481fb" ContentHash="f363oZCeh0KPsKxdhfCujA" DesignTimeRectangle="98, 864, 297, 19" ElementType="Text" FriendlyName="'Text 2'" FullSelectorArgument="&lt;webctrl id='main' tag='SECTION' /&gt;&lt;webctrl id='bottom' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl parentid='content-nav' tag='SPAN' class='*fancytree-active*' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main' tag='SECTION' /&gt;&lt;webctrl id='bottom' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl parentid='content-nav' tag='SPAN' class='*fancytree-active*' type='' aaname='' check:text='Text 2' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAS0AAAAXCAYAAABedRmRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOHSURBVHhe7dzfS1NhHMfx/p6iq6Dr6McfEN3ovUV1XUlIdReIF2LawVVs6qxtbYvNNVCY0JhoNlDRLvoBygZipiyn5NYUv+35se3s7DQ38zk7g88LvrizPcd59eacR90ZAgBoI4gWALQVJdGanZ2liYmJE83c3Jz8LkLiW4Zujnymy32fbD2djiX+swKAWkqiFQqF5KPmsXDpsRiYRcKOw+IKAGq1LFrpdJo8Hg+/KtMzRsssDnYeAFCrJdEqFArkdrtJ0zTy+/3yWQHRAoB6WhKtmZkZHiw2DoeDjo6O5Cv1ozW5LZ80s71VtfbUZjpLe/ItuGPeBwDUsjxam5ub5PP5yOv1lsO1s7MjX238SosH7DRCxaN0QIvTJq/1bVGq+DaplerjvXRKt6Z6AEAtS6N1eHjIg7WxsUGxWKwcrdXVVbmCKBwOy0eCWRjYWBOt2jnufQFALUujlUwmKR6P88cLCwvlaLHnS/4rWlW3cpUQidvKfZosrVvZl6+LKyehsXAhWgCtZVm0MpkM33zP5/P8eG1tjQer46FG13tc9Dtf4M+fPFqGWzkepkqoKusN65q50pJRrNwu1g4AqGVJtNhGezAYpPHxcYpGoxSOvKdHg2+of1Cji3ee09kujVI/sxSd/05u3zt5lmAWBjY10WKRymVpqLwmRYu52v0oTn9ew9GS59e5ymIDAGpZEq3l5WUeq1wux+d1bImH6sJtjc7f0vjjq91u/rXjsUueJZiFgY0xWkPpA3GCgX7TXKzR3SayaShajQWLDQCopTxau7u75HQ6KZvNymeKt4Y/flHn0yCPlH4u3R+l3hc+uUowCwOb46+0DCPjtFe8+mruSksEq95vDPUDAGopjRbbvwoEAjQ1NcWPS/b/HFB/8GNNtO4+i9Ko94S3h6Z7VaVjcasowmO27l/REuc1coVVGgBQS1m0EokEuVwuvtk+PDxMkUiE/8kDM+CP62Il9rTOyeMbPU6+psQsDGxqo1UcGaoSESkZHv1VWPm3h+xYvl5Us8Fu+H5lda7oAEAtS/a0jDLFe7TuVzFKfl2nKw/GeKzmv6zTk7EPNOB6K1cJZmGw8wCAWkqi1cxH01y795JvxnsCIX5s/AdqszDYeQBALSXROk1mYbDzAIBato9WO32eVtfIivypAUAV20eLfRooi4FZJOw0+ORSAGvYPloAAHqIFgC0EaK//gs65v4P1bAAAAAASUVORK5CYII=" InformativeScreenshot="499705733583defc6fa6f19b3625994c.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/lkUuUUf0oEyyxIm_dIChkA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Text 2" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+              </uix:NGetText.Target>
+              <uix:NGetText.Text>
+                <OutArgument x:TypeArguments="x:String">[SelectedContentItem]</OutArgument>
+              </uix:NGetText.Text>
+            </uix:NGetText>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp BrowserType="Chrome" ContentHash="6jLBns8Cf0mmiWiPVxzcWg" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAATSURBVDhPYxgFo2AUjAIwYGAAAAQQAAGnRHxjAAAAAElFTkSuQmCC" InformativeScreenshot="54bdf10cba4ebdc66d4e169127567694.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/9u_pmQsZCU6Czkw5MT4mbg" Selector="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" Url="*/edit/*" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1096,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Selected Content Item &quot; +SelectedContentItem]" />
+  </Sequence>
+</Activity>

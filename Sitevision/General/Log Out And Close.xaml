@@ -1,0 +1,154 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Close" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="944,1640" sap2010:WorkflowViewState.IdRef="Close_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="60">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="31">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Close" sap:VirtualizedContainerService.HintSize="476,1535" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:UiElement" Name="BrowserElement" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message Launching" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Logging out from sitevision&quot;]" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Application/Browser 'Log In Screen'" sap:VirtualizedContainerService.HintSize="434,1181" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="Never" OutUiElement="[BrowserElement]" Timeout="3" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,965" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="Url" />
+              <Variable x:TypeArguments="x:String" Name="Host" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Url]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[BrowserElement.Get("url").ToString]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Host]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[new Uri(Url).Host]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[Host + &quot;/inloggning&quot;]" />
+            <uix:NClick ClickType="Single" DisplayName="Click 'Logga ut'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable Accuracy="0.95" BrowserURL="https://sundsvall-preprod.sitevision.consid.net/inloggning" ContentHash="t9kKX5WEDU-dCyIBvUbIDQ" DesignTimeRectangle="8, 123, 100, 28" ElementType="Text" FriendlyName="'Logga ut'" FullSelectorArgument="&lt;webctrl tag='A' aaname='Logga ut' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='A' type='' aaname='Logga ut' check:text='Logga ut' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGgAAAAgCAYAAAD+Fz2gAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASlSURBVGhD7VmhkqQwEOUvkMiRK5GRI5FIJGarkHwCEolERo5EIpGsQyKRSOS7hoQQGDI7dbU3w93xqrpqN0sn6X6d7k7W+vr6wufnJ04cEydBB8dJ0MFxEnRwnAQdHCdBB8eaoI7DsyxYJEklhk68FydBB0DfFkiTGzr5u46ToHejTmCPPvf4SdAhUSWTv0+CjopXE9Q3N6ShB9cR81j2BSxIwKu95Rd0FUcSuHCm9W1criGyctTpwL1xzAPfm6KrwJNArWdfrgizcjK249405u0rouIJAjavOYoD1wuR3hr08qvnUCGRcxj9NhNhJfT1NKB01rK28wcJ6lHGTOTTXbHB4nLH8IH2btIjnYQjMxA0kNHM3uoIsRkFRWYgqL0hmAPIILbP0crPv8fhCRqo1rlyAQdBVqEd5j9RpGaBilI3qenrBX0RSnIceClFvvzjQCcjCxw55ygbgvoCoSTH8VKUi+JqvVHWBNVIXTFuXxOUaqOEoUWZXOV+bMSlvtNH+B2CJF6S4toc10nPhs/3467lvjT8ilx9Qs76EOt5u3otuG8LAzYE1emHGCfDdjXVemuChjIW43aEff/3uAVCjy0b/QYHJ2jO9dZHSi43oUHGxNzKcNqccKLJWYQ6xcf0jU4QOUSensisqJG/mN7kPhi7wI7K1UnWUSVCz3raCQcnqIqFjhU/VqoTeRrCYqpF7Uysv39JE6gQT3vSCGrnffq4mRXVvvabhAVD36NrKhQ8Q6QaFZJ/g6C5yzKlqQXqpMnNPBep80nQCDIZu8GcBu8J6lDmEXVwdJKmeQxyEiT0XkrQQM6UTcIkjgtGrXWcZuBFiZqahvJ/TXGKEJn/X5/iyPmxTLNujGLu/Db4EzVoKCMx5zsIeq5JWIr2+5qExZFhYbqKtshlM/OTBLU5E3O+g6A/12b3KMLfa7OX+9U+QcFtn6Ce2nARECRPO2EhlWWNHNNAaTWWdhoJYvmuHUaCYoqwnrqbh6KCd31RHS+c5otqZbyojhdcdd/sa/BwnnOUNUGri2qQoVoUUfMQrtLTCVruOJbtI697tZehb1Ck3uqC+zxBWsBYLvmuU/P2TYHkSkFm29LODUHza7YV7KZrI0HPyKr4kvHfPvVExU6UPH7q8eMIbPp5QxDh4VOPHyOSUb3aZ0On3aAziuNlKPJA/P6wNm6wbT50oWDg1ezbDUFaoAmxkWh14gcJEujrG5KA4TIvSl2SF6a4UbQ+QldmCL3NY2lFOmpP9wRN6Epk2uOseCytKFz07nKjuNG5e9BVKZui+vG21xhaFFmI60WmZbI9SG5oxjmUHRuCCEOdIXCXZy29Pq4JOiJUxxbfGfYYrSLom+by0HgvQWNUjfcQRlGlFyYNbX4VkbXqcsbT4cBljJoZo6I8BYaT95dAETQfr1fIgqWLc0OOWr+XULpYmgv7rp1WRdkNweulKJMi2opSxpzytDe3ef2ji+/7csdvJ2isreZCL4S6u7zRCJAYizKbW/B9cYIcjaa4980RZZegt2L8r2gawtMKpX1hCKIcRfuoSo//FU215oJkKvgR8qKdHmT/dhy/SfjPcRJ0aAC/ANNOqXJdQZD8AAAAAElFTkSuQmCC" InformativeScreenshot="1318bcf791978edf47ac95d67be2046c.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/NcUQYGD-MEaHqgisp6P27w" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Inloggning | Sundsvall' /&gt;" SearchSteps="Selector, Image" Text="Logga ut" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='A' type='' /&gt;" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Logga in'" EnableIfExists="False" sap:VirtualizedContainerService.HintSize="334,342" sap2010:WorkflowViewState.IdRef="NCheckState_1">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="250,116" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Throw DisplayName="Throw SE" Exception="[new SystemException(&quot;Failed to log out&quot;)]" sap:VirtualizedContainerService.HintSize="208,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://sundsvall-robot.sitevision.consid.net/inloggning?redirect=https%3A%2F%2Fsundsvall-robot.sitevision.consid.net%2F" ContentHash="JXZ41WxeVE-Xkhau9DuSSQ" DesignTimeRectangle="29, 263, 114, 35" ElementType="Button" FriendlyName="'Logga in'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='submit' aaname='Logga in' check:text='Logga in' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHYAAAAnCAYAAADadbxDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATmSURBVHhe7Zshk6s8FIb7K3CVdZU4ZB2yDomrjFqJxCGZXYHawbEOh8QhcUgcsj/h/RJIQmhDy967d3fhS2aembZJIOe84XASyg6mbLIYYTdaJsK+v7/j7e0NLy8vhhXBNGPaqUUKyyo+Pj5wvV4NK4Rpp4orhX19fdV2MKwHpqEoUlh2SesaG9YD01AUI+yGMMJuFCPsRvkLYRsk7g67HSUoNPUGPaPf3KTR1H8NRthvxwi7UYywhr/ACLtRflbYJkd88eAcrOE4uz1s10eU1Wh17QVNgSTwYO+H81uHE/woR0PrmsTtf9OGubZGFvk4ifPtbXhBiqqldUUw/DZjS1MkCDxHnpOxt134Ie+v6aNnLhQXCPrjukga+p36JvJdxUZnHOvkeHp+SNgOVexh3xuiZ+/FqLr7vh0VwLH0fSwnQBLNCFun8BRRJuw9pAkZPt/ZUiP19vd9VKwzklrt84jnwkbJvI07+4J8gbg/ImyTnmH1A7XgEDYLO17XokqJNMo6p/1VKPu2GXxet3dD5A3v1zUooulEmTqtRGjzYzoXJGXLf5+er+fGljK0h9+tE4K8RifrOtR5gJMYK8mVukc8E5Yf7xQgr4VfOjQZgc3rjmGp9NPz/cJ2OQh3hk376ZzBrsrBCAskF8YxJx+H87kJaqW9oE7EhJk6rU29od+RoJiJAsJpE1vkWC1clHGoyGM7sXZM9ywQ1g5RTvoMVJGz+FzfLyx14uB8Gv5mQ0qHzOfHvogrgRrOJ8Sck/sr8zi0GZ02jtOJa6WtSkvDLT+faksV4+w4OFg0/GkmRI+4N+8CFLr6O54LOzvOT5zr24WteXIzd9UJWLju2x357K0TuL1RZ6QsubhpLyjIMKbRaQVI389CUN63F8hxPbOla9E2FYosQUQTvzGZ+jphSaG2V/jNwhYB70Oe9Lk1YqFRIlxLpzViQvBs86a9oM384fgaW5o8xoVmxAf1XnzH1wkbGGHv+VphOzpenjz10OWYQ5c4JKSZa4a8pMkUTaCWjGtko8IuDsWinUgUfiAUdznh+YANkjX6rPcTzh7YqLBscM+TJyWZ+abkSSZrii0yuvjZ7IZJHfNM9X8v7D9c7rBw+ifLnWsZapc7Ulgv1QvbUlv4RNqmsITO6JZmiw8ZBZpsUFwSlLMbFDcCqhsUXoRCblC0KBN/FIcydZq6QUGQVmKDYrrJ0KMIKycEHec5LtGKSUHPV2Uh3MlO1haFXQK9ysZdpAVbim6E8rNbimeCizN8njqN8mhL0SYgunXstUJ8EvvYGvYuoiyG139/fO8f2bSwA93NRvfOOsDxLojzmURFcLdBzh4CFDRczjmN01ZIA+Whg3gIQCeQDLt3t5UGeeTDtcV+sYWD4yFICm5PTcUf+nqpiASP+PXC/kZq6bTZRf4MYzY9l2CtixUJy2Y6W0c6dEbPZMV1jFM/o6dr1iJgV5kDb040mtBd+vBOl0SfnBC/lVVdsTIrtn0kpRquaRJURPIeaskl0oBMgvgTGpkE0X5tlYI4PDSflm7k/35WJey1o/chIcIM+ue4z5+psmx5yXPOtbAuYXsaFEkI37XHrFokXQ//edGiphnsdM93+MdGKBOh7bBCYQ1L0Apr3rZbP9q37d7N+7GrZvb9WFZYhXmjfX08fKPdlG0VI+wmC/AfOTxhuVpP0mcAAAAASUVORK5CYII=" InformativeScreenshot="a290591880e4ee82b5f963bf57a151c1.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/TbKPO8yN1EuVdpCQKCchuA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Inloggning | Sundsvall - Robot' /&gt;" SearchSteps="Selector, Image" Text="Logga in" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='INPUT' type='submit' /&gt;" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp BrowserType="Chrome" ContentHash="6jLBns8Cf0mmiWiPVxzcWg" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAATSURBVDhPYxgFo2AUjAIwYGAAAAQQAAGnRHxjAAAAAElFTkSuQmCC" InformativeScreenshot="54bdf10cba4ebdc66d4e169127567694.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/9u_pmQsZCU6Czkw5MT4mbg" Selector="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" Url="*/edit/*" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <ui:LogMessage DisplayName="Log Message Logged in" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Logged out and closed sitevision&quot;]" />
+  </Sequence>
+</Activity>

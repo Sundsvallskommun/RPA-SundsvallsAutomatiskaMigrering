@@ -1,0 +1,398 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="utfallbarEndTag" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="WrittenText" Type="InArgument(x:String)" />
+    <x:Property Name="IsRootContent" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="AccordionTitle" Type="InArgument(x:String)" />
+    <x:Property Name="ContentItemName" Type="InOutArgument(x:String)" />
+    <x:Property Name="NewTextFieldCreated" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="AccordionHeaderTag" Type="InOutArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>944,4598</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="32">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="End Tag" sap:VirtualizedContainerService.HintSize="736,4533" sap2010:WorkflowViewState.IdRef="Sequence_75">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="TextAreaText" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser 'Edit Screen'" sap:VirtualizedContainerService.HintSize="694,4006" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="660,3790" sap2010:WorkflowViewState.IdRef="Sequence_218">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If DisplayName="If Line Break" sap:VirtualizedContainerService.HintSize="618,297" sap2010:WorkflowViewState.IdRef="If_30">
+              <If.Condition>
+                <InArgument x:TypeArguments="x:Boolean">
+                  <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="StrReverse(WrittenText).IndexOf(StrReverse(&quot;[k(enter)]&quot;)) = 0" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_12" />
+                </InArgument>
+              </If.Condition>
+              <If.Then>
+                <uix:NKeyboardShortcuts DelayBetweenShortcuts="{x:Null}" ActivateBefore="True" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="334,148" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_5" Shortcuts="[d(hk)][k(back)][u(hk)]">
+                  <uix:NKeyboardShortcuts.ClickBeforeMode>
+                    <InArgument x:TypeArguments="uix:NClickMode">
+                      <Literal x:TypeArguments="uix:NClickMode" sap2010:WorkflowViewState.IdRef="Literal`1_12" />
+                    </InArgument>
+                  </uix:NKeyboardShortcuts.ClickBeforeMode>
+                </uix:NKeyboardShortcuts>
+              </If.Then>
+            </If>
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke RemoveTextFieldIfNew workflow" sap:VirtualizedContainerService.HintSize="618,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Edit Page\RemoveTextFieldIfNew.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:Boolean" x:Key="IsRootContent">[IsRootContent]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="AccordionTitle">[AccordionTitle]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <Assign DisplayName="Assign True To is Root Content" sap:VirtualizedContainerService.HintSize="618,61" sap2010:WorkflowViewState.IdRef="Assign_94">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[IsRootContent]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="Assign Accordion Title As Content Item Name" sap:VirtualizedContainerService.HintSize="618,64" sap2010:WorkflowViewState.IdRef="Assign_90">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[ContentItemName]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String" xml:space="preserve">[AccordionTitle.
+Replace("&amp;","&amp;amp;").
+Replace("&lt;","&amp;lt;").
+Replace("&gt;","&amp;gt;").
+Replace("""","&amp;quot;").
+Replace("'","&amp;apos;")]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:RetryScope DisplayName="Retry Scope Set Content Item As Accordion" sap:VirtualizedContainerService.HintSize="618,3002" sap2010:WorkflowViewState.IdRef="RetryScope_5" NumberOfRetries="3">
+              <ui:RetryScope.ActivityBody>
+                <ActivityAction>
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="576,2828" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                    <TryCatch.Try>
+                      <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="538,2601" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:String" Name="SelectedContentItem" />
+                          <Variable x:TypeArguments="x:Int32" Name="LoopCount" />
+                          <Variable x:TypeArguments="x:Int32" Default="3" Name="MaxLoops" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="496,336" sap2010:WorkflowViewState.IdRef="CommentOut_33">
+                          <ui:CommentOut.Body>
+                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,258" sap2010:WorkflowViewState.IdRef="Sequence_215">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NClick ClickType="Single" DisplayName="Click 'Stor puff'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_85" KeyModifiers="None" MouseButton="Right">
+                                <uix:NClick.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="7WJS0ZfZE0qcy2_ns_QlDQ" DesignTimeRectangle="86, 801, 309, 19" FriendlyName="'Stor puff'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='bottom' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl tag='SPAN' class='*fancytree-node*' innertext='{0}' /&gt;&quot;, ContentItemName)]" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='bottom' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl tag='SPAN' class='*fancytree-node*' innertext='{0}' /&gt;&quot;, ContentItemName)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATkAAAAXCAYAAABwMDgDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABfSURBVHhe7dQBDQAADMOg+ze9+2hABDeAMMkBaZID0iQHpEkOSJMckCY5IE1yQJrkgDTJAWmSA9IkB6RJDkiTHJAmOSBNckCa5IA0yQFpkgPSJAekSQ5IkxyQJjkgbHs89xIV65c9OgAAAABJRU5ErkJggg==" InformativeScreenshot="fe460e0bd92ff26c5435ee12171edb67.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/Oa12CMQA90OCAp6dB89XNA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Stor puff" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                                </uix:NClick.Target>
+                              </uix:NClick>
+                            </Sequence>
+                          </ui:CommentOut.Body>
+                        </ui:CommentOut>
+                        <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="496,629" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+                          <ui:InterruptibleDoWhile.Body>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,464" sap2010:WorkflowViewState.IdRef="Sequence_216">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NClick DisplayName="Click 'Stor puff'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_13" KeyModifiers="None" MouseButton="Right">
+                                <uix:NClick.ClickType>
+                                  <InArgument x:TypeArguments="uix:NClickType">
+                                    <Literal x:TypeArguments="uix:NClickType" sap2010:WorkflowViewState.IdRef="Literal`1_16" />
+                                  </InArgument>
+                                </uix:NClick.ClickType>
+                                <uix:NClick.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="7WJS0ZfZE0qcy2_ns_QlDQ" DesignTimeRectangle="86, 801, 309, 19" FriendlyName="'Stor puff'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='bottom' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl tag='SPAN' class='*fancytree-node*' innertext='{0}' /&gt;&quot;, ContentItemName)]" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='bottom' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl tag='SPAN' class='*fancytree-node*' innertext='{0}' /&gt;&quot;, ContentItemName)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATkAAAAXCAYAAABwMDgDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABfSURBVHhe7dQBDQAADMOg+ze9+2hABDeAMMkBaZID0iQHpEkOSJMckCY5IE1yQJrkgDTJAWmSA9IkB6RJDkiTHJAmOSBNckCa5IA0yQFpkgPSJAekSQ5IkxyQJjkgbHs89xIV65c9OgAAAABJRU5ErkJggg==" InformativeScreenshot="fe460e0bd92ff26c5435ee12171edb67.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/Oa12CMQA90OCAp6dB89XNA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Stor puff" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                                </uix:NClick.Target>
+                              </uix:NClick>
+                              <uix:NGetText DisplayName="Get Text 'Text 2'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NGetText_3">
+                                <uix:NGetText.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/2.44e3ea617a09053813481fb" ContentHash="f363oZCeh0KPsKxdhfCujA" DesignTimeRectangle="98, 864, 297, 19" ElementType="Text" FriendlyName="'Text 2'" FullSelectorArgument="&lt;webctrl id='main' tag='SECTION' /&gt;&lt;webctrl id='bottom' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl parentid='content-nav' tag='SPAN' class='*fancytree-active*' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main' tag='SECTION' /&gt;&lt;webctrl id='bottom' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl parentid='content-nav' tag='SPAN' class='*fancytree-active*' type='' aaname='' check:text='Text 2' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAS0AAAAXCAYAAABedRmRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOHSURBVHhe7dzfS1NhHMfx/p6iq6Dr6McfEN3ovUV1XUlIdReIF2LawVVs6qxtbYvNNVCY0JhoNlDRLvoBygZipiyn5NYUv+35se3s7DQ38zk7g88LvrizPcd59eacR90ZAgBoI4gWALQVJdGanZ2liYmJE83c3Jz8LkLiW4Zujnymy32fbD2djiX+swKAWkqiFQqF5KPmsXDpsRiYRcKOw+IKAGq1LFrpdJo8Hg+/KtMzRsssDnYeAFCrJdEqFArkdrtJ0zTy+/3yWQHRAoB6WhKtmZkZHiw2DoeDjo6O5Cv1ozW5LZ80s71VtfbUZjpLe/ItuGPeBwDUsjxam5ub5PP5yOv1lsO1s7MjX238SosH7DRCxaN0QIvTJq/1bVGq+DaplerjvXRKt6Z6AEAtS6N1eHjIg7WxsUGxWKwcrdXVVbmCKBwOy0eCWRjYWBOt2jnufQFALUujlUwmKR6P88cLCwvlaLHnS/4rWlW3cpUQidvKfZosrVvZl6+LKyehsXAhWgCtZVm0MpkM33zP5/P8eG1tjQer46FG13tc9Dtf4M+fPFqGWzkepkqoKusN65q50pJRrNwu1g4AqGVJtNhGezAYpPHxcYpGoxSOvKdHg2+of1Cji3ee09kujVI/sxSd/05u3zt5lmAWBjY10WKRymVpqLwmRYu52v0oTn9ew9GS59e5ymIDAGpZEq3l5WUeq1wux+d1bImH6sJtjc7f0vjjq91u/rXjsUueJZiFgY0xWkPpA3GCgX7TXKzR3SayaShajQWLDQCopTxau7u75HQ6KZvNymeKt4Y/flHn0yCPlH4u3R+l3hc+uUowCwOb46+0DCPjtFe8+mruSksEq95vDPUDAGopjRbbvwoEAjQ1NcWPS/b/HFB/8GNNtO4+i9Ko94S3h6Z7VaVjcasowmO27l/REuc1coVVGgBQS1m0EokEuVwuvtk+PDxMkUiE/8kDM+CP62Il9rTOyeMbPU6+psQsDGxqo1UcGaoSESkZHv1VWPm3h+xYvl5Us8Fu+H5lda7oAEAtS/a0jDLFe7TuVzFKfl2nKw/GeKzmv6zTk7EPNOB6K1cJZmGw8wCAWkqi1cxH01y795JvxnsCIX5s/AdqszDYeQBALSXROk1mYbDzAIBato9WO32eVtfIivypAUAV20eLfRooi4FZJOw0+ORSAGvYPloAAHqIFgC0EaK//gs65v4P1bAAAAAASUVORK5CYII=" InformativeScreenshot="499705733583defc6fa6f19b3625994c.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/lkUuUUf0oEyyxIm_dIChkA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Text 2" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                                </uix:NGetText.Target>
+                                <uix:NGetText.Text>
+                                  <OutArgument x:TypeArguments="x:String">[SelectedContentItem]</OutArgument>
+                                </uix:NGetText.Text>
+                              </uix:NGetText>
+                            </Sequence>
+                          </ui:InterruptibleDoWhile.Body>
+                          <ui:InterruptibleDoWhile.Condition>
+                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SelectedContentItem &lt;&gt; AccordionTitle AND LoopCount &lt; MaxLoops" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+                          </ui:InterruptibleDoWhile.Condition>
+                        </ui:InterruptibleDoWhile>
+                        <If Condition="[SelectedContentItem &lt;&gt; AccordionTitle]" sap:VirtualizedContainerService.HintSize="496,207" sap2010:WorkflowViewState.IdRef="If_32">
+                          <If.Then>
+                            <Throw DisplayName="Throw E" Exception="[new Exception(&quot;Failed to click correct content item&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_4" />
+                          </If.Then>
+                        </If>
+                        <uix:NCheckState Exists="{x:Null}" CheckVisibility="True" DisplayName="Check App State 'UL'" EnableIfExists="False" sap:VirtualizedContainerService.HintSize="496,342" sap2010:WorkflowViewState.IdRef="NCheckState_9" Timeout="2">
+                          <uix:NCheckState.IfExists>
+                            <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Sequence>
+                          </uix:NCheckState.IfExists>
+                          <uix:NCheckState.IfNotExists>
+                            <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="250,116" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Throw DisplayName="Throw E" Exception="[new Exception(&quot;Failed to find right click menu&quot;)]" sap:VirtualizedContainerService.HintSize="208,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                            </Sequence>
+                          </uix:NCheckState.IfNotExists>
+                          <uix:NCheckState.Target>
+                            <uix:TargetAnchorable BrowserURL="https://sundsvall-preprod.sitevision.consid.net/edit/5.2f173b9f17dd7cacb9b5feb" ContentHash="M489oJGOc0a2__RxrwmVjQ" DesignTimeRectangle="244, 453, 160, 419" ElementType="List" FriendlyName="'UL'" FullSelectorArgument="&lt;webctrl aria-role='menu' tag='UL' class='dropdown-menu' parentclass='dropdown open' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='menu' tag='UL' class='dropdown-menu' parentclass='dropdown open' type='' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKQAAAGnCAYAAAA5VvxbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABerSURBVHhe7Z1LrxxFmobrN423PRLLpkf8jV6MjjQ/oKdhZtQLkM4OCQnonlm0V4gNtRj7YC4LY8AGWeZgHQQDBjU6CzjGNuYiLjY5+cUl84svIrOyXJd8s+p9pIDKjMjIqIynvsg8zsyY/fbbb5Wkhw8fJunBgwdZ+vXXX5dIX1bnn5hVT5z/spC3+fTl+Seq2V8uF/OYhqVvvvlm5fT1119XFy9ezFyyvkUPZ3plLGwb9ssvvzxC+kf1dxHy7/8o5G06+X3/5XIpj2loun379srpq6++qi5cuODqs16V5HRCxox79+5Vt27dqj766KPq5s2bSfrwww+XTG9Uzzw2qx575o1C3gbTG89Uj81m1ezfzpfzmQand955Z+X01ltvVS+88ELmkzgmrolzWsyZfBBb7969W3388cdNAUI2SQyA4py4FyPmTD5IOP3000+r+/fvh+KEbAdxTtyLQ/pMPvz888/VycmJO6kkZJvIMC3uiYPi4kw+/PTTT9UHH3wQihCyXcQ9cVBcnMmHH3/8sbpx40bIJmS7iHvioLg4kw8//PBDdf369ZBNyHYR98RBcXEmH7777jsKSUZD3BMHxcXZ999/X/3ff/+hms1mIZuQ7fL++++7q21xcfbp//xLLeNT1d+uXQvZhGyXa7V73377rYuSs9f+Y1bNnrpUXb16NWQTsl3EPfkjuUTJ2Sd/k+H6yeqv774bsgnZLu/W7t25c8dFydm9ex9XLz5eR0meQ5KRECHlziCJkjP5d0RZkH8IJ2QMxD1xUFx0QsptQm+//XbIRuCsmh+cq86da9PB/CzkkV1D3BMHnZBPzh6vnr95hiPk2bw6yAQ8rg5FzMPjsEx2CXHv7OzMnUfOjp6U88d/r164ciVkj4mPjMVo6EQ9qNosE0UTWUXguuyxl9vlH8zrLYTSPrzw9H0crtTuNULKf24+/3uMi5pMui6CjI1BdjlE1HOH9aew5rCV8mx+oAStOT5Ml8lWyYSUBVk5OiKGkqiTUrlE5kLE0/lGfJGV56jjMXkhswjnCMN0I6SNtFpSH1Hbz7Ys2SaJkPHJMHn2YXQGDtmrCxnqkAXZJ4frURH3xEFxEUvIELnKw6cSatUhu1k+rOa1mByuxwVYyBonSseffZpINvCiRkU+d1GTGuq3GRCRyWbBFtIRhFIpj2JRqJAS2UKEPJRIGvILw3J56CfbZgJCrkphyC4gQnK4Hh8K6ZAIy+EaAQrpLor4t0cU9kBIMiUoJIEiExLm37LJXpIIefLi47WMf6qeZ4QkI5EIefTnWTX70/9yyCajwQhJoDDnkCfV87/nQ15kPIyQvMom40IhCRSJkH92D3lRSDIeiZDuKpsXNWREsiGbfxgnY5IJyXNIMiYTENLcfLv0nTl++0X3QxIMsIXse4RhsGEUckoAC+lFKkbDBQ9xtY8jpNGV9zzigyukfTKwkz4h3RIj5ITAFXLomyso5E5BIQkUuEJyyN5LcIUMIpUvRLSEFHKXABay5pHeXFHOp5DTIBMS758Og2AqZVEziOvz6/NOOf9shJTsOmJKHq2EJxGSd4yTsUmE5DM1ZGwYIQkU5hySz9SQcTFCgl1lk72DQhIoEiH5TA0Zm0RIPlNDxiYbsvlMDRmTTEieQ5IxoZAECgpJoKCQBAoKSaCgkAQKCkmgoJAEik4hT09PmZi2nhghCRSZkPynQzImiZC8Y5yMTSIkn6khY8MISaAw55B8poaMixGSV9lkXCgkgSIRks/UkLFJhOQzNWRssiGbfxgnY5II+cUXX1SfffZZdXR0FLIJ2S4UkkBBIQkUFJJAQSEJFBSSQDENId2cNQOnhlswnUg6Q4Nh8FQkm8W1Efx96P697UPmEVqOCQgZZlE4HDiREoXcCl5INdFAWL8q+EI6SeQL5/PRRI4P44Gpo2gtbiqVnsXhoBZ7CSHdclu3bO/zSnPo2Pals0fosvmPot026eiudgKQCrm+9sILqaOFE88Y6dY1ByLMWdOI4zu6kSEKNkTIULbdXag7bJtJlUxFYvZrlvuEFPR3RqUoZExdx3cA4EKmHeUlyaNf0ne6TGG+xFwGRVZ/SrKtKSs/jG7halRb8vwdE7JOekRYBmwhzQRI9WFIh8qiQNK5fl2nGHZdpLM+dbCbbcO5rfNGPqdyZkK5undcyK7jugTAQsbht5RC1NuokK2IXZGvEUe2U+v3T8h0FFoFXCGLstW49bHz0o506O1WGbIL4mbbBsnm9Xo9RBX3odqS509VyPWJGIEVstipAR2B0nIxqkaRS0N8nd9Rr8/vkNkt223t/iJesFZSs+zqarfxnTstITcFqJC2Qw2mQ52gIot06lxJ5fB1xaFFotkgIWt0vW4bs1+h+4ej95t/F133wfzYid04GH84G4hA6GBf1EwAEbLzh0OWJhFSZPzkk0+qCxcuhGzST3p1TVYnEVL+IwuykiwgnFMyOq4XCkmgoJAECgpJoKCQBAoKSaCgkAQKCkmgoJAECgpJoKCQBAoKSaCgkAQKCkmgmIaQy9xZY26ytXTfUPtoFJ+fiSxoy5Txd7lv+BEGTCH9YwJbeXPFutl5IeNd7+sTE19I16nyhf0jAaVglDwOsMqbK4QQjV2qy81VBPR3h8+b+mS1jZD9bdkdUiFDWsMPHV5I98VDh5eGR7euORD2oSvzbI6Tu+fAhfxmF1HOsMJ3QiqYblN/W3aLopAxrSAmuJAmKmZDYCFq6jJOqHQ4cQey44Bp+T1BKi2k2bYVckFbdoxeIev0qHfSYwspQiUCeEHSiGc7XMTw64ryZXW2iFz2QOoI2CvkgrbsGkUhO47rMgALGYe8UgpRj0KORirkPlzUdA13bn0cGhcMkxyyN4YXcn0iRmCF7BOnO2rZC4nSEF/nd9Qb8xupnNBDhbT5ti1kCKBC+mjTeWLsRGk72kkh4ohMq7y5QogSSqrLyZ99YjsWCSn0t4UsAjZCoiCCdf4wyNqhkIosAu7wOSAqFDLBXtlTxm1DIQkUFJJAQSEJFBSSQEEhCRQUkkBBIQkUFJJAQSEJFBSSQEEhCRQUkkBBIQkU0xAy3DQ76L7EBbeMlW6yXQV7g24Cb19bmgkI6W8J45sr9gN8IV2nioiFh6gC+rGB6by5QtoVHqkI+/LFdHvVqODapX+Q+fHw7ev8ZpMgEfLk5KS6efNm9corr4Ts8XERLRz10vDo1jWdaR+s8p3WdJKTW5c3hPxmF1HOsMK1xQim29TfFksQL/k+pr3JsnxWdWWnMbK/rn1NB/AI6Tuk6bNsCDT5gi6TRZUgVYeQWn5PkCqsK23bCrmgLRl5+WLb1HeQfUUBpayLwLG87Kvje00JbCGlM5KD7AVJI57t8DaSdHZwR8fpDo/oCNgr5IK25ORC6n01uHq9kG7/Lj9GQ6mjzbNtnyLAQsYhr5RC1NszIdvPrYiyjWxyXJ8bl/czLXCFLHZwjVsfOzLv1GS7HRuyfXvq+ub1OtUmd6HV8Z2mBqyQfeJ0R60YVaMEfjkd4uv8rs5LZK9xMgwV0ubbtlgKAod1bZS2y2F/el1oo43sUwVUyLwjElwntB0dO0nSdN5cURJS0O0tHAPz3bvrmSawERIFEWxXos8UoJCKLAL2ngOSTUAhE+J5X0yUcdtQSAIFhSRQUEgCBYUkUFBIAgWFJFBQSAIFhSRQUEgCBYUkUFBIAgWFJFBQSALFNIRc5q7oBbeMlW6yXQebqhcV933N4yHrYAJC+lvC0N9csZ9Cxtv01icmvpBOMPnC3bfq68cGVn5zRXiupqkvMbv78YJEyMKPQj/q4MrWn5PHHeqspJPVF/V3rbdvzIjlxyQVMqQ1/CDhhYydJ+hOjbh1zYGwD1Z5gRpxomydB85Kr5dNXWZ5aSHVfprObVck23tx22Vffv3D5TI0bS6lFcQEF9IIknW0FahGl3HnnmnHJeIYls5T9Sf5Q4TUdWXlw2lKaHj2QyzUv23cd9ASmpSOLMPBFlI6PJHAd1Qa8WzHiKR+XadEdl0g63hFMc/tf11C6h/ORIXsOK7LACxkHH5LKXQehRyNVEjd9tXAFbLroLv1sbN2acieopDrEzECK2SfHN2dG6Nq7Cy//OgXNXp7n9eeG6XLaTtM2bjfHRJyU4AKaTvf4CJT2yGuw6TD67TymyuiPDFpEZK60vZlkrk2hrL1+mPJp5ALgY2QZD+hkAQKCkmgoJAECgpJoKCQBAoKSaCgkAQKCkmgoJAECgpJoKCQBAoKSaCgkAQKCkmgoJAECgpJoOgU8vT0lIlp64kRkkBBIQkUFJJAQSEJFBSSQEEhCRQUkkBBIQkUFJJAQSEJFBSSQEEhCRQUkkBBIQkUFJJAQSEJFBSSQDENIcP7ujvfOa5Z8P7t7P3emhXe3d1b79ZI302+Sdz33adZGFrCQebkmwPYtpBxAoD1iYkvZDNDgZ8BoXSw9SwMK02+mcgs29Wf52o2hZ4DnwmpZ2HQ25Z+MGq+G0eybVq2e0YGL2PcbtBosgKpkCGt4QcJL6T74qEDss6oceuaAxE7RUulOsd1Xs+By4Qs1N0RfhIhnVBapFCX29bXo4WR79As223NcreQbmGkCGnSCmKCC+k7sjnAWXQx+YIuYyNPTRbJNAUh077v3ra33hotUlpW9pMKZaOb3nYSQtbpUSM0tpAiVNLJpsMyQYW2g4uSZHUq1i2kq091VKzMrVdDeLNd4QdW4+oOK6GF7DquSwAspD+42Zd2qed8DEFIV49va9w+FakVR7Zro8lUhUxHoVXAFbIoW03obH/QCx2otxtpyNYCRaxIvsy8Fkh/RzMCBPS2WEKuT8QIrJB9na87JS0Xo2raQekQX+dvQ0hVzi3LfjORCm1xPyIlqVn2dbUiuGMxgpCbAlRIL0PnibHpJN8pPq00+eaahIxixDaJiFakWKb4Hd33i9vr7yKkdR8eSzvbMkX5JwRshNx9RCwrG6GQYyHRuCtS7zEUcgTS8z6ioZAECgpJoKCQBAoKSaCgkAQKCkmgoJAECgpJoKCQBAoKSaCgkAQKCkmgoJAECmAhzU2uKiHfe+pukG0amN/kuyvkNxyvB3ghs84Mt/6jdnIq5O7S3Jnu0vrEnJ6QQvbwlomm2Y2v+jGGOiWVmm11XriJdh4fkXB5eeSOjyEkneTa0PEYRCyTfIfwKMLAN2WMTfo9QlrDDcfTFDJ2nvv2vpx+NiV9Ms/m6+UglynbLIdobLfV0vqOMc+0NPmpkL5sK1m6HH40Tafm+0KiKGRMK4g5USFVnkTL7AAoYbNoqijl6Qe99OcuTJluIVM5Pf57eOHzfFfXGqLOJugVsk46QCzD5IXsPjBekr5OLecpmXuE1E86DoqQHXVJPTsj5BraOlEhW2kWdVpffjmvX8hGxLjd0Ai500Ku71x3mkLqobZvSBbWOmQrWSNDhUw+R6Y+ZK9PxMj0hHQC6PW+XHLyn4imO93TXvTYbc1yUUi9b7+8zouatu6QDyrkpoAXsh0WYjIRyhHFiMn+ck1+0slmP6kRRsgaJ3ssL3m+7kb48IPxbeiQrNlet5NCCsBCkn2EQhIoKCSBgkISKCgkgYJCEigoJIGCQhIoKCSBgkISKCgkgYJCEigoJIGCQhIoKCSBgkISKCgkgaJTyNPTUyamrSdGSAIFhSRQUEgCBYUkUFBIAgWFJFBQSAIFhSRQUEgCBYUkUFBIAgWFJFBQSAIFhSRQUEgCBYUkUFBIAgWwkF3vGE/fw72Y/N3d3UjZ0jvMybaAFzITKZuFYREUckpMT0ghm1/GRNNk5gIrZFdZXy6ub8un65NZGsjamaaQSSTz5crz0LglJeSQsjpC6m2FfHuyXiYqpMqTaJnN5aLFUlINKtsK6eaJsQ1wpwx2HhyyLiYvZDoRkU65kMPKtkI28xpmiUJuikTIf/7PS9Xvnjqq/ulfXwzZY9InZCvO4tmujJALyxohyw0gG2KaQuqLmuwCx9IKOaxsK+Rigcm6mZ6Q2Z99fLkkkiXiKSEHlW2FjNvqixhKulnghczP37QwES9OW0ZHQS2k0Fe2zg3njflkmiFRxo0CLCTZRygkgYJCEigoJIGCQhIoKCSBgkISKCgkgYJCEigoJIGCQhIoKCSBgkISKCgkgYJCEigSIeU/siArCRkDYCG7btCtE2+S3VnghdRPG3gKjyGQnWGCQtZkD2uZaJpE0PCczFy2iWXSxxZ8fWp7le+eoakboR+JlTa59bG8aWSSV3zkgnSxA0L6coveXNFKaiKsqyt/sCvmR7li8Ua2dkV1oLZ3+foHkf14SB8TFLIgVHZOGaKiW+kF0/Vk0hi00FlZI2DaTr3fFqmPr18ZBryQ7dCnkrKriVhZWlJI+3Rhr5D56YIrbutQiUIOY1IR0suXRqCiXAkLhFQSxTKLI2SfkHmEJMOZlJCCv7hQQiw8R+sX0n02O3lkIQv7IssxOSFjp7eS+HKJVImkA4RUwrllqT9ssJyQcXudT0mXYYJC1sRhtskMkjapX4hUsiB03LYuqKVaVkjBR/E2Fb8DKQIsJNlHKCSBgkISKCgkgYJCEigoJIGCQhIoKCSBgkISKCgkgYJCEigoJIGCQhIoKCSBgkISKCgkgYJCEig6hTw9PWVi2npihCRQUEgCBYUkUFBIAgWFJFBQSAIFhSRQUEgCBYUkUFBIAgWFJFBQSAIFhSRQUEgCBYUkUFBIAgWFJFAAC2ne/W0S4nu79ewN5NGAF3JK/UshV2faQobZGPQsWXoGBRHkYH6sIq2Z1CjO5tAknS+zN9TLfZN2JtsfVocUcmWmHyH1nDROkFaqOD1HU4crG/KDTG394RShmQIkTDVipw+JG9jtXd0UclXghWyjk075PDHnDufu/92zwgq+bNe8g+mcNP3z22Tz19RwyF6d6UdIIQ6dBUGsfLk0ZtKlgUKW5HP5FHIldktIc47XL2QrYiyzTISkkJthB4SMw3C4eFEb5NKoIVvO+UxEXUbItKynJClZjskLmYhhLjScIPrKWV8A6c9CvCgZKGSWz4uatQAvZHNuZ5N0fJAgkyaI5iPWYTM02z/7eGFDEtFcfbHMIiFrmlMFv/2cEXJlgIVcHQ6h04NCEigoJIFip4Uk04NCEigoJIGCQhIoKCSBgkISKCgkgYJCEigoJIGCQhIoKCSBgkISKCgkgYJCEig6hSxNjMjEtOnECEmgoJAECgpJoKCQBAoKSaCgkAQKCkmgoJAECgpJoKCQBAoKSaCgkAQKCkmgoJAECgpJoKCQBAoKSaAAFrL7HeNdEx+Ng305f/5ucjIceCHzjvUdjiPlsNkiyDAmKGSdI7MhhAx5bfPhPM6GEGdQMNFVV+JmTjisjuM0HjZf0Hl10tnp/v5Y/dcf23L+R2IjpGmLnsWhxr12OuaZiZ/2kZ0QMu3IIECzoVnOpqEz+U5GVZ8r304n0rW/tp1aSJ+no7nbPhS204xk047sIdMTsjQ5ki5khRK0VEYwR7NNeZ/ZDyAp0COk1JsJJvl+/xQwB17IdjhrU1fEEcqd3ErghewS1stU2uejCOnaYutxKf4g9P7Mj2RPmV6ENGxCyL59Li3koAiof3ymbXvGzglZr8g7VQ/T+nPEDNl9V/DLCFlsSy+LfxC7zu4JGaNNs84sOyHz/EZCJ5EWNs1fSsisLTVK0iyCLi3w7rGDQgpBBDcEmvwQIQ8P1fmd2d6e+/WdswpNebfeRjm/3NanhTPttJF7DwEWckOUhmwCA4UkUFBIAsX+CUmgoZAECgpJoEiEvHPnTnV2dlZduXIlZBOyXcQ9cVBcpJBkdCgkgYJCEiiKQl69erV6+PBhKELIdhDnxL1GyLt371a3b9+url+/7lYQsk3EOXFPHBQXnZByuf35559X165dcxkPHjwIxQnZDOKYREVxTtwTB52Q9+7dcwuSeevWreq9996rLl++XL355pvV66+/Xr322mvVpUuXqldffbU6OjqqLl686NKFCxeYmDpT9OTll1+unn76aeeQuCROiVvimLgmzol74qC4OHv22Wer8+fPF5PkvfTSS0w7mp577rni+jHT7MaNG9X9+/eLSfLI7nJychI+oVBV/w/TnVf0n/SXGQAAAABJRU5ErkJggg==" InformativeScreenshot="c6648d45d7daae2469a6c21a816e73df.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/rP7K4lnUz0GSh4Zgtj4tKA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" />
+                          </uix:NCheckState.Target>
+                        </uix:NCheckState>
+                        <uix:NClick DisplayName="Click 'Decoration'" sap:VirtualizedContainerService.HintSize="496,166" sap2010:WorkflowViewState.IdRef="NClick_14" KeyModifiers="None">
+                          <uix:NClick.ClickType>
+                            <InArgument x:TypeArguments="uix:NClickType">
+                              <Literal x:TypeArguments="uix:NClickType" sap2010:WorkflowViewState.IdRef="Literal`1_17" />
+                            </InArgument>
+                          </uix:NClick.ClickType>
+                          <uix:NClick.MouseButton>
+                            <InArgument x:TypeArguments="uix:NMouseButton">
+                              <Literal x:TypeArguments="uix:NMouseButton" sap2010:WorkflowViewState.IdRef="Literal`1_10" />
+                            </InArgument>
+                          </uix:NClick.MouseButton>
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable Accuracy="0.9" BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aab2" ContentHash="nXXJ8Bjxm0Sb5sATDPF9Yw" DesignTimeRectangle="153, 643, 158, 26" ElementType="Text" FriendlyName="'Decoration'" FullSelectorArgument="&lt;webctrl aaname='Decoration' aria-role='menuitem' parentid='contextmenu-content-apply-decoration' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Decoration' aria-role='menuitem' parentid='contextmenu-content-apply-decoration' tag='A' type='' check:text='Decoration' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKIAAAAeCAYAAACv+sUVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIoSURBVHhe7ZfRccMgDIa7k9fyKF4mfskCmcCXt2zgDEEtBFgI201a2oj0/+64CxZgiD7Lycc8z+5yuTgAXsH5fHa3281BRPBSICIwAUQEJoCIwAQQEZgAIgITkHvkIEQELwUiAhMkEa/XqzudTuEyAH8LuUcOGqqIdzf2neu6sg1TGGKQ+9i7Lm1wcoPx/X4Xf85uWE5YF4OvZhaxSOJ9dL3h5OYivi8sYiwO9YRsR0RiGtThVfXsx+WKhCtTimeLqrkyRtIva42DjJWVuh/5blly/B7KirifQBrbu3Gks23FbZGfI7Tie3+etkSMSfOn5nFRBmIicdJEHZf9IJUam/qh+uq5UlZOSNxL6Kd4LiKPXeXK++FhScks72WJTRFj+4GQjYkoYlQdi4MLUYvqKdiKefnCXPl5DzVmX8RcSobPwaKXcb9WhSrzGxyKuDRZGJ6hWRH3vxCW4yiZ2zEh8YGIvuqqexF+zbRpIdfOWrTO24hYYa+NibjK8lWyjuLbsWMRk4Bx3qMV8a1FrPdbti0R5Sv16NVLVH01C0kjj4qYfY60/mquJ2CkHRF94uV1Hpf9qM8Ek8lm1j8zeq7qb4oo7839mn9W1rVD3KiIv4VZEdfyH5uqSJ4oRGz6SVXxLLnqPrkJSsQFL3kcTzFeO4keHhTew45cab7cJ0QkDIoI/iMQEZgAIgITQERgAogITAARgQkgIjABRAQmgIjABBARmIBFnN0n9FNR9uxlvU8AAAAASUVORK5CYII=" InformativeScreenshot="c0665a75f8e99da823c6365eec7ec485.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/mqPJ0iRKFE2O3xuas-e8Nw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='✎ testsida 2 | Sitevision' /&gt;" SearchSteps="Selector" Text="Decoration" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='A' type='' /&gt;" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                        <uix:NCheckState Exists="{x:Null}" CheckVisibility="True" DisplayName="Check App State 'Accordion'" EnableIfExists="False" sap:VirtualizedContainerService.HintSize="496,342" sap2010:WorkflowViewState.IdRef="NCheckState_10" Timeout="2">
+                          <uix:NCheckState.IfExists>
+                            <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Sequence>
+                          </uix:NCheckState.IfExists>
+                          <uix:NCheckState.IfNotExists>
+                            <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="250,116" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Throw DisplayName="Throw E" Exception="[new Exception(&quot;Failed to find decoration menu&quot;)]" sap:VirtualizedContainerService.HintSize="208,22" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                            </Sequence>
+                          </uix:NCheckState.IfNotExists>
+                          <uix:NCheckState.Target>
+                            <uix:TargetAnchorable Accuracy="0.9" BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aab2" ContentHash="aEfSYS47V06JePlflCElWw" DesignTimeRectangle="409, 910, 183, 26" ElementType="Text" FriendlyName="'Accordion'" FullSelectorArgument="&lt;webctrl aaname='Utfällbar flik H1' aria-role='menuitem' parentid='contextmenu-content-apply-decoration' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Accordion' aria-role='menuitem' parentid='contextmenu-content-apply-decoration' tag='A' type='' check:text='Accordion' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALMAAAAeCAYAAABnli/DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHsSURBVHhe7ZfNccMgEEbdEw2kgDSiFJErJbgJ2vBFZeiou88baRcs/kTGdmKjnW9n3ozRrgEPD4RP8zzT+XwmBOKocfr4otPnN0FmxOGjkPl6vQJwSCAzUANkBmqAzEANkBmoATIDNUBmoAbIDNTQt8yjJWMMDW6q59/EaA0ZO/LnyQ1kBkdTVgNeT8cyT+QGQ9auQlsaqzXvIZYZ9EO/Mk+OBpZ4JLucznYsa1iqJSekwrdyfJpWc+tYllzIhxOX57LV2+bJLPMN/cdvFa61jjdpLQ+eo1uZZeFFmNpJmEsUt3/NRQKnbS9iPJYX+baZ/NWnLrN8fxM0bctYeV8Ducm3wVN0KrNIcFt0Fipe9CyfcG9OrjMiXJlPZRX27sy1WhFWNkuZb80V3EufMq8CJIseC7e0C7kjHsitcu7JvPtWqMhcq5UxIfMr6FBmETfcKVP8dQAygwr9ybwnIz8PC9+S4N4crhla6E7mqhCePYk435Imz4UTvmjX5MqecV9785Da23Uoaxfzgsx/Smcy5zJksEjbqc1yr2Ix6WneyonAIbeJvSuXfytw/SKja20q30foP/4tkPl/uVwutHrc1x9AAB4AMgM1QGagBsgM1ACZgRogM1ADZAZqgMxADYXMCMRRAzIj1ITIPNMPsEd0POihAXMAAAAASUVORK5CYII=" InformativeScreenshot="7455a94678ef1cfe13a268b7939b1933.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/5XLRKCDHoE6tggBr2QLOgQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Accordion" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='A' type='' /&gt;" />
+                          </uix:NCheckState.Target>
+                        </uix:NCheckState>
+                        <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[AccordionHeaderTag.ToUpper]" sap:VirtualizedContainerService.HintSize="496,247" sap2010:WorkflowViewState.IdRef="Switch`1_6">
+                          <Switch.Default>
+                            <uix:NClick ClickType="Single" DisplayName="Click 'Accordion H6 Button'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_80" KeyModifiers="None" MouseButton="Left">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable Accuracy="0.9" BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aab2" ContentHash="B23Eq7nJBkG6hEAwKdM3wQ" DesignTimeRectangle="306, 945, 183, 26" ElementType="Text" FriendlyName="'Accordion'" FullSelectorArgument="&lt;webctrl aaname='Accordion H6' aria-role='menuitem' parentid='contextmenu-content-apply-decoration' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Accordion' aria-role='menuitem' parentid='contextmenu-content-apply-decoration' tag='A' type='' check:text='Accordion' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALMAAAAeCAYAAABnli/DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHsSURBVHhe7ZfNccMgEEbdEw2kgDSiFJErJbgJ2vBFZeiou88baRcs/kTGdmKjnW9n3ozRrgEPD4RP8zzT+XwmBOKocfr4otPnN0FmxOGjkPl6vQJwSCAzUANkBmqAzEANkBmoATIDNUBmoAbIDNTQt8yjJWMMDW6q59/EaA0ZO/LnyQ1kBkdTVgNeT8cyT+QGQ9auQlsaqzXvIZYZ9EO/Mk+OBpZ4JLucznYsa1iqJSekwrdyfJpWc+tYllzIhxOX57LV2+bJLPMN/cdvFa61jjdpLQ+eo1uZZeFFmNpJmEsUt3/NRQKnbS9iPJYX+baZ/NWnLrN8fxM0bctYeV8Ducm3wVN0KrNIcFt0Fipe9CyfcG9OrjMiXJlPZRX27sy1WhFWNkuZb80V3EufMq8CJIseC7e0C7kjHsitcu7JvPtWqMhcq5UxIfMr6FBmETfcKVP8dQAygwr9ybwnIz8PC9+S4N4crhla6E7mqhCePYk435Imz4UTvmjX5MqecV9785Da23Uoaxfzgsx/Smcy5zJksEjbqc1yr2Ix6WneyonAIbeJvSuXfytw/SKja20q30foP/4tkPl/uVwutHrc1x9AAB4AMgM1QGagBsgM1ACZgRogM1ADZAZqgMxADYXMCMRRAzIj1ITIPNMPsEd0POihAXMAAAAASUVORK5CYII=" InformativeScreenshot="4ce2ad44d68296433b7b7bb295b6ea28.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/X00KgTvGUEKciYxo1vawzg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*| Sitevision' /&gt;" SearchSteps="Selector" Text="Accordion" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='A' type='' /&gt;" />
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                          </Switch.Default>
+                          <uix:NClick x:Key="H1" DisplayName="Click 'Accordion'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_74" KeyModifiers="None">
+                            <uix:NClick.ClickType>
+                              <InArgument x:TypeArguments="uix:NClickType">
+                                <Literal x:TypeArguments="uix:NClickType" sap2010:WorkflowViewState.IdRef="Literal`1_3" />
+                              </InArgument>
+                            </uix:NClick.ClickType>
+                            <uix:NClick.MouseButton>
+                              <InArgument x:TypeArguments="uix:NMouseButton">
+                                <Literal x:TypeArguments="uix:NMouseButton" sap2010:WorkflowViewState.IdRef="Literal`1_2" />
+                              </InArgument>
+                            </uix:NClick.MouseButton>
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable Accuracy="0.9" BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aab2" ContentHash="aEfSYS47V06JePlflCElWw" DesignTimeRectangle="409, 910, 183, 26" ElementType="Text" FriendlyName="'Accordion'" FullSelectorArgument="&lt;webctrl aaname='Utfällbar flik H1' aria-role='menuitem' parentid='contextmenu-content-apply-decoration' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Accordion' aria-role='menuitem' parentid='contextmenu-content-apply-decoration' tag='A' type='' check:text='Accordion' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALMAAAAeCAYAAABnli/DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHsSURBVHhe7ZfNccMgEEbdEw2kgDSiFJErJbgJ2vBFZeiou88baRcs/kTGdmKjnW9n3ozRrgEPD4RP8zzT+XwmBOKocfr4otPnN0FmxOGjkPl6vQJwSCAzUANkBmqAzEANkBmoATIDNUBmoAbIDNTQt8yjJWMMDW6q59/EaA0ZO/LnyQ1kBkdTVgNeT8cyT+QGQ9auQlsaqzXvIZYZ9EO/Mk+OBpZ4JLucznYsa1iqJSekwrdyfJpWc+tYllzIhxOX57LV2+bJLPMN/cdvFa61jjdpLQ+eo1uZZeFFmNpJmEsUt3/NRQKnbS9iPJYX+baZ/NWnLrN8fxM0bctYeV8Ducm3wVN0KrNIcFt0Fipe9CyfcG9OrjMiXJlPZRX27sy1WhFWNkuZb80V3EufMq8CJIseC7e0C7kjHsitcu7JvPtWqMhcq5UxIfMr6FBmETfcKVP8dQAygwr9ybwnIz8PC9+S4N4crhla6E7mqhCePYk435Imz4UTvmjX5MqecV9785Da23Uoaxfzgsx/Smcy5zJksEjbqc1yr2Ix6WneyonAIbeJvSuXfytw/SKja20q30foP/4tkPl/uVwutHrc1x9AAB4AMgM1QGagBsgM1ACZgRogM1ADZAZqgMxADYXMCMRRAzIj1ITIPNMPsEd0POihAXMAAAAASUVORK5CYII=" InformativeScreenshot="7455a94678ef1cfe13a268b7939b1933.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/5XLRKCDHoE6tggBr2QLOgQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Accordion" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='A' type='' /&gt;" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NClick x:Key="H2" ClickType="Single" DisplayName="Click 'Accordion'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_75" KeyModifiers="None" MouseButton="Left">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable Accuracy="0.9" BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aab2" ContentHash="AlSdbiFl9EWHR96WQWx34Q" DesignTimeRectangle="409, 936, 183, 26" ElementType="Text" FriendlyName="'Accordion'" FullSelectorArgument="&lt;webctrl aaname='Utfällbar flik H2' aria-role='menuitem' parentid='contextmenu-content-apply-decoration' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Accordion' aria-role='menuitem' parentid='contextmenu-content-apply-decoration' tag='A' type='' check:text='Accordion' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALMAAAAeCAYAAABnli/DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHsSURBVHhe7ZfNccMgEEbdEw2kgDSiFJErJbgJ2vBFZeiou88baRcs/kTGdmKjnW9n3ozRrgEPD4RP8zzT+XwmBOKocfr4otPnN0FmxOGjkPl6vQJwSCAzUANkBmqAzEANkBmoATIDNUBmoAbIDNTQt8yjJWMMDW6q59/EaA0ZO/LnyQ1kBkdTVgNeT8cyT+QGQ9auQlsaqzXvIZYZ9EO/Mk+OBpZ4JLucznYsa1iqJSekwrdyfJpWc+tYllzIhxOX57LV2+bJLPMN/cdvFa61jjdpLQ+eo1uZZeFFmNpJmEsUt3/NRQKnbS9iPJYX+baZ/NWnLrN8fxM0bctYeV8Ducm3wVN0KrNIcFt0Fipe9CyfcG9OrjMiXJlPZRX27sy1WhFWNkuZb80V3EufMq8CJIseC7e0C7kjHsitcu7JvPtWqMhcq5UxIfMr6FBmETfcKVP8dQAygwr9ybwnIz8PC9+S4N4crhla6E7mqhCePYk435Imz4UTvmjX5MqecV9785Da23Uoaxfzgsx/Smcy5zJksEjbqc1yr2Ix6WneyonAIbeJvSuXfytw/SKja20q30foP/4tkPl/uVwutHrc1x9AAB4AMgM1QGagBsgM1ACZgRogM1ADZAZqgMxADYXMCMRRAzIj1ITIPNMPsEd0POihAXMAAAAASUVORK5CYII=" InformativeScreenshot="7f9932632f8340f3627f6c8a69aa0bb2.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/VbJMNQKLEEWbipFanv6V1w" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Accordion" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='A' type='' /&gt;" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NClick x:Key="H3" DisplayName="Click 'Accordion'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_76" KeyModifiers="None" MouseButton="Left">
+                            <uix:NClick.ClickType>
+                              <InArgument x:TypeArguments="uix:NClickType">
+                                <Literal x:TypeArguments="uix:NClickType" sap2010:WorkflowViewState.IdRef="Literal`1_4" />
+                              </InArgument>
+                            </uix:NClick.ClickType>
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable Accuracy="0.9" BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aab2" ContentHash="R2QFwpYotk2zexFLsgVBzQ" DesignTimeRectangle="409, 962, 183, 26" ElementType="Text" FriendlyName="'Accordion'" FullSelectorArgument="&lt;webctrl aaname='Utfällbar flik H3' aria-role='menuitem' parentid='contextmenu-content-apply-decoration' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Accordion' aria-role='menuitem' parentid='contextmenu-content-apply-decoration' tag='A' type='' check:text='Accordion' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALMAAAAeCAYAAABnli/DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHsSURBVHhe7ZfNccMgEEbdEw2kgDSiFJErJbgJ2vBFZeiou88baRcs/kTGdmKjnW9n3ozRrgEPD4RP8zzT+XwmBOKocfr4otPnN0FmxOGjkPl6vQJwSCAzUANkBmqAzEANkBmoATIDNUBmoAbIDNTQt8yjJWMMDW6q59/EaA0ZO/LnyQ1kBkdTVgNeT8cyT+QGQ9auQlsaqzXvIZYZ9EO/Mk+OBpZ4JLucznYsa1iqJSekwrdyfJpWc+tYllzIhxOX57LV2+bJLPMN/cdvFa61jjdpLQ+eo1uZZeFFmNpJmEsUt3/NRQKnbS9iPJYX+baZ/NWnLrN8fxM0bctYeV8Ducm3wVN0KrNIcFt0Fipe9CyfcG9OrjMiXJlPZRX27sy1WhFWNkuZb80V3EufMq8CJIseC7e0C7kjHsitcu7JvPtWqMhcq5UxIfMr6FBmETfcKVP8dQAygwr9ybwnIz8PC9+S4N4crhla6E7mqhCePYk435Imz4UTvmjX5MqecV9785Da23Uoaxfzgsx/Smcy5zJksEjbqc1yr2Ix6WneyonAIbeJvSuXfytw/SKja20q30foP/4tkPl/uVwutHrc1x9AAB4AMgM1QGagBsgM1ACZgRogM1ADZAZqgMxADYXMCMRRAzIj1ITIPNMPsEd0POihAXMAAAAASUVORK5CYII=" InformativeScreenshot="34829c5c0023573e4057ea95a9a51114.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/2EIddbAw4Eii4KaZtdum-Q" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Accordion" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='A' type='' /&gt;" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NClick x:Key="H4" ClickType="Single" DisplayName="Click 'Accordion'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_77" KeyModifiers="None" MouseButton="Left">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable Accuracy="0.9" BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aab2" ContentHash="Nwwa3aTZOkWVK8nWLJzGhQ" DesignTimeRectangle="409, 988, 183, 26" ElementType="Text" FriendlyName="'Accordion'" FullSelectorArgument="&lt;webctrl aaname='Utfällbar flik H4' aria-role='menuitem' parentid='contextmenu-content-apply-decoration' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Accordion' aria-role='menuitem' parentid='contextmenu-content-apply-decoration' tag='A' type='' check:text='Accordion' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALMAAAAeCAYAAABnli/DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHsSURBVHhe7ZfNccMgEEbdEw2kgDSiFJErJbgJ2vBFZeiou88baRcs/kTGdmKjnW9n3ozRrgEPD4RP8zzT+XwmBOKocfr4otPnN0FmxOGjkPl6vQJwSCAzUANkBmqAzEANkBmoATIDNUBmoAbIDNTQt8yjJWMMDW6q59/EaA0ZO/LnyQ1kBkdTVgNeT8cyT+QGQ9auQlsaqzXvIZYZ9EO/Mk+OBpZ4JLucznYsa1iqJSekwrdyfJpWc+tYllzIhxOX57LV2+bJLPMN/cdvFa61jjdpLQ+eo1uZZeFFmNpJmEsUt3/NRQKnbS9iPJYX+baZ/NWnLrN8fxM0bctYeV8Ducm3wVN0KrNIcFt0Fipe9CyfcG9OrjMiXJlPZRX27sy1WhFWNkuZb80V3EufMq8CJIseC7e0C7kjHsitcu7JvPtWqMhcq5UxIfMr6FBmETfcKVP8dQAygwr9ybwnIz8PC9+S4N4crhla6E7mqhCePYk435Imz4UTvmjX5MqecV9785Da23Uoaxfzgsx/Smcy5zJksEjbqc1yr2Ix6WneyonAIbeJvSuXfytw/SKja20q30foP/4tkPl/uVwutHrc1x9AAB4AMgM1QGagBsgM1ACZgRogM1ADZAZqgMxADYXMCMRRAzIj1ITIPNMPsEd0POihAXMAAAAASUVORK5CYII=" InformativeScreenshot="419dd1a782deb3f7bae249ad042fece0.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/AwMCEhc4gEaxDajLlhXIWA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Accordion" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='A' type='' /&gt;" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NClick x:Key="H5" ClickType="Single" DisplayName="Click 'Accordion'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_78" KeyModifiers="None" MouseButton="Left">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable Accuracy="0.9" BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aab2" ContentHash="NpzEQm05L0CZUVHc2v_fXg" DesignTimeRectangle="369, 1014, 183, 26" ElementType="Text" FriendlyName="'Accordion'" FullSelectorArgument="&lt;webctrl aaname='Utfällbar flik H5' aria-role='menuitem' parentid='contextmenu-content-apply-decoration' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Accordion' aria-role='menuitem' parentid='contextmenu-content-apply-decoration' tag='A' type='' check:text='Accordion' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALMAAAAeCAYAAABnli/DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHsSURBVHhe7ZfNccMgEEbdEw2kgDSiFJErJbgJ2vBFZeiou88baRcs/kTGdmKjnW9n3ozRrgEPD4RP8zzT+XwmBOKocfr4otPnN0FmxOGjkPl6vQJwSCAzUANkBmqAzEANkBmoATIDNUBmoAbIDNTQt8yjJWMMDW6q59/EaA0ZO/LnyQ1kBkdTVgNeT8cyT+QGQ9auQlsaqzXvIZYZ9EO/Mk+OBpZ4JLucznYsa1iqJSekwrdyfJpWc+tYllzIhxOX57LV2+bJLPMN/cdvFa61jjdpLQ+eo1uZZeFFmNpJmEsUt3/NRQKnbS9iPJYX+baZ/NWnLrN8fxM0bctYeV8Ducm3wVN0KrNIcFt0Fipe9CyfcG9OrjMiXJlPZRX27sy1WhFWNkuZb80V3EufMq8CJIseC7e0C7kjHsitcu7JvPtWqMhcq5UxIfMr6FBmETfcKVP8dQAygwr9ybwnIz8PC9+S4N4crhla6E7mqhCePYk435Imz4UTvmjX5MqecV9785Da23Uoaxfzgsx/Smcy5zJksEjbqc1yr2Ix6WneyonAIbeJvSuXfytw/SKja20q30foP/4tkPl/uVwutHrc1x9AAB4AMgM1QGagBsgM1ACZgRogM1ADZAZqgMxADYXMCMRRAzIj1ITIPNMPsEd0POihAXMAAAAASUVORK5CYII=" InformativeScreenshot="848171fb33ad9f950a8ca47d3b0f7bc1.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/GIQ_eVozkE-CJWXty4XrxA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Accordion" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='A' type='' /&gt;" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NClick x:Key="H6" ClickType="Single" DisplayName="Click 'Accordion'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_79" KeyModifiers="None" MouseButton="Left">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable Accuracy="0.9" BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aab2" ContentHash="53NQZS3lXEiajOweL8zMTA" DesignTimeRectangle="369, 1040, 183, 26" ElementType="Text" FriendlyName="'Accordion'" FullSelectorArgument="&lt;webctrl aaname='Utfällbar flik H6' aria-role='menuitem' parentid='contextmenu-content-apply-decoration' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Accordion' aria-role='menuitem' parentid='contextmenu-content-apply-decoration' tag='A' type='' check:text='Accordion' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALMAAAAeCAYAAABnli/DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHsSURBVHhe7ZfNccMgEEbdEw2kgDSiFJErJbgJ2vBFZeiou88baRcs/kTGdmKjnW9n3ozRrgEPD4RP8zzT+XwmBOKocfr4otPnN0FmxOGjkPl6vQJwSCAzUANkBmqAzEANkBmoATIDNUBmoAbIDNTQt8yjJWMMDW6q59/EaA0ZO/LnyQ1kBkdTVgNeT8cyT+QGQ9auQlsaqzXvIZYZ9EO/Mk+OBpZ4JLucznYsa1iqJSekwrdyfJpWc+tYllzIhxOX57LV2+bJLPMN/cdvFa61jjdpLQ+eo1uZZeFFmNpJmEsUt3/NRQKnbS9iPJYX+baZ/NWnLrN8fxM0bctYeV8Ducm3wVN0KrNIcFt0Fipe9CyfcG9OrjMiXJlPZRX27sy1WhFWNkuZb80V3EufMq8CJIseC7e0C7kjHsitcu7JvPtWqMhcq5UxIfMr6FBmETfcKVP8dQAygwr9ybwnIz8PC9+S4N4crhla6E7mqhCePYk435Imz4UTvmjX5MqecV9785Da23Uoaxfzgsx/Smcy5zJksEjbqc1yr2Ix6WneyonAIbeJvSuXfytw/SKja20q30foP/4tkPl/uVwutHrc1x9AAB4AMgM1QGagBsgM1ACZgRogM1ADZAZqgMxADYXMCMRRAzIj1ITIPNMPsEd0POihAXMAAAAASUVORK5CYII=" InformativeScreenshot="aacdd7feedf887448e1495a80a1a5bc3.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/X00KgTvGUEKciYxo1vawzg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*| Sitevision' /&gt;" SearchSteps="Selector" Text="Accordion" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='A' type='' /&gt;" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                        </Switch>
+                      </Sequence>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="542,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <Sequence sap:VirtualizedContainerService.HintSize="376,418" sap2010:WorkflowViewState.IdRef="Sequence_217">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Refresh Site workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="General\Refresh Site.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                              </ui:InvokeWorkflowFile.Arguments>
+                            </ui:InvokeWorkflowFile>
+                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Select Content Item workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Content\Select Content Item.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <InArgument x:TypeArguments="x:String" x:Key="ContentItemPath">[AccordionTitle]</InArgument>
+                                <OutArgument x:TypeArguments="x:String" x:Key="SelectedContentItem" />
+                              </ui:InvokeWorkflowFile.Arguments>
+                            </ui:InvokeWorkflowFile>
+                            <Rethrow sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+                          </Sequence>
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                </ActivityAction>
+              </ui:RetryScope.ActivityBody>
+              <ui:RetryScope.Condition>
+                <ActivityFunc x:TypeArguments="x:Boolean" />
+              </ui:RetryScope.Condition>
+            </ui:RetryScope>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp BrowserType="Chrome" ContentHash="6jLBns8Cf0mmiWiPVxzcWg" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAATSURBVDhPYxgFo2AUjAIwYGAAAAQQAAGnRHxjAAAAAElFTkSuQmCC" InformativeScreenshot="54bdf10cba4ebdc66d4e169127567694.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/9u_pmQsZCU6Czkw5MT4mbg" Selector="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" Url="*/edit/*" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Select Content Item workflow" sap:VirtualizedContainerService.HintSize="694,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Content\Select Content Item.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="ContentItemPath">/Huvudinnehåll</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="SelectedContentItem" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Create New Text Field workflow" sap:VirtualizedContainerService.HintSize="694,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Edit Page\Create New Text Field.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InOutArgument x:TypeArguments="x:Boolean" x:Key="NewTextFieldCreated">[NewTextFieldCreated]</InOutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message Closed" sap:VirtualizedContainerService.HintSize="694,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Closed utfallbar tag. Made layout to an accordion with header style &quot; + AccordionHeaderTag]" />
+  </Sequence>
+</Activity>

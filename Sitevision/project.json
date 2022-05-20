@@ -1,0 +1,85 @@
+{
+  "name": "Sitevision",
+  "description": "Sitevision activities",
+  "main": "NewActivity.xaml",
+  "dependencies": {
+    "UiPath.Excel.Activities": "2.9.5",
+    "UiPath.Mail.Activities": "1.9.5",
+    "UiPath.System.Activities": "20.10.3",
+    "UiPath.UIAutomation.Activities": "20.10.8"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "20.10.4.0",
+  "projectVersion": "1.5.7",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": false
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Library",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": [
+        "Test\\Test.xaml",
+        "Edit Page/Create New Text Field.xaml",
+        "Edit Page/Tags/aTag.xaml",
+        "Edit Page/Tags/blockquoteTag.xaml",
+        "Edit Page/Tags/captionTag.xaml",
+        "Edit Page/Tags/etjanstTag.xaml",
+        "Edit Page/Tags/iframeTag.xaml",
+        "Edit Page/Tags/imgTag.xaml",
+        "Edit Page/Tags/ListsTags.xaml",
+        "Edit Page/Tags/liTag.xaml",
+        "Edit Page/Tags/mappTag.xaml",
+        "Edit Page/Tags/Select Tree Item.xaml",
+        "Edit Page/Tags/SetTextStyle.xaml",
+        "Edit Page/Tags/tableTag.xaml",
+        "Edit Page/Tags/tdTag.xaml",
+        "Edit Page/Tags/trTag.xaml",
+        "Edit Page/Tags/utfallbarTag.xaml",
+        "Edit Page/Tags/youtubeTag.xaml",
+        "BackToEditPage.xaml",
+        "Edit Page/Tags/SetLinkType.xaml",
+        "Pages/Add Language And Translation Of Page URL.xaml",
+        "TakeScreenshot.xaml",
+        "Test\\Test_AddText.xaml",
+        "Edit Page/Tags/SetBoldTextStyle.xaml",
+        "Edit Page/Tags/SetItalicTextStyle.xaml",
+        "Test/Test_SelectPage.xaml",
+        "RemoveTextAndGoToEnd.xaml",
+        "Test/Test_AddCategories.xaml",
+        "Edit Page/Tags/CloseBoldTextStyle.xaml",
+        "Edit Page/Tags/CloseItalicTextStyle.xaml",
+        "Test/Test_Login.xaml",
+        "Test/Test_AddPreviousURL.xaml",
+        "Test/Test_AddSynonymsAndCategories.xaml",
+        "Edit Page/Tags/utfallbarEndTag.xaml"
+      ]
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": true
+  },
+  "expressionLanguage": "VisualBasic",
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Legacy"
+}

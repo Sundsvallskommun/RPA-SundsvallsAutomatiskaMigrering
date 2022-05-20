@@ -1,0 +1,222 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Launch_And_Login" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="URL" Type="InArgument(x:String)" />
+    <x:Property Name="Username" Type="InArgument(x:String)" />
+    <x:Property Name="Password" Type="InArgument(ss:SecureString)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>943,2511</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Launch_And_Login_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="54">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="30">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Launch_And_Login" sap:VirtualizedContainerService.HintSize="924,2446" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message Launching" sap:VirtualizedContainerService.HintSize="882,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Launching sitevision&quot;]" />
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser 'Log In Screen'" sap:VirtualizedContainerService.HintSize="882,2092" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="IfNotOpen" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="848,1876" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="806,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
+            <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Du är'" sap:VirtualizedContainerService.HintSize="806,1244" sap2010:WorkflowViewState.IdRef="NCheckState_4" Timeout="3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="376,175" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[new Uri(URL).Host]" />
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="376,1018" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Användarnamn:'" EnableIfExists="False" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="334,186" sap2010:WorkflowViewState.IdRef="NCheckState_1" Timeout="10">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="https://sundsvall-robot.sitevision.consid.net/inloggning?redirect=https%3A%2F%2Fsundsvall-robot.sitevision.consid.net%2F" ContentHash="-w84EwMjXkWj6ukGgnX0XQ" DesignTimeRectangle="29, 127, 323, 44" ElementType="InputBox" FriendlyName="'INPUT  name5ea86ef417c2…'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' aaname='Användarnamn:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAUcAAAAwCAYAAACCGbimAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADJSURBVHhe7dRBCoQwAARBX53vZxFlido/SBXMae59TAA+xBEgPOI4xjAz23arfxzfB8Bu1g6KI8BNHAGCOAIEcQQI4ggQxBEgiCNAEEeAII4AQRwBgjgCBHEECOIIEMQRIIgjQBBHgCCOAEEcAYI4AgRxBAjiCBDEESCII0AQR4AgjgBBHAGCOAIEcQQI4ggQxBEgiCNAEEeAII4AQRwBgjgCBHEECOIIEMQRIIgjQBBHgCCOACHjeDoPM7Ndt3rEEYCLOAJ8zPkD06XLMBTfiIsAAAAASUVORK5CYII=" InformativeScreenshot="7bfe551756fffc5e9ea041a121468276.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/VBB9cUYsT0GIARUdmPLPOA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Inloggning | Sundsvall - Robot' /&gt;" SearchSteps="Selector, Image">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="29, 89, 1509, 38" ElementType="Text" FriendlyName="'Användarnamn:'" FullSelectorArgument="&lt;webctrl aaname='Användarnamn:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Användarnamn:' tag='LABEL' type='' check:text='Användarnamn:' /&gt;" ImageBase64="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" SearchSteps="Selector, Image" Text="Användarnamn:" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='LABEL' type='' /&gt;" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NCheckState.Target>
+                  </uix:NCheckState>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Användarnamn:'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,226" sap2010:WorkflowViewState.IdRef="NTypeInto_1" Text="[Username]">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="https://sundsvall-robot.sitevision.consid.net/inloggning?redirect=https%3A%2F%2Fsundsvall-robot.sitevision.consid.net%2F" ContentHash="-w84EwMjXkWj6ukGgnX0XQ" DesignTimeRectangle="29, 127, 323, 44" ElementType="InputBox" FriendlyName="'INPUT  name5ea86ef417c2…'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' aaname='Användarnamn:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAUcAAAAwCAYAAACCGbimAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADJSURBVHhe7dRBCoQwAARBX53vZxFlido/SBXMae59TAA+xBEgPOI4xjAz23arfxzfB8Bu1g6KI8BNHAGCOAIEcQQI4ggQxBEgiCNAEEeAII4AQRwBgjgCBHEECOIIEMQRIIgjQBBHgCCOAEEcAYI4AgRxBAjiCBDEESCII0AQR4AgjgBBHAGCOAIEcQQI4ggQxBEgiCNAEEeAII4AQRwBgjgCBHEECOIIEMQRIIgjQBBHgCCOACHjeDoPM7Ndt3rEEYCLOAJ8zPkD06XLMBTfiIsAAAAASUVORK5CYII=" InformativeScreenshot="7bfe551756fffc5e9ea041a121468276.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/VBB9cUYsT0GIARUdmPLPOA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Inloggning | Sundsvall - Robot' /&gt;" SearchSteps="Selector, Image">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="29, 89, 1509, 38" ElementType="Text" FriendlyName="'Användarnamn:'" FullSelectorArgument="&lt;webctrl aaname='Användarnamn:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Användarnamn:' tag='LABEL' type='' check:text='Användarnamn:' /&gt;" ImageBase64="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" SearchSteps="Selector, Image" Text="Användarnamn:" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='LABEL' type='' /&gt;" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Lösenord:'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,226" sap2010:WorkflowViewState.IdRef="NTypeInto_2" SecureText="[Password]">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="https://sundsvall-robot.sitevision.consid.net/inloggning?redirect=https%3A%2F%2Fsundsvall-robot.sitevision.consid.net%2F" ContentHash="mYNFFJESlUewYXt1JF7TnA" DesignTimeRectangle="29, 214, 323, 44" ElementType="InputBoxPassword" FriendlyName="'INPUT  pwd5ea86ef417c2a…'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='password' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='password' aaname='Lösenord:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAUcAAAAwCAYAAACCGbimAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADJSURBVHhe7dRBCoQwAARBX53vZxFlido/SBXMae59TAA+xBEgPOI4xjAz23arfxzfB8Bu1g6KI8BNHAGCOAIEcQQI4ggQxBEgiCNAEEeAII4AQRwBgjgCBHEECOIIEMQRIIgjQBBHgCCOAEEcAYI4AgRxBAjiCBDEESCII0AQR4AgjgBBHAGCOAIEcQQI4ggQxBEgiCNAEEeAII4AQRwBgjgCBHEECOIIEMQRIIgjQBBHgCCOACHjeDoPM7Ndt3rEEYCLOAJ8zPkD06XLMBTfiIsAAAAASUVORK5CYII=" InformativeScreenshot="b2dda166483a2e8f12c58533cbb72305.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/fwskk5TizEyPsr0aa_8Ukg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Inloggning | Sundsvall - Robot' /&gt;" SearchSteps="Selector, Image">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="29, 176, 1509, 38" ElementType="Text" FriendlyName="'Lösenord:'" FullSelectorArgument="&lt;webctrl aaname='Lösenord:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Lösenord:' tag='LABEL' type='' check:text='Lösenord:' /&gt;" ImageBase64="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" SearchSteps="Selector, Image" Text="Lösenord:" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='LABEL' type='' /&gt;" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <uix:NClick ClickType="Single" DisplayName="Click 'Logga in'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://sundsvall-robot.sitevision.consid.net/inloggning?redirect=https%3A%2F%2Fsundsvall-robot.sitevision.consid.net%2F" ContentHash="JXZ41WxeVE-Xkhau9DuSSQ" DesignTimeRectangle="29, 263, 114, 35" ElementType="Button" FriendlyName="'Logga in'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='submit' aaname='Logga in' check:text='Logga in' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHYAAAAnCAYAAADadbxDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATmSURBVHhe7Zshk6s8FIb7K3CVdZU4ZB2yDomrjFqJxCGZXYHawbEOh8QhcUgcsj/h/RJIQmhDy967d3fhS2aembZJIOe84XASyg6mbLIYYTdaJsK+v7/j7e0NLy8vhhXBNGPaqUUKyyo+Pj5wvV4NK4Rpp4orhX19fdV2MKwHpqEoUlh2SesaG9YD01AUI+yGMMJuFCPsRvkLYRsk7g67HSUoNPUGPaPf3KTR1H8NRthvxwi7UYywhr/ACLtRflbYJkd88eAcrOE4uz1s10eU1Wh17QVNgSTwYO+H81uHE/woR0PrmsTtf9OGubZGFvk4ifPtbXhBiqqldUUw/DZjS1MkCDxHnpOxt134Ie+v6aNnLhQXCPrjukga+p36JvJdxUZnHOvkeHp+SNgOVexh3xuiZ+/FqLr7vh0VwLH0fSwnQBLNCFun8BRRJuw9pAkZPt/ZUiP19vd9VKwzklrt84jnwkbJvI07+4J8gbg/ImyTnmH1A7XgEDYLO17XokqJNMo6p/1VKPu2GXxet3dD5A3v1zUooulEmTqtRGjzYzoXJGXLf5+er+fGljK0h9+tE4K8RifrOtR5gJMYK8mVukc8E5Yf7xQgr4VfOjQZgc3rjmGp9NPz/cJ2OQh3hk376ZzBrsrBCAskF8YxJx+H87kJaqW9oE7EhJk6rU29od+RoJiJAsJpE1vkWC1clHGoyGM7sXZM9ywQ1g5RTvoMVJGz+FzfLyx14uB8Gv5mQ0qHzOfHvogrgRrOJ8Sck/sr8zi0GZ02jtOJa6WtSkvDLT+faksV4+w4OFg0/GkmRI+4N+8CFLr6O54LOzvOT5zr24WteXIzd9UJWLju2x357K0TuL1RZ6QsubhpLyjIMKbRaQVI389CUN63F8hxPbOla9E2FYosQUQTvzGZ+jphSaG2V/jNwhYB70Oe9Lk1YqFRIlxLpzViQvBs86a9oM384fgaW5o8xoVmxAf1XnzH1wkbGGHv+VphOzpenjz10OWYQ5c4JKSZa4a8pMkUTaCWjGtko8IuDsWinUgUfiAUdznh+YANkjX6rPcTzh7YqLBscM+TJyWZ+abkSSZrii0yuvjZ7IZJHfNM9X8v7D9c7rBw+ifLnWsZapc7Ulgv1QvbUlv4RNqmsITO6JZmiw8ZBZpsUFwSlLMbFDcCqhsUXoRCblC0KBN/FIcydZq6QUGQVmKDYrrJ0KMIKycEHec5LtGKSUHPV2Uh3MlO1haFXQK9ysZdpAVbim6E8rNbimeCizN8njqN8mhL0SYgunXstUJ8EvvYGvYuoiyG139/fO8f2bSwA93NRvfOOsDxLojzmURFcLdBzh4CFDRczjmN01ZIA+Whg3gIQCeQDLt3t5UGeeTDtcV+sYWD4yFICm5PTcUf+nqpiASP+PXC/kZq6bTZRf4MYzY9l2CtixUJy2Y6W0c6dEbPZMV1jFM/o6dr1iJgV5kDb040mtBd+vBOl0SfnBC/lVVdsTIrtn0kpRquaRJURPIeaskl0oBMgvgTGpkE0X5tlYI4PDSflm7k/35WJey1o/chIcIM+ue4z5+psmx5yXPOtbAuYXsaFEkI37XHrFokXQ//edGiphnsdM93+MdGKBOh7bBCYQ1L0Apr3rZbP9q37d7N+7GrZvb9WFZYhXmjfX08fKPdlG0VI+wmC/AfOTxhuVpP0mcAAAAASUVORK5CYII=" InformativeScreenshot="a290591880e4ee82b5f963bf57a151c1.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/TbKPO8yN1EuVdpCQKCchuA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Inloggning | Sundsvall - Robot' /&gt;" SearchSteps="Selector, Image" Text="Logga in" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='INPUT' type='submit' /&gt;" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://sundsvall-robot.sitevision.consid.net/inloggning" ContentHash="MTzAfUqeqkW_VQAFRnTecg" DesignTimeRectangle="8, 84, 423, 28" ElementType="Text" FriendlyName="'Du är'" FullSelectorArgument="&lt;webctrl tag='SPAN' innertext='Du är inloggad som: *' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SPAN' innertext='Du är inloggad som: *' type='' aaname='Du är inloggad som: Sundsvall Robot' check:text='Du är inloggad som: Sundsvall Robot' /&gt;" ImageBase64="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" InformativeScreenshot="9765289ec5912ecafd4311d4a09e89f0.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/820SDN_s_kKgGrMhFfDcww" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Inloggning | Sundsvall - Robot' /&gt;" SearchSteps="Selector, Image" Text="Du är inloggad som: Sundsvall Robot" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+            <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="806,436" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Sitevision Logo'" EnableIfExists="False" sap:VirtualizedContainerService.HintSize="334,342" sap2010:WorkflowViewState.IdRef="NCheckState_3" Timeout="10">
+                <uix:NCheckState.IfExists>
+                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </uix:NCheckState.IfExists>
+                <uix:NCheckState.IfNotExists>
+                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="250,116" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Throw DisplayName="Throw SE" Exception="[new SystemException(&quot;Failed to log in to sitevision&quot;)]" sap:VirtualizedContainerService.HintSize="208,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                  </Sequence>
+                </uix:NCheckState.IfNotExists>
+                <uix:NCheckState.Target>
+                  <uix:TargetAnchorable BrowserURL="https://sundsvall-robot.sitevision.consid.net/edit-editormenu/2.5ea86ef417c2aa1d5babd54" ContentHash="Qk-vYc50yEi21dm9BOid7Q" DesignTimeRectangle="1502, 889, 40, 35" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl id='sv-editor-menu' tag='IFRAME' /&gt;&lt;webctrl aaname='                 ' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl id='sv-editor-menu' tag='IFRAME' /&gt;&lt;webctrl aaname='                 ' tag='DIV' type='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACwAAAAnCAYAAAB0Q6rCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALNSURBVFhH7ZhbTxNBGIb9DbK7FWgNFWkBt9CilkRKPJAUoyTGQzkINthYhRrLoRZrotFINFxp0DsPNxoujHBJNAoXGtGE+Gf6Cz5mdlvb7n6z2XW265LQ5MlOM7tfnrwzOzPZfbBLfsViUWH3Cod6et1FpBdkcpUjUfI/6k5hVbDUVkQrfe4QLkspkrWCWv6PMBUrDbEqaR6HhCti2iG2Sl2EeaWMsFGYphglL4x6xe/h59+Fq4ZYkdT21wnzwooYe7lxCkNhNT3SJpLK1STB4Tgcup+AlqdX4eByEhq/zELTxwz4715G77eCXlhJjs5D/AEjAqnzRG4GPNv3wPNrATzf8yB9mwfpN2n/Kaj8zIN/+gL6vBkME7ZCy9K4KrRNoII/qGwOpPU5kDZyFeESvgejuhpmsEXY/2ikJKtJlsiKn7Igfp7TCVN8C8NoPSO4hYNjg6oAluxqFqQPt0HcnNfJlmk7d1pX0whuYe/KLXayRFZ4N4WKljnw9iZalwWX8JFYn3Gyr6dAXMuiomUk8hJitVlwCXeQ4WQlS2WFV+naFYLB4fGzaH0MLuHgKJm/rGRfpEFcvYMKanFOeGQQTZbKNizfQOUwWtNDaH0MLuH2oTNossLidRA32CuDFscS7jwZ0ye7OAnC+wwqxqIzdgKtj8ElTGl6TtKsSlZYSqFSTFam0bosuIXbLsX/JttQuAbiV3xXY+GfND9/KdzClObMFRAKSRDeGG8SWhpfptB6RtgiHBg4BfsfJlEpFlZ3uDK2CLfH+skBZxYV0yJt5cH7eAytYwZbhJuflI6WBkjrM4poR38fWsMs3ML0tEXPAzrBzZwy7L58gluyGm5hz5q6/dKhpksUTdHqkdEKXMKBiwPgfTYBrYk42l8PuBN2mj3herMnXG9cLyxHjkMofBTkrjDIoS73CSufx8LHQO7uIYLdIMuhGlThIuwA3hWDCRFfDUAAAAAASUVORK5CYII=" InformativeScreenshot="7541d8b4f4e4581d24bd1657f24e052f.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/cCEu3iiIjEWbHP2TCM_yCA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Sundsvall - Robot' /&gt;" SearchSteps="Selector, Image" />
+                </uix:NCheckState.Target>
+              </uix:NCheckState>
+            </Sequence>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp BrowserType="Chrome" ContentHash="CFiBaexZiU-rFRYSeLJLwQ" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAATSURBVDhPYxgFo2AUjAIwYGAAAAQQAAGnRHxjAAAAAElFTkSuQmCC" InformativeScreenshot="d1637fc96d3c7190e62a2e40849e875b.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/ItHz3SehQk6gQmIgKaCfmA" Selector="&lt;html app='chrome.exe' title='Inloggning | *' /&gt;" Url="[URL]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <ui:LogMessage DisplayName="Log Message Logged in" sap:VirtualizedContainerService.HintSize="882,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Logged in to sitevision&quot;]" />
+  </Sequence>
+</Activity>

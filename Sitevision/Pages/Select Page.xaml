@@ -1,0 +1,1301 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Create_New" this:Create_New.URLPathWithoutDomain="/Bygga, bo och miljö" this:Create_New.RootSiteName="Sundsvall" this:Create_New.DontCollapseNodesFirst="False" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="FoundPage" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="URLPathWithoutDomain" Type="InArgument(x:String)" />
+    <x:Property Name="RootSiteName" Type="InArgument(x:String)" />
+    <x:Property Name="DontCollapseNodesFirst" Type="InArgument(x:Boolean)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>2545,7057</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Create_New_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="34">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Select Page" sap:VirtualizedContainerService.HintSize="2555,6890" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:List(x:String)" Name="URLNodesEdited" />
+      <Variable x:TypeArguments="x:String" Name="DynamicURLPath" />
+      <Variable x:TypeArguments="x:String" Name="URLPathWithoutDomainEdited" />
+      <Variable x:TypeArguments="x:Int32" Name="index" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="URLNodes" />
+      <Variable x:TypeArguments="sd:DataTable" Name="ToReplace" />
+      <Variable x:TypeArguments="x:String" Name="FullSelector">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="ConcatedStringOfNodeNames" />
+      <Variable x:TypeArguments="x:String" Name="EditedNodesReversed" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="NodesReversed" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="2513,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Navigating to specific page&quot;]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="2513,234" sap2010:WorkflowViewState.IdRef="CommentOut_8">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,156" sap2010:WorkflowViewState.IdRef="Sequence_50">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_42">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[URLPathWithoutDomainEdited]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String" xml:space="preserve">[PageName.
+Replace("&amp;","&amp;amp;").
+Replace("&lt;","	&amp;lt;").
+Replace("""","&amp;quot;;").
+Replace("'","&amp;apos;")]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <Assign DisplayName="Assign URL" sap:VirtualizedContainerService.HintSize="2513,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[URLPathWithoutDomainEdited]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[URLPathWithoutDomain.Trim]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[String.IsNullOrEmpty(URLPathWithoutDomainEdited)]" DisplayName="If No URL Path?" sap:VirtualizedContainerService.HintSize="2513,208" sap2010:WorkflowViewState.IdRef="If_7">
+      <If.Then>
+        <Assign DisplayName="Assign Empty String" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[URLPathWithoutDomainEdited]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">
+              <Literal x:TypeArguments="x:String" Value="" />
+            </InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Then>
+    </If>
+    <Assign DisplayName="Assign List Of Path Nodes" sap:VirtualizedContainerService.HintSize="2513,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(x:String)">[URLNodesEdited]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(x:String)">[URLPathWithoutDomainEdited.Split({"/"}, StringSplitOptions.RemoveEmptyEntries).ToList]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign List Of Path Nodes" sap:VirtualizedContainerService.HintSize="2513,60" sap2010:WorkflowViewState.IdRef="Assign_30">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(x:String)">[URLNodes]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(x:String)">[URLPathWithoutDomainEdited.Split({"/"}, StringSplitOptions.RemoveEmptyEntries).ToList]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="2513,455" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="382,377" sap2010:WorkflowViewState.IdRef="Sequence_43">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[index]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="340,285" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[URLNodes]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="x:String">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:String" Name="node" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Insert regex for spaces etc" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_31">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[URLNodesEdited(index)]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">["(&amp;apos;)?\)?\??!?,?[ -]?-?[ -]?\(?(&amp;apos;)?" + node.Replace("Ö","o").Replace("ö","o").Replace("O","o").Replace("o","[OÖoö]").Replace("Å","a").Replace("å","a").Replace("ä","a").Replace("Ä","a").Replace("A","a").Replace("a","[AÄÅaäå]").Replace("-","(&amp;apos;)?\)?\??!?,?[ -]?-?[ -]?\(?(&amp;apos;)?") + "(&amp;apos;)?\)?\??!?,?[ -]?-?[ -]?\(?(&amp;apos;)?"]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
+          </ui:ForEach>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <ui:BuildDataTable DataTable="[ToReplace]" DisplayName="Build To Replace Data Table" sap:VirtualizedContainerService.HintSize="2513,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Character&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ReplaceWith&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;[&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;\[&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;]&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;\]&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;A&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;å&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;a&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;å&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;Ä&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;å&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;ä&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;å&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;Å&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;å&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;å&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;[AaÄäÅå]&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;O&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;ö&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;o&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;ö&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;Ö&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;ö&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;ö&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;[OoÖö]&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="2513,229" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,151" sap2010:WorkflowViewState.IdRef="Sequence_49">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:BuildDataTable DataTable="[ToReplace]" DisplayName="Build To Replace Data Table" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Character&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ReplaceWith&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;A&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;å&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;a&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;å&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;Ä&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;å&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;ä&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;å&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;Å&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;å&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;å&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;[AaÄäÅå]&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;O&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;ö&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;o&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;ö&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;Ö&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;ö&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Character&gt;ö&lt;/Character&gt;&#xA;    &lt;ReplaceWith&gt;[OoÖö]&lt;/ReplaceWith&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;" />
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[index]" DisplayName="For Each Node" sap:VirtualizedContainerService.HintSize="2513,738" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[URLNodes]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="node" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="354,604" sap2010:WorkflowViewState.IdRef="Sequence_44">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="TempNodeName" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Remove Paranthesises and spaces" sap:VirtualizedContainerService.HintSize="312,60" sap2010:WorkflowViewState.IdRef="Assign_37">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[TempNodeName]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[node.Replace("(","").Replace(")","").Replace(" ","-")]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ToReplace]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="312,208" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                  </ActivityAction.Argument>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_38">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[TempNodeName]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[TempNodeName.Replace(convert.ToChar(row(0).ToString),row(1).ToString)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+            </ui:ForEachRow>
+            <Assign DisplayName="Insert regex for spaces etc" sap:VirtualizedContainerService.HintSize="312,64" sap2010:WorkflowViewState.IdRef="Assign_39">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[TempNodeName]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String" xml:space="preserve">["(&amp;apos;)?\)?\??!?,?[ -]?-?[ -]?\(?(&amp;apos;)?" +
+TempNodeName.
+Replace("&amp;","(&amp;amp;)").
+Replace("&lt;","(&amp;lt;)").
+Replace("&gt;","(&amp;gt;)").
+Replace("""","(&amp;quot;)").
+Replace("'","(&amp;apos;)").
+Replace("-","(&amp;apos;)?\)?\??!?,?[ -]?-?[ -]?\(?(&amp;apos;)?") +
+"(&amp;apos;)?\)?\??!?,?[ -]?-?[ -]?\(?(&amp;apos;)?"]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="Insert regex for spaces etc" sap:VirtualizedContainerService.HintSize="312,60" sap2010:WorkflowViewState.IdRef="Assign_40">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[URLNodesEdited(index)]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[TempNodeName]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <Assign sap:VirtualizedContainerService.HintSize="2513,60" sap2010:WorkflowViewState.IdRef="Assign_57">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(x:String)">[NodesReversed]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(x:String)">[URLNodesEdited.Cast(of string).Reverse().ToList]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[index]" DisplayName="For Each Node In Reverse" sap:VirtualizedContainerService.HintSize="2513,534" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[NodesReversed]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="611,400" sap2010:WorkflowViewState.IdRef="Sequence_51">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="569,60" sap2010:WorkflowViewState.IdRef="Assign_45">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[ConcatedStringOfNodeNames]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[item + ".*?" + ConcatedStringOfNodeNames]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <If Condition="[index = 0]" DisplayName="If First Node" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_15">
+              <If.Then>
+                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_43">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[FullSelector]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[FullSelector + "&lt;webctrl aaname='" + item + "' tag='SPAN' class='fancytree-title' matching:aaname='regex' /&gt;"]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </If.Then>
+              <If.Else>
+                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_44">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[FullSelector]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">["&lt;webctrl parentid='node-nav' tag='LI' innertext='" + ConcatedStringOfNodeNames + "' matching:innertext='regex' /&gt;" + Environment.NewLine + FullSelector]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="2513,230" sap2010:WorkflowViewState.IdRef="CommentOut_9">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_52">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_46">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[FullSelector]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">["&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" + Environment.NewLine + FullSelector]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser 'Edit Screen'" sap:VirtualizedContainerService.HintSize="2513,3260" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="2479,3044" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Int32" Name="NodeIndex" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[String.IsNullOrWhiteSpace(RootSiteName)]" DisplayName="If No Root Site Name" sap:VirtualizedContainerService.HintSize="2437,315" sap2010:WorkflowViewState.IdRef="If_14">
+              <If.Then>
+                <uix:NGetText DisplayName="Get Text 'House/Home Icon'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NGetText_1">
+                  <uix:NGetText.Target>
+                    <uix:TargetAnchorable BrowserURL="https://sundsvall-preprod.sitevision.consid.net/edit/4.44e3ea617a090538134855f" ContentHash="V6w2d5kXEEym6lem-of8Xw" DesignTimeRectangle="124, 157, 127, 19" ElementType="Text" FriendlyName="'Sundsvalls kommun'" FullSelectorArgument="&lt;webctrl tag='IMG' class='fancytree-icon' src='/edit-icons/home_*' /&gt;&lt;nav up='1' /&gt;&lt;webctrl tag='SPAN' class='fancytree-title' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='IMG' class='fancytree-icon' src='/edit-icons/home_*' /&gt;&lt;nav up='1' /&gt;&lt;webctrl tag='SPAN' class='fancytree-title' type='' aaname='Sundsvalls kommun' check:text='Sundsvalls kommun' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIMAAAAXCAYAAAAoavwzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJpSURBVGhD7ZaNjcMgDIWzYcZig66QUSJ1kYzBgTHGNiY/10aqWn9SpFIM9rPf5TpFx0HcDA7hZnAIN4NDuBkcws3gEDtm2OIyT3Ga2hNW3Ho7awx33r+GVH9IWdTn05RezMuG6+9kYAY0gpjOnQNzM3wCAzPYw9mWWRnkXbgZPoELbwbFtsR5mmPrDx8oNi+EFFP/zagBwFBwL8UJM/A9ymEMRA12DfUMPwcbLU6cQZ31zFCvyo31UTj0wshL5xbQB/vzEjcen9eXY1Erqxf+UOs+agysH2eMPP7NIAQal50wQ9f0Nm0xfBBC67ynBokiheCEaAiLK0u1Z5hBvulKjbQU1EGl2/ldgKVFm62uSyzViT0uZ6/E5jKYvkRvBjYzWPNZ2ez8gGzUYbWBwZeHZuAGGg4H4GexCUwoIXLmHCOB2FgrH/tcdB03ifSkfLLuxK4W3Qe9/m9sTntkBlZTNyubU2aoCNe/YAZROFDimzY0RH2Y6HwP3Jvz8zugnnpmTnvs3MAMGW70sTFKffVerqvX8m1myJcJgQhP8oIZumKVUAEOmfawtjWJH96fGObrcjfgjKWb69G6d7VcGfCVWKyV6b3PDJiYJ6vFte9KDBULBYyE6eJ3zpom602nByoGiQY6MoPZULZuSD3ybVDqqcdgj2q7MuArsXaem8yQwQTQ+PK0wgqlINwPC8TbwvrGlwLx7Jx++dLZBJqjPjpvd1dG3FfeHGZzRKO0RtZAgT0YWvPcoun6nH2P3bO92ExZU84l6brPDM6v4WZwCDeDQ7gZHMLN4BBuBoeYHo9HtJ7n84khzm8Q4x9NgllemZDsUAAAAABJRU5ErkJggg==" InformativeScreenshot="77b35e3be7afca71057ed7c240715829.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/CMo8AcoxcUOpXX-5_aN9nQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Sundsvalls kommun" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                  </uix:NGetText.Target>
+                  <uix:NGetText.Text>
+                    <OutArgument x:TypeArguments="x:String">[RootSiteName]</OutArgument>
+                  </uix:NGetText.Text>
+                </uix:NGetText>
+              </If.Then>
+            </If>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="2437,230" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[DynamicURLPath]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[URLPathWithoutDomainEdited.Replace("/","")]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ui:CommentOut.Body>
+            </ui:CommentOut>
+            <If Condition="[URLNodesEdited.Count &gt; 0]" DisplayName="If Any URL Nodes?" sap:VirtualizedContainerService.HintSize="2437,2325" sap2010:WorkflowViewState.IdRef="If_6">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="1616,2176" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:Boolean" Name="TraverseTree" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If Condition="[DontCollapseNodesFirst]" DisplayName="If Collase Node" sap:VirtualizedContainerService.HintSize="1574,1702" sap2010:WorkflowViewState.IdRef="If_11">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="880,1009" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:String" Name="PageName" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="838,61" sap2010:WorkflowViewState.IdRef="Assign_32">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[PageName]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[URLNodesEdited.Last]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Företagscenter Sundsvall'" sap:VirtualizedContainerService.HintSize="838,814" sap2010:WorkflowViewState.IdRef="NCheckState_8">
+                          <uix:NCheckState.IfExists>
+                            <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="480,588" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <TryCatch DisplayName="Try Catch Click Page" sap:VirtualizedContainerService.HintSize="438,393" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                                <TryCatch.Try>
+                                  <uix:NClick ClickType="Single" DisplayName="Click 'Företagscenter Sundsvall'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_12" KeyModifiers="None" MouseButton="Left">
+                                    <uix:NClick.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="Qn4cxdPfgU68DizRqHo8Qg" DesignTimeRectangle="124, 157, 159, 19" ElementType="Text" FriendlyName="'Företagscenter Sundsvall'" FullSelectorArgument="[String.Format(&quot;{0}&quot;, FullSelector)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKMAAAAXCAYAAABnN//jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM/SURBVGhD7VeLjYMwDGVDxmKDrsAoSF2kY3B2nM+zkwDttXdQ+UmRLsSfZ/sRrsPqcJwELkbHaeBidJwGLkbHaeBidJwGLkbHadAR47JOw7AOjTUt0cTxETzmUff8Yw1/rPM4rOP8iPt3A+Mfy7Upxu0+sM24cvxl+l1RYQDjTJSvhiN9Og4R4kRRC7i3nxHkV4nxfXAxCprCe8zraAT6HnyZGEPzyM5+TsJNOU3URHqeRSYxk302X6YSI9mGARRbOyDMO1EevE0UJyNw9Qk0Z71ahN9Eeco5Njg9yy6Ku3w5BGIvfOnM1MRo3Ywa9VAD7xSryzUCuY1kh7FMzzO9GLNwMhxwfrRKPrSrebfw1P+MGEzfZmKfzmWwGwWEwsugdCyx1cOFoarmiG3e8xmIjHnknKapOMRWfu1n94mPfWnNvsXVvAQaqZ64KlvDjVCLscd1qy450z1PvE1Nah58tj0bjI+8W3jxZqyD40BVgxiqOAEKRYvBQDW0ERsbEBvc4l35ZZhBMDhO4qMaTKiGAb7oF4Cxjw0kI+QhzrxygjpGLcYOV8WbgbHk794MqhyZj0aY49+LsT7fFGNoEj2zK9pYMQb/ZDOO0MRGUXYAJpek2GqG1II+slDgx8Qow6hjPTOQClGUvToOi9GeEdi3xJLYmTcKM8QRX/ZJ6azPSLMqOZDrsdr/7WZEKDGqYdf7KnajyQkijtJE5ZchtXRrfUKMwRaHqLA3EI4FdWdgjjqGqmuLq+3rJh/JWc5Sj/g5xLf51B7j79UuePkHjL7NNPl68JaMtq/FWHKHWNjERsFprzkRUBymcWhr/ULOjp/w64jR7lUt+wORWiEXIXCDZ4pbzHdIjDF/to3chI+tQ2zLPvEw/EM+Ez/nx3r3a2e8LEaGNC8uMA7PK+fYuIZ9akwqBOPK26i5lHNqxKwHoDihiAmpobJgaATtB2ebAy5+udG5FvP84EA0R1rwkgSo+BPVT/apOTtcyQBmIL+6e7yr+VWxGEmAvOhsQZu3ifFC4AHYgTkuicuJMdwc+a2Nb6Z9ix2XxAVvRvO591vxa3D9z7Tja+BidJwGLkbHaTDcbre1te73ezRxOP4C6/oD4zS26X2HTjYAAAAASUVORK5CYII=" InformativeScreenshot="39e8e447bd4f5082a7b057de4a43333c.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/HxdR7UIxZUGKOHb9_b8gsg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Företagscenter Sundsvall" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                                    </uix:NClick.Target>
+                                  </uix:NClick>
+                                </TryCatch.Try>
+                                <TryCatch.Catches>
+                                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ActivityAction x:TypeArguments="s:Exception">
+                                      <ActivityAction.Argument>
+                                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                      </ActivityAction.Argument>
+                                      <Assign DisplayName="Did not find page" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_33">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Boolean">[FoundPage]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                    </ActivityAction>
+                                  </Catch>
+                                </TryCatch.Catches>
+                              </TryCatch>
+                              <Assign sap:VirtualizedContainerService.HintSize="438,61" sap2010:WorkflowViewState.IdRef="Assign_34">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Boolean">[FoundPage]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </uix:NCheckState.IfExists>
+                          <uix:NCheckState.IfNotExists>
+                            <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="304,155" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_35">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Boolean">[TraverseTree]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </uix:NCheckState.IfNotExists>
+                          <uix:NCheckState.Target>
+                            <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="Qn4cxdPfgU68DizRqHo8Qg" DesignTimeRectangle="124, 157, 159, 19" ElementType="Text" FriendlyName="'Företagscenter Sundsvall'" FullSelectorArgument="[String.Format(&quot;{0}&quot;, FullSelector)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKMAAAAXCAYAAABnN//jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM/SURBVGhD7VeLjYMwDGVDxmKDrsAoSF2kY3B2nM+zkwDttXdQ+UmRLsSfZ/sRrsPqcJwELkbHaeBidJwGLkbHaeBidJwGLkbHadAR47JOw7AOjTUt0cTxETzmUff8Yw1/rPM4rOP8iPt3A+Mfy7Upxu0+sM24cvxl+l1RYQDjTJSvhiN9Og4R4kRRC7i3nxHkV4nxfXAxCprCe8zraAT6HnyZGEPzyM5+TsJNOU3URHqeRSYxk302X6YSI9mGARRbOyDMO1EevE0UJyNw9Qk0Z71ahN9Eeco5Njg9yy6Ku3w5BGIvfOnM1MRo3Ywa9VAD7xSryzUCuY1kh7FMzzO9GLNwMhxwfrRKPrSrebfw1P+MGEzfZmKfzmWwGwWEwsugdCyx1cOFoarmiG3e8xmIjHnknKapOMRWfu1n94mPfWnNvsXVvAQaqZ64KlvDjVCLscd1qy450z1PvE1Nah58tj0bjI+8W3jxZqyD40BVgxiqOAEKRYvBQDW0ERsbEBvc4l35ZZhBMDhO4qMaTKiGAb7oF4Cxjw0kI+QhzrxygjpGLcYOV8WbgbHk794MqhyZj0aY49+LsT7fFGNoEj2zK9pYMQb/ZDOO0MRGUXYAJpek2GqG1II+slDgx8Qow6hjPTOQClGUvToOi9GeEdi3xJLYmTcKM8QRX/ZJ6azPSLMqOZDrsdr/7WZEKDGqYdf7KnajyQkijtJE5ZchtXRrfUKMwRaHqLA3EI4FdWdgjjqGqmuLq+3rJh/JWc5Sj/g5xLf51B7j79UuePkHjL7NNPl68JaMtq/FWHKHWNjERsFprzkRUBymcWhr/ULOjp/w64jR7lUt+wORWiEXIXCDZ4pbzHdIjDF/to3chI+tQ2zLPvEw/EM+Ez/nx3r3a2e8LEaGNC8uMA7PK+fYuIZ9akwqBOPK26i5lHNqxKwHoDihiAmpobJgaATtB2ebAy5+udG5FvP84EA0R1rwkgSo+BPVT/apOTtcyQBmIL+6e7yr+VWxGEmAvOhsQZu3ifFC4AHYgTkuicuJMdwc+a2Nb6Z9ix2XxAVvRvO591vxa3D9z7Tja+BidJwGLkbHaTDcbre1te73ezRxOP4C6/oD4zS26X2HTjYAAAAASUVORK5CYII=" InformativeScreenshot="39e8e447bd4f5082a7b057de4a43333c.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/HxdR7UIxZUGKOHb9_b8gsg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Företagscenter Sundsvall" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                          </uix:NCheckState.Target>
+                        </uix:NCheckState>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Collapse Nodes" sap:VirtualizedContainerService.HintSize="649,1553" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:String" Default="*" Name="PageName" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign DisplayName="Assign Root Site As Page Name" sap:VirtualizedContainerService.HintSize="607,61" sap2010:WorkflowViewState.IdRef="Assign_41">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[PageName]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[RootSiteName]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <If Condition="[DontCollapseNodesFirst = False]" DisplayName="If Should Collapse Nodes" sap:VirtualizedContainerService.HintSize="607,981" sap2010:WorkflowViewState.IdRef="If_13">
+                          <If.Then>
+                            <Sequence sap:VirtualizedContainerService.HintSize="462,832" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NClick ClickType="Single" DisplayName="Click 'Företagscenter Sundsvall'" sap:VirtualizedContainerService.HintSize="420,166" sap2010:WorkflowViewState.IdRef="NClick_14" KeyModifiers="None" MouseButton="Left">
+                                <uix:NClick.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="cgIAqy1rokiVcNRSAmrIVw" DesignTimeRectangle="124, 157, 159, 19" ElementType="Text" FriendlyName="'Företagscenter Sundsvall'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' type='' casesensitive:aaname='false' matching:aaname='regex' /&gt;&quot;, PageName)]" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' type='' check:text='Företagscenter Sundsvall' /&gt;&quot;, PageName)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKMAAAAXCAYAAABnN//jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM/SURBVGhD7VeLjYMwDGVDxmKDrsAoSF2kY3B2nM+zkwDttXdQ+UmRLsSfZ/sRrsPqcJwELkbHaeBidJwGLkbHaeBidJwGLkbHadAR47JOw7AOjTUt0cTxETzmUff8Yw1/rPM4rOP8iPt3A+Mfy7Upxu0+sM24cvxl+l1RYQDjTJSvhiN9Og4R4kRRC7i3nxHkV4nxfXAxCprCe8zraAT6HnyZGEPzyM5+TsJNOU3URHqeRSYxk302X6YSI9mGARRbOyDMO1EevE0UJyNw9Qk0Z71ahN9Eeco5Njg9yy6Ku3w5BGIvfOnM1MRo3Ywa9VAD7xSryzUCuY1kh7FMzzO9GLNwMhxwfrRKPrSrebfw1P+MGEzfZmKfzmWwGwWEwsugdCyx1cOFoarmiG3e8xmIjHnknKapOMRWfu1n94mPfWnNvsXVvAQaqZ64KlvDjVCLscd1qy450z1PvE1Nah58tj0bjI+8W3jxZqyD40BVgxiqOAEKRYvBQDW0ERsbEBvc4l35ZZhBMDhO4qMaTKiGAb7oF4Cxjw0kI+QhzrxygjpGLcYOV8WbgbHk794MqhyZj0aY49+LsT7fFGNoEj2zK9pYMQb/ZDOO0MRGUXYAJpek2GqG1II+slDgx8Qow6hjPTOQClGUvToOi9GeEdi3xJLYmTcKM8QRX/ZJ6azPSLMqOZDrsdr/7WZEKDGqYdf7KnajyQkijtJE5ZchtXRrfUKMwRaHqLA3EI4FdWdgjjqGqmuLq+3rJh/JWc5Sj/g5xLf51B7j79UuePkHjL7NNPl68JaMtq/FWHKHWNjERsFprzkRUBymcWhr/ULOjp/w64jR7lUt+wORWiEXIXCDZ4pbzHdIjDF/to3chI+tQ2zLPvEw/EM+Ez/nx3r3a2e8LEaGNC8uMA7PK+fYuIZ9akwqBOPK26i5lHNqxKwHoDihiAmpobJgaATtB2ebAy5+udG5FvP84EA0R1rwkgSo+BPVT/apOTtcyQBmIL+6e7yr+VWxGEmAvOhsQZu3ifFC4AHYgTkuicuJMdwc+a2Nb6Z9ix2XxAVvRvO591vxa3D9z7Tja+BidJwGLkbHaTDcbre1te73ezRxOP4C6/oD4zS26X2HTjYAAAAASUVORK5CYII=" InformativeScreenshot="39e8e447bd4f5082a7b057de4a43333c.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/uHZI82j4HkS_IJZQELe7vA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Företagscenter Sundsvall" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                                </uix:NClick.Target>
+                              </uix:NClick>
+                              <uix:NNavigateBrowser Action="Refresh" DisplayName="Navigate Browser - Refresh" sap:VirtualizedContainerService.HintSize="420,81" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_2" />
+                              <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Företagscenter Sundsvall'" EnableIfExists="False" sap:VirtualizedContainerService.HintSize="420,411" sap2010:WorkflowViewState.IdRef="NCheckState_9" Timeout="10">
+                                <uix:NCheckState.IfExists>
+                                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </Sequence>
+                                </uix:NCheckState.IfExists>
+                                <uix:NCheckState.IfNotExists>
+                                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="376,185" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Error" Message="[&quot;Failed to refresh site&quot;]" />
+                                  </Sequence>
+                                </uix:NCheckState.IfNotExists>
+                                <uix:NCheckState.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="cgIAqy1rokiVcNRSAmrIVw" DesignTimeRectangle="124, 157, 159, 19" ElementType="Text" FriendlyName="'Företagscenter Sundsvall'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' type='' casesensitive:aaname='false' matching:aaname='regex' /&gt;&quot;, PageName)]" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' type='' check:text='Företagscenter Sundsvall' /&gt;&quot;, PageName)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKMAAAAXCAYAAABnN//jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM/SURBVGhD7VeLjYMwDGVDxmKDrsAoSF2kY3B2nM+zkwDttXdQ+UmRLsSfZ/sRrsPqcJwELkbHaeBidJwGLkbHaeBidJwGLkbHadAR47JOw7AOjTUt0cTxETzmUff8Yw1/rPM4rOP8iPt3A+Mfy7Upxu0+sM24cvxl+l1RYQDjTJSvhiN9Og4R4kRRC7i3nxHkV4nxfXAxCprCe8zraAT6HnyZGEPzyM5+TsJNOU3URHqeRSYxk302X6YSI9mGARRbOyDMO1EevE0UJyNw9Qk0Z71ahN9Eeco5Njg9yy6Ku3w5BGIvfOnM1MRo3Ywa9VAD7xSryzUCuY1kh7FMzzO9GLNwMhxwfrRKPrSrebfw1P+MGEzfZmKfzmWwGwWEwsugdCyx1cOFoarmiG3e8xmIjHnknKapOMRWfu1n94mPfWnNvsXVvAQaqZ64KlvDjVCLscd1qy450z1PvE1Nah58tj0bjI+8W3jxZqyD40BVgxiqOAEKRYvBQDW0ERsbEBvc4l35ZZhBMDhO4qMaTKiGAb7oF4Cxjw0kI+QhzrxygjpGLcYOV8WbgbHk794MqhyZj0aY49+LsT7fFGNoEj2zK9pYMQb/ZDOO0MRGUXYAJpek2GqG1II+slDgx8Qow6hjPTOQClGUvToOi9GeEdi3xJLYmTcKM8QRX/ZJ6azPSLMqOZDrsdr/7WZEKDGqYdf7KnajyQkijtJE5ZchtXRrfUKMwRaHqLA3EI4FdWdgjjqGqmuLq+3rJh/JWc5Sj/g5xLf51B7j79UuePkHjL7NNPl68JaMtq/FWHKHWNjERsFprzkRUBymcWhr/ULOjp/w64jR7lUt+wORWiEXIXCDZ4pbzHdIjDF/to3chI+tQ2zLPvEw/EM+Ez/nx3r3a2e8LEaGNC8uMA7PK+fYuIZ9akwqBOPK26i5lHNqxKwHoDihiAmpobJgaATtB2ebAy5+udG5FvP84EA0R1rwkgSo+BPVT/apOTtcyQBmIL+6e7yr+VWxGEmAvOhsQZu3ifFC4AHYgTkuicuJMdwc+a2Nb6Z9ix2XxAVvRvO591vxa3D9z7Tja+BidJwGLkbHaTDcbre1te73ezRxOP4C6/oD4zS26X2HTjYAAAAASUVORK5CYII=" InformativeScreenshot="39e8e447bd4f5082a7b057de4a43333c.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/uHZI82j4HkS_IJZQELe7vA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Företagscenter Sundsvall" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                                </uix:NCheckState.Target>
+                              </uix:NCheckState>
+                            </Sequence>
+                          </If.Then>
+                        </If>
+                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="607,236" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+                          <ui:CommentOut.Body>
+                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,158" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Sequence DisplayName="Traverse Nodes" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="x:Boolean" Name="TreeExpanded" />
+                                  <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="ExpandedNodes" />
+                                  <Variable x:TypeArguments="x:String" Name="ClassOnRoot" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="599,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[PageName]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[URLNodesEdited.First]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="599,713" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                                  <ui:CommentOut.Body>
+                                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="462,635" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <uix:NCheckState Exists="{x:Null}" CheckVisibility="True" DisplayName="Check App State 'Företagscenter Sundsvall'" EnableIfExists="False" sap:VirtualizedContainerService.HintSize="420,543" sap2010:WorkflowViewState.IdRef="NCheckState_6" Timeout="1">
+                                        <uix:NCheckState.IfExists>
+                                          <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="250,85" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </Sequence>
+                                        </uix:NCheckState.IfExists>
+                                        <uix:NCheckState.IfNotExists>
+                                          <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="376,317" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                            <Sequence.Variables>
+                                              <Variable x:TypeArguments="ui:UiElement" Name="ParentOfPage" />
+                                            </Sequence.Variables>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:GetAncestor Ancestor="[ParentOfPage]" DisplayName="Get Ancestor" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="GetAncestor_2" UpLevels="4">
+                                              <ui:GetAncestor.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c20cdcab-e805-46b8-acca-9ea14645c006" Selector="&lt;webctrl aaname='{{PageName}}' tag='SPAN' class='fancytree-title' type='' matching:aaname='regex' casesensitive:aaname='false' /&gt;">
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:GetAncestor.Target>
+                                            </ui:GetAncestor>
+                                            <uix:NClick ClickType="Double" DisplayName="Click" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="NClick_9" InUiElement="[ParentOfPage]" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" />
+                                          </Sequence>
+                                        </uix:NCheckState.IfNotExists>
+                                        <uix:NCheckState.Target>
+                                          <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="cgIAqy1rokiVcNRSAmrIVw" DesignTimeRectangle="124, 157, 159, 19" ElementType="Text" FriendlyName="'Företagscenter Sundsvall'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' type='' casesensitive:aaname='false' matching:aaname='regex' /&gt;&quot;, PageName)]" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' type='' check:text='Företagscenter Sundsvall' /&gt;&quot;, PageName)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKMAAAAXCAYAAABnN//jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM/SURBVGhD7VeLjYMwDGVDxmKDrsAoSF2kY3B2nM+zkwDttXdQ+UmRLsSfZ/sRrsPqcJwELkbHaeBidJwGLkbHaeBidJwGLkbHadAR47JOw7AOjTUt0cTxETzmUff8Yw1/rPM4rOP8iPt3A+Mfy7Upxu0+sM24cvxl+l1RYQDjTJSvhiN9Og4R4kRRC7i3nxHkV4nxfXAxCprCe8zraAT6HnyZGEPzyM5+TsJNOU3URHqeRSYxk302X6YSI9mGARRbOyDMO1EevE0UJyNw9Qk0Z71ahN9Eeco5Njg9yy6Ku3w5BGIvfOnM1MRo3Ywa9VAD7xSryzUCuY1kh7FMzzO9GLNwMhxwfrRKPrSrebfw1P+MGEzfZmKfzmWwGwWEwsugdCyx1cOFoarmiG3e8xmIjHnknKapOMRWfu1n94mPfWnNvsXVvAQaqZ64KlvDjVCLscd1qy450z1PvE1Nah58tj0bjI+8W3jxZqyD40BVgxiqOAEKRYvBQDW0ERsbEBvc4l35ZZhBMDhO4qMaTKiGAb7oF4Cxjw0kI+QhzrxygjpGLcYOV8WbgbHk794MqhyZj0aY49+LsT7fFGNoEj2zK9pYMQb/ZDOO0MRGUXYAJpek2GqG1II+slDgx8Qow6hjPTOQClGUvToOi9GeEdi3xJLYmTcKM8QRX/ZJ6azPSLMqOZDrsdr/7WZEKDGqYdf7KnajyQkijtJE5ZchtXRrfUKMwRaHqLA3EI4FdWdgjjqGqmuLq+3rJh/JWc5Sj/g5xLf51B7j79UuePkHjL7NNPl68JaMtq/FWHKHWNjERsFprzkRUBymcWhr/ULOjp/w64jR7lUt+wORWiEXIXCDZ4pbzHdIjDF/to3chI+tQ2zLPvEw/EM+Ez/nx3r3a2e8LEaGNC8uMA7PK+fYuIZ9akwqBOPK26i5lHNqxKwHoDihiAmpobJgaATtB2ebAy5+udG5FvP84EA0R1rwkgSo+BPVT/apOTtcyQBmIL+6e7yr+VWxGEmAvOhsQZu3ifFC4AHYgTkuicuJMdwc+a2Nb6Z9ix2XxAVvRvO591vxa3D9z7Tja+BidJwGLkbHaTDcbre1te73ezRxOP4C6/oD4zS26X2HTjYAAAAASUVORK5CYII=" InformativeScreenshot="39e8e447bd4f5082a7b057de4a43333c.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/uHZI82j4HkS_IJZQELe7vA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Företagscenter Sundsvall" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                                        </uix:NCheckState.Target>
+                                      </uix:NCheckState>
+                                    </Sequence>
+                                  </ui:CommentOut.Body>
+                                </ui:CommentOut>
+                                <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="parentclass" DisplayName="Get Class Attribute 'SPAN'" sap:VirtualizedContainerService.HintSize="599,134" sap2010:WorkflowViewState.IdRef="GetAttribute_1">
+                                  <ui:GetAttribute.Result>
+                                    <OutArgument x:TypeArguments="x:String">[ClassOnRoot]</OutArgument>
+                                  </ui:GetAttribute.Result>
+                                  <ui:GetAttribute.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="aba2c4e7-7a35-419c-b8a8-9857bfd3c808" InformativeScreenshot="b5ef34fd520a42a78086b6ee43b1bdbb" Selector="&lt;webctrl tag='SPAN' class='fancytree-title' /&gt;">
+                                      <ui:Target.TimeoutMS>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:Target.TimeoutMS>
+                                      <ui:Target.WaitForReady>
+                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                      </ui:Target.WaitForReady>
+                                    </ui:Target>
+                                  </ui:GetAttribute.Target>
+                                </ui:GetAttribute>
+                                <If Condition="[Not ClassOnRoot.Contains(&quot;fancytree-expanded&quot;)]" DisplayName="If Not Expanded" sap:VirtualizedContainerService.HintSize="599,506" sap2010:WorkflowViewState.IdRef="If_10">
+                                  <If.Then>
+                                    <Sequence sap:VirtualizedContainerService.HintSize="376,358" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                      <Sequence.Variables>
+                                        <Variable x:TypeArguments="x:String" Name="TreeItem" />
+                                      </Sequence.Variables>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign DisplayName="Assign Tree Item" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:String">[TreeItem]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:String">[RootSiteName]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <uix:NClick ClickType="Double" DisplayName="Click 'Sundsvall'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left">
+                                        <uix:NClick.Target>
+                                          <uix:TargetAnchorable BrowserURL="https://sundsvall.sitevision.consid.net/edit/4.10cf2f9b17d48280b2aab9/12.10cf2f9b17d48280b2a1d54/settings/selection" ContentHash="DK5VJqXSOU2hZ5rILcLQ7Q" DesignTimeRectangle="593, 244, 66, 19" ElementType="Text" FriendlyName="'Sundsvall'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl parentid='dialog-area' tag='DIV' /&gt;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' parentclass='*fancytree-node*' casesensitive:aaname='false' matching:aaname='regex' /&gt;&quot;, TreeItem)]" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl parentid='dialog-area' tag='DIV' class='link-panel' /&gt;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' parentclass='*fancytree-node*' type='' check:text='Sundsvall' /&gt;&quot;, TreeItem)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEYAAAAXCAYAAAC2/DnWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABCSURBVFhH7dABAQAwDMOg+zfdG1gcgATeOIkJYoKYICaICWKCmCAmiAligpggJogJYoKYICaICWKCmCAmiAliTtsHgoIQUAQUryAAAAAASUVORK5CYII=" InformativeScreenshot="351f191a1cbf726404d94b98a02835c0.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/nsrziFfj-0q0k1UdIapYQw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Sundsvall" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                                        </uix:NClick.Target>
+                                      </uix:NClick>
+                                    </Sequence>
+                                  </If.Then>
+                                </If>
+                                <ui:FindChildren Children="[ExpandedNodes]" DisplayName="Find Expanded Nodes" Filter="&lt;webctrl tag='SPAN' class='*fancytree-exp-e*'/&gt;" sap:VirtualizedContainerService.HintSize="599,68" sap2010:WorkflowViewState.IdRef="FindChildren_1" Scope="FIND_DESCENDANTS">
+                                  <ui:FindChildren.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="82aa8cf1-898a-4bbb-b947-d8999f7e5f9e" Selector="&lt;webctrl id='main' tag='SECTION' /&gt;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='top' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl parentid='node-nav' tag='LI' parentclass='ui-fancytree fancytree-container fancytree-ext-edit*' /&gt;">
+                                      <ui:Target.TimeoutMS>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:Target.TimeoutMS>
+                                      <ui:Target.WaitForReady>
+                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                      </ui:Target.WaitForReady>
+                                    </ui:Target>
+                                  </ui:FindChildren.Target>
+                                </ui:FindChildren>
+                                <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="[NodeIndex]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="599,756" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[ExpandedNodes.Reverse]">
+                                  <ui:ForEach.Body>
+                                    <ActivityAction x:TypeArguments="ui:UiElement">
+                                      <ActivityAction.Argument>
+                                        <DelegateInArgument x:TypeArguments="ui:UiElement" Name="node" />
+                                      </ActivityAction.Argument>
+                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="563,622" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <If Condition="[NodeIndex + 1 &lt;&gt; ExpandedNodes.Count]" sap:VirtualizedContainerService.HintSize="521,530" sap2010:WorkflowViewState.IdRef="If_3">
+                                          <If.Then>
+                                            <Sequence sap:VirtualizedContainerService.HintSize="376,382" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <uix:NClick ClickType="Double" DisplayName="Click" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="NClick_6" InUiElement="[node]" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" />
+                                              <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State" EnableIfExists="False" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="334,135" sap2010:WorkflowViewState.IdRef="NCheckState_4" InUiElement="[node]" Mode="WaitDisappear" Timeout="3">
+                                                <uix:NCheckState.IfExists>
+                                                  <Sequence DisplayName="Target disappears" sap:VirtualizedContainerService.HintSize="250,85" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Sequence>
+                                                </uix:NCheckState.IfExists>
+                                                <uix:NCheckState.IfNotExists>
+                                                  <Sequence DisplayName="Target does not disappear" sap:VirtualizedContainerService.HintSize="250,85" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Sequence>
+                                                </uix:NCheckState.IfNotExists>
+                                              </uix:NCheckState>
+                                            </Sequence>
+                                          </If.Then>
+                                        </If>
+                                      </Sequence>
+                                    </ActivityAction>
+                                  </ui:ForEach.Body>
+                                </ui:ForEach>
+                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="599,22" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                                  <ui:CommentOut.Body>
+                                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="782,1086" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="740,994" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+                                        <ui:InterruptibleDoWhile.Body>
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="704,829" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Företagscenter Sundsvall'" sap:VirtualizedContainerService.HintSize="662,381" sap2010:WorkflowViewState.IdRef="NCheckState_2" Timeout="1">
+                                              <uix:NCheckState.IfExists>
+                                                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="304,155" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:Boolean">[TreeExpanded]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                </Sequence>
+                                              </uix:NCheckState.IfExists>
+                                              <uix:NCheckState.IfNotExists>
+                                                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="304,155" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:Boolean">[TreeExpanded]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                </Sequence>
+                                              </uix:NCheckState.IfNotExists>
+                                              <uix:NCheckState.Target>
+                                                <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="XWrFBPe18EWBMHOXyAkQXQ" DesignTimeRectangle="86, 157, 326, 19" FriendlyName="'Företagscenter Sundsvall'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='top' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl tag='SPAN' class='*fancytree-exp-e*' innertext='{0}' matching:innertext='regex' /&gt;&quot;, PageName)]" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='top' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl tag='SPAN' class='*fancytree-exp-e*' innertext='{0}' type='' aaname='' check:text='Företagscenter Sundsvall' /&gt;&quot;, PageName)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAUoAAAAXCAYAAABtTgaYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVPSURBVHhe7Zy/a1xHEMfz97hJk3/AgRT5IxJchDRpAkmqtMIhWODmdJDgVMJgQRLSyLg5G9woqJCMBUoqhVOjwnJhCU6FivXOzs6+mdkf9xSdn55gvvDF9/bn7Hs7H+/dA33kTCaTydSUgdJkMpmWaPSgfPHvW/flo9fu0we7ZvMghv0G+85kIg0OyrOzs+C+Mkiab8Kw70wm0qCgBEBubm4GEyyn02lwTaVNbDYPYZOJNBgoCZIERoKlgdI8VptMpCooJ5OJW1tbqxrq+0pDkszLapKb942bx3Kt+QFvZ161J8eX8U5Hnb4ptru+527/wrnz43mhbhXm47fnMplIVVAeHh4WAUk+OjqKLduqQVK7Jrl5EZRtKEKbS7c/23XPTq+XcAEOF+/cpFA3bve5T/2NkFy4Z6wM7u2HgaWB0jQ+Nb96b21tJTCur6+nz9vb27FFWzVI/nB/w3327Yb7+Gs0fH66cxh7ScnNu1oALLOBEl2E4uydO1fwXI0NlKbxaelvlARHMgCzj2qQ/OLHDXfnq2nw3e9+C6brn5+8jL07yc3bDwAhsUkswcMJ83ThE9wrARDHJKWxDxaxxIvaBjgwKXjweed+Hn4KEzEp+IqvtaquthaMb+HnwSoQT35SWo+IHU/cOBa2x3i9CqfE0olSOgdOiJvGqsYa+/PYLnw7Ppa65/L58JhUDPz5eXXz8XZ53NwmE2kpKGezWQIk/Lu3txdr6qqeJH9CIJJ39v8J5mX6ZCk3r4QaiW90eQrE9lSP0GkkV0jKDiJyLGwrwcOAIxIX26ZrqGMAhDjSnCrhOWBK88t++pri0f+hqOtSrArQ0rSeqKytis07B2Ut1ta6sE7ec4pbrUk8D6hrPxs+Po+b22QiLQUliF7sPH78KJa0VftNEr5icyiWQPn597/EUVBy82oAaOcbn8NGJC9YJB6aQ0yCSlkke2Fsnpwx+UtxZ/2SFSTAMA7FI5LfOwMF68v7BfOx27DIHOaJSnHnY+SgrMQq4gbzsfBz7RlkcxTvY3yOBkrTNdQLlPDiBkB5cnISS/pJgxJ+j+RQLIHyk29+jb1RcvMuA2Ve3wRlSOCCYhsNytCfdHHJEryQcBoOaq7lkMK15OLw7QdKBEWuPrCoOgKzto7eoNR13tC3GwvHTuLQDONgX+jTPXfZ59w/q24OHmt77SYTqRcoQfAW/KpaBsrp78+Dedn1QJlv/CYoWaKlMmYBSgGi/DobuwAAMoKrS3DRLxnXUl3rFUAZ2nLACLdhgWOxdYvyFYBS39dmPDhnV0f3CMrZ+Ho+cc3Hb6/dZCL1BuX/kQal/uqtX+aA7z34K/ZGyc2rAFCwPAXKxMqhpBNFts9B2c0dxuIJXkhGupYxxbZ0rZKat9X9wpyVfk1Q6muxljYswLhWNpd3iI2VidjifL1ASfeK2sbYMB69DmzbXVMcKv4wnxo/zc/X2167yUQaFJR9Xua8ePVf7I2Sm1cnTtmY2FEMjKFcgBIck5rE62PSUpLxcfEUI2Pp6n2SHks4iJg4YL0p2VEMKFk/VteET9cvQSCtBdXBoQ0LsozRiwE8WIy/8Ov37XuBEsyfAb4dr8WdPb9sLDDBEeTrDngbA6Xp6hoUlOCHf+wkKOoT5cM//449O5U28K0wwEHDxHyrbDKRPigoa3ruT43wFRt+jwTDZ32SJJU28BgdTlzptBNPNNnp1XybbDKRbgSUV1FpA4/T6iu8nSZvvU0m0uhBaX+P0nwTtr9HaeIaPSjtL5ybhzbsN/sL5yau0YPSZDKZblqjAWXpDXnJu7v225HJZBpSzr0HfK6JQ0XaJ/gAAAAASUVORK5CYII=" InformativeScreenshot="ee9c7a32afa3aafd47400288ae8b6f29.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/NQTNCNQuwESaeP2rfpn-pQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Företagscenter Sundsvall" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                                              </uix:NCheckState.Target>
+                                            </uix:NCheckState>
+                                            <If Condition="[TreeExpanded]" sap:VirtualizedContainerService.HintSize="662,316" sap2010:WorkflowViewState.IdRef="If_2">
+                                              <If.Then>
+                                                <uix:NClick ClickType="Double" DisplayName="Click 'Dynamic Page Item Expanded'" sap:VirtualizedContainerService.HintSize="334,167" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left">
+                                                  <uix:NClick.Target>
+                                                    <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="th3hr34IkE2J_8Fm3_ZfYA" DesignTimeRectangle="86, 157, 326, 19" FriendlyName="'Företagscenter Sundsvall'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='top' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl tag='SPAN' class='*fancytree-exp-e*' innertext='{0}' /&gt;&quot;, PageName)]" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='top' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl tag='SPAN' class='*fancytree-exp-e*' innertext='{0}' type='' aaname='' check:text='Företagscenter Sundsvall' /&gt;&quot;, PageName)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAUoAAAAXCAYAAABtTgaYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVPSURBVHhe7Zy/a1xHEMfz97hJk3/AgRT5IxJchDRpAkmqtMIhWODmdJDgVMJgQRLSyLg5G9woqJCMBUoqhVOjwnJhCU6FivXOzs6+mdkf9xSdn55gvvDF9/bn7Hs7H+/dA33kTCaTydSUgdJkMpmWaPSgfPHvW/flo9fu0we7ZvMghv0G+85kIg0OyrOzs+C+Mkiab8Kw70wm0qCgBEBubm4GEyyn02lwTaVNbDYPYZOJNBgoCZIERoKlgdI8VptMpCooJ5OJW1tbqxrq+0pDkszLapKb942bx3Kt+QFvZ161J8eX8U5Hnb4ptru+527/wrnz43mhbhXm47fnMplIVVAeHh4WAUk+OjqKLduqQVK7Jrl5EZRtKEKbS7c/23XPTq+XcAEOF+/cpFA3bve5T/2NkFy4Z6wM7u2HgaWB0jQ+Nb96b21tJTCur6+nz9vb27FFWzVI/nB/w3327Yb7+Gs0fH66cxh7ScnNu1oALLOBEl2E4uydO1fwXI0NlKbxaelvlARHMgCzj2qQ/OLHDXfnq2nw3e9+C6brn5+8jL07yc3bDwAhsUkswcMJ83ThE9wrARDHJKWxDxaxxIvaBjgwKXjweed+Hn4KEzEp+IqvtaquthaMb+HnwSoQT35SWo+IHU/cOBa2x3i9CqfE0olSOgdOiJvGqsYa+/PYLnw7Ppa65/L58JhUDPz5eXXz8XZ53NwmE2kpKGezWQIk/Lu3txdr6qqeJH9CIJJ39v8J5mX6ZCk3r4QaiW90eQrE9lSP0GkkV0jKDiJyLGwrwcOAIxIX26ZrqGMAhDjSnCrhOWBK88t++pri0f+hqOtSrArQ0rSeqKytis07B2Ut1ta6sE7ec4pbrUk8D6hrPxs+Po+b22QiLQUliF7sPH78KJa0VftNEr5icyiWQPn597/EUVBy82oAaOcbn8NGJC9YJB6aQ0yCSlkke2Fsnpwx+UtxZ/2SFSTAMA7FI5LfOwMF68v7BfOx27DIHOaJSnHnY+SgrMQq4gbzsfBz7RlkcxTvY3yOBkrTNdQLlPDiBkB5cnISS/pJgxJ+j+RQLIHyk29+jb1RcvMuA2Ve3wRlSOCCYhsNytCfdHHJEryQcBoOaq7lkMK15OLw7QdKBEWuPrCoOgKzto7eoNR13tC3GwvHTuLQDONgX+jTPXfZ59w/q24OHmt77SYTqRcoQfAW/KpaBsrp78+Dedn1QJlv/CYoWaKlMmYBSgGi/DobuwAAMoKrS3DRLxnXUl3rFUAZ2nLACLdhgWOxdYvyFYBS39dmPDhnV0f3CMrZ+Ho+cc3Hb6/dZCL1BuX/kQal/uqtX+aA7z34K/ZGyc2rAFCwPAXKxMqhpBNFts9B2c0dxuIJXkhGupYxxbZ0rZKat9X9wpyVfk1Q6muxljYswLhWNpd3iI2VidjifL1ASfeK2sbYMB69DmzbXVMcKv4wnxo/zc/X2167yUQaFJR9Xua8ePVf7I2Sm1cnTtmY2FEMjKFcgBIck5rE62PSUpLxcfEUI2Pp6n2SHks4iJg4YL0p2VEMKFk/VteET9cvQSCtBdXBoQ0LsozRiwE8WIy/8Ov37XuBEsyfAb4dr8WdPb9sLDDBEeTrDngbA6Xp6hoUlOCHf+wkKOoT5cM//449O5U28K0wwEHDxHyrbDKRPigoa3ruT43wFRt+jwTDZ32SJJU28BgdTlzptBNPNNnp1XybbDKRbgSUV1FpA4/T6iu8nSZvvU0m0uhBaX+P0nwTtr9HaeIaPSjtL5ybhzbsN/sL5yau0YPSZDKZblqjAWXpDXnJu7v225HJZBpSzr0HfK6JQ0XaJ/gAAAAASUVORK5CYII=" InformativeScreenshot="07a7920bbd7bb267677cf515a4d63328.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/NQTNCNQuwESaeP2rfpn-pQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Företagscenter Sundsvall" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                                                  </uix:NClick.Target>
+                                                </uix:NClick>
+                                              </If.Then>
+                                            </If>
+                                          </Sequence>
+                                        </ui:InterruptibleDoWhile.Body>
+                                        <ui:InterruptibleDoWhile.Condition>
+                                          <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="TreeExpanded" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+                                        </ui:InterruptibleDoWhile.Condition>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:InterruptibleDoWhile>
+                                    </Sequence>
+                                  </ui:CommentOut.Body>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:CommentOut>
+                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="599,336" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                                  <ui:CommentOut.Body>
+                                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,258" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <uix:NClick ClickType="Double" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left">
+                                        <uix:NClick.Target>
+                                          <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="T8UIvE8k70iVFhdZJosAqw" DesignTimeRectangle="110, 217, 302, 19" FriendlyName="'SPAN'" FullSelectorArgument="[String.Format(&quot;&lt;html app='chrome.exe' title='* | Sitevision' /&gt;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='top' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl tag='SPAN' class='*fancytree-exp-c*' innertext='{0}' casesensitive:innertext='false' matching:innertext='regex' /&gt;&quot;, PageName)]" FuzzySelectorArgument="[String.Format(&quot;&lt;html app='chrome.exe' title='* | Sitevision' /&gt;&lt;webctrl id='sidebar' parentid='main' tag='SECTION' /&gt;&lt;webctrl id='top' parentid='sidebar' tag='SECTION' /&gt;&lt;webctrl tag='SPAN' class='*fancytree-exp-c*' innertext='{0}' /&gt;&quot;, PageName)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB5SURBVDhP7ZAxDsAgCEV7eEZHL+Hg2Ct4BEZXj0FDg2mbWNFo2sWX/EEkL8BGk1nCcb4XWmsJEeWlowoB4IxzTip1moUcYwyFEOSnTJcwh8+QUpKOJ81Cnu4u5cQYpevivwk5U2/o/S6VOqqQ1yvd6g1V2MsSjkJ0ANzIBnvM0n/mAAAAAElFTkSuQmCC" InformativeScreenshot="c2c10db2a80d37adef22c246b1270060.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/C2ojoWP290KLPQ4ae54Y5g" ScopeSelectorArgument="&lt;html app='chrome.exe' title='✎ testsida | Sitevision' /&gt;" SearchSteps="Selector" />
+                                        </uix:NClick.Target>
+                                      </uix:NClick>
+                                    </Sequence>
+                                  </ui:CommentOut.Body>
+                                </ui:CommentOut>
+                              </Sequence>
+                            </Sequence>
+                          </ui:CommentOut.Body>
+                        </ui:CommentOut>
+                        <Assign sap:VirtualizedContainerService.HintSize="607,61" sap2010:WorkflowViewState.IdRef="Assign_36">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[TraverseTree]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <If Condition="[TraverseTree]" sap:VirtualizedContainerService.HintSize="1574,209" sap2010:WorkflowViewState.IdRef="If_12">
+                    <If.Then>
+                      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[NodeIndex]" DisplayName="For Each Node" sap:VirtualizedContainerService.HintSize="1604,3644" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[URLNodesEdited]">
+                        <ui:ForEach.Body>
+                          <ActivityAction x:TypeArguments="x:String">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="x:String" Name="NodeName" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1568,3510" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="x:String" Default="Bygga bo och miljö" Name="PageName" />
+                                <Variable x:TypeArguments="x:String" Default="\[ -\]\d+$" Name="RegExEndNumber" />
+                                <Variable x:TypeArguments="str:Match" Name="NumberInUrlMatch" />
+                                <Variable x:TypeArguments="x:Int32" Name="NodeReversedIndex" />
+                              </Sequence.Variables>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="1526,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="str:Match">[NumberInUrlMatch]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="str:Match">[System.Text.RegularExpressions.Regex.Match(NodeName,RegExEndNumber)]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <If Condition="[NumberInUrlMatch Is Nothing]" sap:VirtualizedContainerService.HintSize="1526,208" sap2010:WorkflowViewState.IdRef="If_9">
+                                <If.Else>
+                                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_23">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[PageName]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">[NodeName.Substring(0,NodeName.Length-NumberInUrlMatch.Length)]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </If.Else>
+                              </If>
+                              <Assign sap:VirtualizedContainerService.HintSize="1526,60" sap2010:WorkflowViewState.IdRef="Assign_54">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[ConcatedStringOfNodeNames]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <Literal x:TypeArguments="x:String" Value="" />
+                                  </InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign sap:VirtualizedContainerService.HintSize="1526,60" sap2010:WorkflowViewState.IdRef="Assign_55">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[FullSelector]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <Literal x:TypeArguments="x:String" Value="" />
+                                  </InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[NodeReversedIndex]" DisplayName="For Each Node In Reverse" sap:VirtualizedContainerService.HintSize="1526,534" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[NodesReversed.GetRange(NodesReversed.IndexOf(PageName),NodesReversed.Count-NodesReversed.IndexOf(PageName))]">
+                                <ui:ForEach.Body>
+                                  <ActivityAction x:TypeArguments="x:String">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+                                    </ActivityAction.Argument>
+                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="611,400" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign sap:VirtualizedContainerService.HintSize="569,60" sap2010:WorkflowViewState.IdRef="Assign_50">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:String">[ConcatedStringOfNodeNames]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:String">[item + ".*?" + ConcatedStringOfNodeNames]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <If Condition="[NodeIndex = 0]" DisplayName="If First Node" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_18">
+                                        <If.Then>
+                                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_56">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:String">[FullSelector]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:String">["&lt;webctrl aaname='" + PageName + "' tag='SPAN' class='fancytree-title' matching:aaname='regex' /&gt;"]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </If.Then>
+                                        <If.Else>
+                                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_47">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:String">[FullSelector]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:String">["&lt;webctrl parentid='node-nav' tag='LI' innertext='" + ConcatedStringOfNodeNames + "' matching:innertext='regex' /&gt;"+ Environment.NewLine + FullSelector]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </If.Else>
+                                      </If>
+                                    </Sequence>
+                                  </ActivityAction>
+                                </ui:ForEach.Body>
+                              </ui:ForEach>
+                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1526,377" sap2010:WorkflowViewState.IdRef="CommentOut_11">
+                                <ui:CommentOut.Body>
+                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="526,299" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <If Condition="[NodeIndex =]" sap:VirtualizedContainerService.HintSize="484,207" sap2010:WorkflowViewState.IdRef="If_16" />
+                                  </Sequence>
+                                </ui:CommentOut.Body>
+                              </ui:CommentOut>
+                              <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Företagscenter Sundsvall'" sap:VirtualizedContainerService.HintSize="1526,1879" sap2010:WorkflowViewState.IdRef="NCheckState_1" Timeout="2">
+                                <uix:NCheckState.IfExists>
+                                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="1168,1653" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <If Condition="[NodeIndex + 1 = URLNodesEdited.Count]" sap:VirtualizedContainerService.HintSize="1126,1559" sap2010:WorkflowViewState.IdRef="If_1">
+                                      <If.Then>
+                                        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,292" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                                          <TryCatch.Try>
+                                            <Sequence sap:VirtualizedContainerService.HintSize="478,901" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,230" sap2010:WorkflowViewState.IdRef="CommentOut_14">
+                                                <ui:CommentOut.Body>
+                                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_48">
+                                                      <Assign.To>
+                                                        <OutArgument x:TypeArguments="x:String">[FullSelector]</OutArgument>
+                                                      </Assign.To>
+                                                      <Assign.Value>
+                                                        <InArgument x:TypeArguments="x:String">[FullSelector + "&lt;webctrl aaname='" + PageName + "' tag='SPAN' class='fancytree-title' matching:aaname='regex' /&gt;"]</InArgument>
+                                                      </Assign.Value>
+                                                    </Assign>
+                                                  </Sequence>
+                                                </ui:CommentOut.Body>
+                                              </ui:CommentOut>
+                                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,230" sap2010:WorkflowViewState.IdRef="CommentOut_13">
+                                                <ui:CommentOut.Body>
+                                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_52">
+                                                      <Assign.To>
+                                                        <OutArgument x:TypeArguments="x:String">[FullSelector]</OutArgument>
+                                                      </Assign.To>
+                                                      <Assign.Value>
+                                                        <InArgument x:TypeArguments="x:String">["&lt;webctrl parentid='node-nav' tag='LI' innertext='" + ConcatedStringOfNodeNames + "' matching:innertext='regex' /&gt;" + Environment.NewLine + "&lt;webctrl parentid='node-nav' tag='LI' innertext='" + PageName + "' matching:innertext='regex' /&gt;"]</InArgument>
+                                                      </Assign.Value>
+                                                    </Assign>
+                                                  </Sequence>
+                                                </ui:CommentOut.Body>
+                                              </ui:CommentOut>
+                                              <uix:NClick ClickType="Single" DisplayName="Click 'Företagscenter Sundsvall'" sap:VirtualizedContainerService.HintSize="436,166" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" Timeout="5">
+                                                <uix:NClick.Target>
+                                                  <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="Qn4cxdPfgU68DizRqHo8Qg" DesignTimeRectangle="124, 157, 159, 19" ElementType="Text" FriendlyName="'Företagscenter Sundsvall'" FullSelectorArgument="[String.Format(&quot;{0}&quot;, FullSelector)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKMAAAAXCAYAAABnN//jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM/SURBVGhD7VeLjYMwDGVDxmKDrsAoSF2kY3B2nM+zkwDttXdQ+UmRLsSfZ/sRrsPqcJwELkbHaeBidJwGLkbHaeBidJwGLkbHadAR47JOw7AOjTUt0cTxETzmUff8Yw1/rPM4rOP8iPt3A+Mfy7Upxu0+sM24cvxl+l1RYQDjTJSvhiN9Og4R4kRRC7i3nxHkV4nxfXAxCprCe8zraAT6HnyZGEPzyM5+TsJNOU3URHqeRSYxk302X6YSI9mGARRbOyDMO1EevE0UJyNw9Qk0Z71ahN9Eeco5Njg9yy6Ku3w5BGIvfOnM1MRo3Ywa9VAD7xSryzUCuY1kh7FMzzO9GLNwMhxwfrRKPrSrebfw1P+MGEzfZmKfzmWwGwWEwsugdCyx1cOFoarmiG3e8xmIjHnknKapOMRWfu1n94mPfWnNvsXVvAQaqZ64KlvDjVCLscd1qy450z1PvE1Nah58tj0bjI+8W3jxZqyD40BVgxiqOAEKRYvBQDW0ERsbEBvc4l35ZZhBMDhO4qMaTKiGAb7oF4Cxjw0kI+QhzrxygjpGLcYOV8WbgbHk794MqhyZj0aY49+LsT7fFGNoEj2zK9pYMQb/ZDOO0MRGUXYAJpek2GqG1II+slDgx8Qow6hjPTOQClGUvToOi9GeEdi3xJLYmTcKM8QRX/ZJ6azPSLMqOZDrsdr/7WZEKDGqYdf7KnajyQkijtJE5ZchtXRrfUKMwRaHqLA3EI4FdWdgjjqGqmuLq+3rJh/JWc5Sj/g5xLf51B7j79UuePkHjL7NNPl68JaMtq/FWHKHWNjERsFprzkRUBymcWhr/ULOjp/w64jR7lUt+wORWiEXIXCDZ4pbzHdIjDF/to3chI+tQ2zLPvEw/EM+Ez/nx3r3a2e8LEaGNC8uMA7PK+fYuIZ9akwqBOPK26i5lHNqxKwHoDihiAmpobJgaATtB2ebAy5+udG5FvP84EA0R1rwkgSo+BPVT/apOTtcyQBmIL+6e7yr+VWxGEmAvOhsQZu3ifFC4AHYgTkuicuJMdwc+a2Nb6Z9ix2XxAVvRvO591vxa3D9z7Tja+BidJwGLkbHaTDcbre1te73ezRxOP4C6/oD4zS26X2HTjYAAAAASUVORK5CYII=" InformativeScreenshot="39e8e447bd4f5082a7b057de4a43333c.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/HxdR7UIxZUGKOHb9_b8gsg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Företagscenter Sundsvall" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                                                </uix:NClick.Target>
+                                              </uix:NClick>
+                                              <Assign DisplayName="Did find page" sap:VirtualizedContainerService.HintSize="436,61" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Boolean">[FoundPage]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                            </Sequence>
+                                          </TryCatch.Try>
+                                          <TryCatch.Catches>
+                                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,130" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ActivityAction x:TypeArguments="s:Exception">
+                                                <ActivityAction.Argument>
+                                                  <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                                </ActivityAction.Argument>
+                                                <Assign DisplayName="Did not find page" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Boolean">[FoundPage]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                              </ActivityAction>
+                                            </Catch>
+                                          </TryCatch.Catches>
+                                        </TryCatch>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Sequence sap:VirtualizedContainerService.HintSize="647,1410" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="605,1316" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3">
+                                            <ui:RetryScope.ActivityBody>
+                                              <ActivityAction>
+                                                <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="563,1142" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="521,585" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                                                    <TryCatch.Try>
+                                                      <Sequence sap:VirtualizedContainerService.HintSize="376,358" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <uix:NClick ClickType="Double" DisplayName="Click 'Företagscenter Sundsvall'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" Timeout="5">
+                                                          <uix:NClick.Target>
+                                                            <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="Qn4cxdPfgU68DizRqHo8Qg" DesignTimeRectangle="124, 157, 159, 19" ElementType="Text" FriendlyName="'Företagscenter Sundsvall'" FullSelectorArgument="[String.Format(&quot;{0}&quot;, FullSelector)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKMAAAAXCAYAAABnN//jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM/SURBVGhD7VeLjYMwDGVDxmKDrsAoSF2kY3B2nM+zkwDttXdQ+UmRLsSfZ/sRrsPqcJwELkbHaeBidJwGLkbHaeBidJwGLkbHadAR47JOw7AOjTUt0cTxETzmUff8Yw1/rPM4rOP8iPt3A+Mfy7Upxu0+sM24cvxl+l1RYQDjTJSvhiN9Og4R4kRRC7i3nxHkV4nxfXAxCprCe8zraAT6HnyZGEPzyM5+TsJNOU3URHqeRSYxk302X6YSI9mGARRbOyDMO1EevE0UJyNw9Qk0Z71ahN9Eeco5Njg9yy6Ku3w5BGIvfOnM1MRo3Ywa9VAD7xSryzUCuY1kh7FMzzO9GLNwMhxwfrRKPrSrebfw1P+MGEzfZmKfzmWwGwWEwsugdCyx1cOFoarmiG3e8xmIjHnknKapOMRWfu1n94mPfWnNvsXVvAQaqZ64KlvDjVCLscd1qy450z1PvE1Nah58tj0bjI+8W3jxZqyD40BVgxiqOAEKRYvBQDW0ERsbEBvc4l35ZZhBMDhO4qMaTKiGAb7oF4Cxjw0kI+QhzrxygjpGLcYOV8WbgbHk794MqhyZj0aY49+LsT7fFGNoEj2zK9pYMQb/ZDOO0MRGUXYAJpek2GqG1II+slDgx8Qow6hjPTOQClGUvToOi9GeEdi3xJLYmTcKM8QRX/ZJ6azPSLMqOZDrsdr/7WZEKDGqYdf7KnajyQkijtJE5ZchtXRrfUKMwRaHqLA3EI4FdWdgjjqGqmuLq+3rJh/JWc5Sj/g5xLf51B7j79UuePkHjL7NNPl68JaMtq/FWHKHWNjERsFprzkRUBymcWhr/ULOjp/w64jR7lUt+wORWiEXIXCDZ4pbzHdIjDF/to3chI+tQ2zLPvEw/EM+Ez/nx3r3a2e8LEaGNC8uMA7PK+fYuIZ9akwqBOPK26i5lHNqxKwHoDihiAmpobJgaATtB2ebAy5+udG5FvP84EA0R1rwkgSo+BPVT/apOTtcyQBmIL+6e7yr+VWxGEmAvOhsQZu3ifFC4AHYgTkuicuJMdwc+a2Nb6Z9ix2XxAVvRvO591vxa3D9z7Tja+BidJwGLkbHaTDcbre1te73ezRxOP4C6/oD4zS26X2HTjYAAAAASUVORK5CYII=" InformativeScreenshot="39e8e447bd4f5082a7b057de4a43333c.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/HxdR7UIxZUGKOHb9_b8gsg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Företagscenter Sundsvall" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                                                          </uix:NClick.Target>
+                                                        </uix:NClick>
+                                                        <Assign DisplayName="Did find page" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="x:Boolean">[FoundPage]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                          </Assign.Value>
+                                                        </Assign>
+                                                      </Sequence>
+                                                    </TryCatch.Try>
+                                                    <TryCatch.Catches>
+                                                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <ActivityAction x:TypeArguments="s:Exception">
+                                                          <ActivityAction.Argument>
+                                                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                                          </ActivityAction.Argument>
+                                                          <Assign DisplayName="Did not find page" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:Boolean">[FoundPage]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                        </ActivityAction>
+                                                      </Catch>
+                                                    </TryCatch.Catches>
+                                                  </TryCatch>
+                                                  <If Condition="[FoundPage]" sap:VirtualizedContainerService.HintSize="521,425" sap2010:WorkflowViewState.IdRef="If_4">
+                                                    <If.Then>
+                                                      <Sequence sap:VirtualizedContainerService.HintSize="376,278" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <uix:NCheckState DisplayName="Check App State 'Företagscenter Sundsvall'" EnableIfExists="False" EnableIfNotExists="False" Exists="[FoundPage]" sap:VirtualizedContainerService.HintSize="334,186" sap2010:WorkflowViewState.IdRef="NCheckState_3" Timeout="3">
+                                                          <uix:NCheckState.IfExists>
+                                                            <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                            </Sequence>
+                                                          </uix:NCheckState.IfExists>
+                                                          <uix:NCheckState.IfNotExists>
+                                                            <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                            </Sequence>
+                                                          </uix:NCheckState.IfNotExists>
+                                                          <uix:NCheckState.Target>
+                                                            <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="Qn4cxdPfgU68DizRqHo8Qg" DesignTimeRectangle="124, 157, 159, 19" ElementType="Text" FriendlyName="'Företagscenter Sundsvall'" FullSelectorArgument="[String.Format(&quot;{0}&quot;, FullSelector)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKMAAAAXCAYAAABnN//jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM/SURBVGhD7VeLjYMwDGVDxmKDrsAoSF2kY3B2nM+zkwDttXdQ+UmRLsSfZ/sRrsPqcJwELkbHaeBidJwGLkbHaeBidJwGLkbHadAR47JOw7AOjTUt0cTxETzmUff8Yw1/rPM4rOP8iPt3A+Mfy7Upxu0+sM24cvxl+l1RYQDjTJSvhiN9Og4R4kRRC7i3nxHkV4nxfXAxCprCe8zraAT6HnyZGEPzyM5+TsJNOU3URHqeRSYxk302X6YSI9mGARRbOyDMO1EevE0UJyNw9Qk0Z71ahN9Eeco5Njg9yy6Ku3w5BGIvfOnM1MRo3Ywa9VAD7xSryzUCuY1kh7FMzzO9GLNwMhxwfrRKPrSrebfw1P+MGEzfZmKfzmWwGwWEwsugdCyx1cOFoarmiG3e8xmIjHnknKapOMRWfu1n94mPfWnNvsXVvAQaqZ64KlvDjVCLscd1qy450z1PvE1Nah58tj0bjI+8W3jxZqyD40BVgxiqOAEKRYvBQDW0ERsbEBvc4l35ZZhBMDhO4qMaTKiGAb7oF4Cxjw0kI+QhzrxygjpGLcYOV8WbgbHk794MqhyZj0aY49+LsT7fFGNoEj2zK9pYMQb/ZDOO0MRGUXYAJpek2GqG1II+slDgx8Qow6hjPTOQClGUvToOi9GeEdi3xJLYmTcKM8QRX/ZJ6azPSLMqOZDrsdr/7WZEKDGqYdf7KnajyQkijtJE5ZchtXRrfUKMwRaHqLA3EI4FdWdgjjqGqmuLq+3rJh/JWc5Sj/g5xLf51B7j79UuePkHjL7NNPl68JaMtq/FWHKHWNjERsFprzkRUBymcWhr/ULOjp/w64jR7lUt+wORWiEXIXCDZ4pbzHdIjDF/to3chI+tQ2zLPvEw/EM+Ez/nx3r3a2e8LEaGNC8uMA7PK+fYuIZ9akwqBOPK26i5lHNqxKwHoDihiAmpobJgaATtB2ebAy5+udG5FvP84EA0R1rwkgSo+BPVT/apOTtcyQBmIL+6e7yr+VWxGEmAvOhsQZu3ifFC4AHYgTkuicuJMdwc+a2Nb6Z9ix2XxAVvRvO591vxa3D9z7Tja+BidJwGLkbHaTDcbre1te73ezRxOP4C6/oD4zS26X2HTjYAAAAASUVORK5CYII=" InformativeScreenshot="39e8e447bd4f5082a7b057de4a43333c.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/HxdR7UIxZUGKOHb9_b8gsg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Företagscenter Sundsvall" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                                                          </uix:NCheckState.Target>
+                                                        </uix:NCheckState>
+                                                      </Sequence>
+                                                    </If.Then>
+                                                  </If>
+                                                </Sequence>
+                                              </ActivityAction>
+                                            </ui:RetryScope.ActivityBody>
+                                            <ui:RetryScope.Condition>
+                                              <ActivityFunc x:TypeArguments="x:Boolean" />
+                                            </ui:RetryScope.Condition>
+                                          </ui:RetryScope>
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                  </Sequence>
+                                </uix:NCheckState.IfExists>
+                                <uix:NCheckState.IfNotExists>
+                                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="304,217" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                                    <Sequence.Variables>
+                                      <Variable x:TypeArguments="ui:UiElement" Name="ParentOfPage" />
+                                    </Sequence.Variables>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_22">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Boolean">[FoundPage]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_1" />
+                                  </Sequence>
+                                </uix:NCheckState.IfNotExists>
+                                <uix:NCheckState.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="cgIAqy1rokiVcNRSAmrIVw" DesignTimeRectangle="124, 157, 159, 19" ElementType="Text" FriendlyName="'Företagscenter Sundsvall'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' type='' casesensitive:aaname='false' matching:aaname='regex' /&gt;&quot;, NodeName)]" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' type='' check:text='Företagscenter Sundsvall' /&gt;&quot;, NodeName)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKMAAAAXCAYAAABnN//jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM/SURBVGhD7VeLjYMwDGVDxmKDrsAoSF2kY3B2nM+zkwDttXdQ+UmRLsSfZ/sRrsPqcJwELkbHaeBidJwGLkbHaeBidJwGLkbHadAR47JOw7AOjTUt0cTxETzmUff8Yw1/rPM4rOP8iPt3A+Mfy7Upxu0+sM24cvxl+l1RYQDjTJSvhiN9Og4R4kRRC7i3nxHkV4nxfXAxCprCe8zraAT6HnyZGEPzyM5+TsJNOU3URHqeRSYxk302X6YSI9mGARRbOyDMO1EevE0UJyNw9Qk0Z71ahN9Eeco5Njg9yy6Ku3w5BGIvfOnM1MRo3Ywa9VAD7xSryzUCuY1kh7FMzzO9GLNwMhxwfrRKPrSrebfw1P+MGEzfZmKfzmWwGwWEwsugdCyx1cOFoarmiG3e8xmIjHnknKapOMRWfu1n94mPfWnNvsXVvAQaqZ64KlvDjVCLscd1qy450z1PvE1Nah58tj0bjI+8W3jxZqyD40BVgxiqOAEKRYvBQDW0ERsbEBvc4l35ZZhBMDhO4qMaTKiGAb7oF4Cxjw0kI+QhzrxygjpGLcYOV8WbgbHk794MqhyZj0aY49+LsT7fFGNoEj2zK9pYMQb/ZDOO0MRGUXYAJpek2GqG1II+slDgx8Qow6hjPTOQClGUvToOi9GeEdi3xJLYmTcKM8QRX/ZJ6azPSLMqOZDrsdr/7WZEKDGqYdf7KnajyQkijtJE5ZchtXRrfUKMwRaHqLA3EI4FdWdgjjqGqmuLq+3rJh/JWc5Sj/g5xLf51B7j79UuePkHjL7NNPl68JaMtq/FWHKHWNjERsFprzkRUBymcWhr/ULOjp/w64jR7lUt+wORWiEXIXCDZ4pbzHdIjDF/to3chI+tQ2zLPvEw/EM+Ez/nx3r3a2e8LEaGNC8uMA7PK+fYuIZ9akwqBOPK26i5lHNqxKwHoDihiAmpobJgaATtB2ebAy5+udG5FvP84EA0R1rwkgSo+BPVT/apOTtcyQBmIL+6e7yr+VWxGEmAvOhsQZu3ifFC4AHYgTkuicuJMdwc+a2Nb6Z9ix2XxAVvRvO591vxa3D9z7Tja+BidJwGLkbHaTDcbre1te73ezRxOP4C6/oD4zS26X2HTjYAAAAASUVORK5CYII=" InformativeScreenshot="39e8e447bd4f5082a7b057de4a43333c.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/uHZI82j4HkS_IJZQELe7vA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Företagscenter Sundsvall" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                                </uix:NCheckState.Target>
+                              </uix:NCheckState>
+                            </Sequence>
+                          </ActivityAction>
+                        </ui:ForEach.Body>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:ForEach>
+                    </If.Then>
+                  </If>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1574,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[if(FoundPage,&quot;Found and navigated to&quot;,&quot;Did not find&quot;) + &quot; the page with path &quot; + URLPathWithoutDomain]" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Click Root Site Node" sap:VirtualizedContainerService.HintSize="776,913" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="PageName" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Assign RootSiteName as PageName" sap:VirtualizedContainerService.HintSize="734,61" sap2010:WorkflowViewState.IdRef="Assign_16">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[PageName]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[RootSiteName]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Företagscenter Sundsvall'" sap:VirtualizedContainerService.HintSize="734,587" sap2010:WorkflowViewState.IdRef="NCheckState_7" Timeout="1">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="376,361" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NClick ClickType="Single" DisplayName="Click 'Företagscenter Sundsvall'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="cgIAqy1rokiVcNRSAmrIVw" DesignTimeRectangle="124, 157, 159, 19" ElementType="Text" FriendlyName="'Företagscenter Sundsvall'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' type='' casesensitive:aaname='false' matching:aaname='regex' /&gt;&quot;, PageName)]" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' type='' check:text='Företagscenter Sundsvall' /&gt;&quot;, PageName)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKMAAAAXCAYAAABnN//jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM/SURBVGhD7VeLjYMwDGVDxmKDrsAoSF2kY3B2nM+zkwDttXdQ+UmRLsSfZ/sRrsPqcJwELkbHaeBidJwGLkbHaeBidJwGLkbHadAR47JOw7AOjTUt0cTxETzmUff8Yw1/rPM4rOP8iPt3A+Mfy7Upxu0+sM24cvxl+l1RYQDjTJSvhiN9Og4R4kRRC7i3nxHkV4nxfXAxCprCe8zraAT6HnyZGEPzyM5+TsJNOU3URHqeRSYxk302X6YSI9mGARRbOyDMO1EevE0UJyNw9Qk0Z71ahN9Eeco5Njg9yy6Ku3w5BGIvfOnM1MRo3Ywa9VAD7xSryzUCuY1kh7FMzzO9GLNwMhxwfrRKPrSrebfw1P+MGEzfZmKfzmWwGwWEwsugdCyx1cOFoarmiG3e8xmIjHnknKapOMRWfu1n94mPfWnNvsXVvAQaqZ64KlvDjVCLscd1qy450z1PvE1Nah58tj0bjI+8W3jxZqyD40BVgxiqOAEKRYvBQDW0ERsbEBvc4l35ZZhBMDhO4qMaTKiGAb7oF4Cxjw0kI+QhzrxygjpGLcYOV8WbgbHk794MqhyZj0aY49+LsT7fFGNoEj2zK9pYMQb/ZDOO0MRGUXYAJpek2GqG1II+slDgx8Qow6hjPTOQClGUvToOi9GeEdi3xJLYmTcKM8QRX/ZJ6azPSLMqOZDrsdr/7WZEKDGqYdf7KnajyQkijtJE5ZchtXRrfUKMwRaHqLA3EI4FdWdgjjqGqmuLq+3rJh/JWc5Sj/g5xLf51B7j79UuePkHjL7NNPl68JaMtq/FWHKHWNjERsFprzkRUBymcWhr/ULOjp/w64jR7lUt+wORWiEXIXCDZ4pbzHdIjDF/to3chI+tQ2zLPvEw/EM+Ez/nx3r3a2e8LEaGNC8uMA7PK+fYuIZ9akwqBOPK26i5lHNqxKwHoDihiAmpobJgaATtB2ebAy5+udG5FvP84EA0R1rwkgSo+BPVT/apOTtcyQBmIL+6e7yr+VWxGEmAvOhsQZu3ifFC4AHYgTkuicuJMdwc+a2Nb6Z9ix2XxAVvRvO591vxa3D9z7Tja+BidJwGLkbHaTDcbre1te73ezRxOP4C6/oD4zS26X2HTjYAAAAASUVORK5CYII=" InformativeScreenshot="39e8e447bd4f5082a7b057de4a43333c.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/uHZI82j4HkS_IJZQELe7vA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Företagscenter Sundsvall" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                        <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_17">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[FoundPage]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="304,155" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_18">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[FoundPage]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="https://foretagscenter-sundsvall-kopia.sitevision.consid.net/edit/4.44e3ea617a090538134aa01" ContentHash="cgIAqy1rokiVcNRSAmrIVw" DesignTimeRectangle="124, 157, 159, 19" ElementType="Text" FriendlyName="'Företagscenter Sundsvall'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' type='' casesensitive:aaname='false' matching:aaname='regex' /&gt;&quot;, PageName)]" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl aaname='{0}' tag='SPAN' class='fancytree-title' type='' check:text='Företagscenter Sundsvall' /&gt;&quot;, PageName)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKMAAAAXCAYAAABnN//jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM/SURBVGhD7VeLjYMwDGVDxmKDrsAoSF2kY3B2nM+zkwDttXdQ+UmRLsSfZ/sRrsPqcJwELkbHaeBidJwGLkbHaeBidJwGLkbHadAR47JOw7AOjTUt0cTxETzmUff8Yw1/rPM4rOP8iPt3A+Mfy7Upxu0+sM24cvxl+l1RYQDjTJSvhiN9Og4R4kRRC7i3nxHkV4nxfXAxCprCe8zraAT6HnyZGEPzyM5+TsJNOU3URHqeRSYxk302X6YSI9mGARRbOyDMO1EevE0UJyNw9Qk0Z71ahN9Eeco5Njg9yy6Ku3w5BGIvfOnM1MRo3Ywa9VAD7xSryzUCuY1kh7FMzzO9GLNwMhxwfrRKPrSrebfw1P+MGEzfZmKfzmWwGwWEwsugdCyx1cOFoarmiG3e8xmIjHnknKapOMRWfu1n94mPfWnNvsXVvAQaqZ64KlvDjVCLscd1qy450z1PvE1Nah58tj0bjI+8W3jxZqyD40BVgxiqOAEKRYvBQDW0ERsbEBvc4l35ZZhBMDhO4qMaTKiGAb7oF4Cxjw0kI+QhzrxygjpGLcYOV8WbgbHk794MqhyZj0aY49+LsT7fFGNoEj2zK9pYMQb/ZDOO0MRGUXYAJpek2GqG1II+slDgx8Qow6hjPTOQClGUvToOi9GeEdi3xJLYmTcKM8QRX/ZJ6azPSLMqOZDrsdr/7WZEKDGqYdf7KnajyQkijtJE5ZchtXRrfUKMwRaHqLA3EI4FdWdgjjqGqmuLq+3rJh/JWc5Sj/g5xLf51B7j79UuePkHjL7NNPl68JaMtq/FWHKHWNjERsFprzkRUBymcWhr/ULOjp/w64jR7lUt+wORWiEXIXCDZ4pbzHdIjDF/to3chI+tQ2zLPvEw/EM+Ez/nx3r3a2e8LEaGNC8uMA7PK+fYuIZ9akwqBOPK26i5lHNqxKwHoDihiAmpobJgaATtB2ebAy5+udG5FvP84EA0R1rwkgSo+BPVT/apOTtcyQBmIL+6e7yr+VWxGEmAvOhsQZu3ifFC4AHYgTkuicuJMdwc+a2Nb6Z9ix2XxAVvRvO591vxa3D9z7Tja+BidJwGLkbHaTDcbre1te73ezRxOP4C6/oD4zS26X2HTjYAAAAASUVORK5CYII=" InformativeScreenshot="39e8e447bd4f5082a7b057de4a43333c.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/uHZI82j4HkS_IJZQELe7vA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" SearchSteps="Selector" Text="Företagscenter Sundsvall" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SPAN' type='' /&gt;" />
+                    </uix:NCheckState.Target>
+                  </uix:NCheckState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="734,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[if(FoundPage,&quot;Found and navigated to&quot;,&quot;Did not find&quot;) + &quot; the root site node &quot; + RootSiteName]" />
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp BrowserType="Chrome" ContentHash="6jLBns8Cf0mmiWiPVxzcWg" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAATSURBVDhPYxgFo2AUjAIwYGAAAAQQAAGnRHxjAAAAAElFTkSuQmCC" InformativeScreenshot="54bdf10cba4ebdc66d4e169127567694.png" Reference="QpYkeEIxv0yBtnn_G5Z4ug/9u_pmQsZCU6Czkw5MT4mbg" Selector="&lt;html app='chrome.exe' title='* | Sitevision' /&gt;" Url="*/edit/*" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
